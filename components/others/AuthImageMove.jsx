@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import React, { useEffect } from "react";
 
-export default function AuthImageMove() {
+export default function AuthImageMove({showbg=false}) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -40,7 +40,8 @@ export default function AuthImageMove() {
   }, []);
   return (
     <div className="form-page__img bg-dark-1">
-      <div className="form-page-composition">
+      {!showbg ?
+        <div className="form-page-composition">
         <div className="-bg">
           <Image
             width={1250}
@@ -48,7 +49,7 @@ export default function AuthImageMove() {
             style={{ width: "100%" }}
             data-move="30"
             className="js-mouse-move"
-            src="/assets/img/login/bg.png"
+            src="/assets/logo.webp"
             alt="bg"
           />
         </div>
@@ -93,7 +94,15 @@ export default function AuthImageMove() {
             alt="icon"
           />
         </div>
-      </div>
+      </div>:<Image
+            width={500}
+            height={500}
+            style={{ width: "40%" }}
+            data-move="30"
+            className="js-mouse-move"
+            src="/assets/logo.webp"
+            alt="bg"
+          />}
     </div>
   );
 }

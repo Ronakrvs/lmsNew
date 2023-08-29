@@ -23,11 +23,12 @@ export default function Header() {
                 <div className="header__logo ">
                   <Link href="/">
                     <Image
-                      width={140}
+                      width={70}
                       height={50}
-                      src="/assets/img/general/logo.svg"
+                      src="/assets/logo.webp"
                       alt="logo"
                     />
+                    DENTA <b>BEST</b>
                   </Link>
                 </div>
 

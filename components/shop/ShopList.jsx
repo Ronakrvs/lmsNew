@@ -5,7 +5,7 @@ import Image from "next/image";
 import { productData, tags, categories } from "@/data/products";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faHeart } from "@fortawesome/free-regular-svg-icons";
-import Slider from "@mui/material/Slider";
+// import Slider from "@mui/material/Slider";
 import Pagination from "../common/Pagination";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { useContextElement } from "@/context/Context";
@@ -90,7 +90,7 @@ export default function ShopList() {
                 <div className="sidebar__item">
                   <h5 className="sidebar__title">Filter by price</h5>
 
-                  <div className="sidebar-content -slider">
+                  {/* <div className="sidebar-content -slider">
                     <div className="js-price-rangeSlider">
                       <div className="px-5">
                         <Slider
@@ -117,7 +117,7 @@ export default function ShopList() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="sidebar__item">

@@ -1,11 +1,58 @@
 "use client";
 
+import { registerNewUser } from "@/service/user";
+import { message } from "antd";
 import Link from "next/link";
 import React from "react";
+import {useState} from 'react'
 
 export default function SignUpForm() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const [formData, setFormData] = useState({
+    firstname: '',
+    lastname: '',
+    mobile: '',
+    profession:'',
+    email: "",
+    password: "",
+    confirmPassword: "",
+    
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+   
+    if (formData?.password !== formData.confirmPassword) { 
+      return message.error({content:"password does not match",key:"1"})
+    }
+    try {
+      delete formData.confirmPassword
+      
+      await registerNewUser(formData).then(({data}) => { 
+        if (data) {
+          setLoading(false)
+           httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
+           const cookies = new Cookies();
+           cookies.set('token', data.token);
+          getAuthUser(data);
+          router.push('/')
+           // if (callbackFun) callbackFun();
+         } else {
+           setLoading(false)
+         }
+      })
+
+    } catch (error) {
+      message.error({content:error?.message,key:"1"})
+    }
+
+   
   };
   return (
     <div className="form-page__content lg:py-50">
@@ -25,29 +72,55 @@ export default function SignUpForm() {
                 className="contact-form respondForm__form row y-gap-20 pt-30"
                 onSubmit={handleSubmit}
               >
-                <div className="col-lg-6">
+                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Email address *
+                    First Name *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input required type="text" name="firstname" placeholder="Enter First Name"  value={formData.firstname}
+            onChange={handleChange}/>
                 </div>
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Username *
+                    Last Name *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input required type="text" name="lastname" placeholder="Enter Last Name"  value={formData.lastname}
+            onChange={handleChange}/>
                 </div>
+                <div className="col-lg-6">
+                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+                   Email *
+                  </label>
+                  <input required type="text" name="email" placeholder="Enter Email"  value={formData.email}
+            onChange={handleChange} />
+                </div>
+                <div className="col-lg-6">
+                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+                   Mobile No. *
+                  </label>
+                  <input required type="text" name="mobile" placeholder="Enter Mobile No."  value={formData.mobile}
+            onChange={handleChange}/>
+                </div>
+                <div className="col-lg-12">
+                  <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+                    Profession *
+                  </label>
+                  <input required type="text" name="profession" placeholder="Enter Profession"  value={formData.profession}
+            onChange={handleChange}/>
+                </div>
+               
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Password *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input required type="text" name="password" placeholder="Enter Password"  value={formData.password}
+            onChange={handleChange}/>
                 </div>
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Confirm Password *
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input required type="text" name="confirmPassword" placeholder="Enter Confirm Password"  value={formData.confirmPassword}
+            onChange={handleChange}/>
                 </div>
                 <div className="col-12">
                   <button
@@ -61,7 +134,7 @@ export default function SignUpForm() {
                 </div>
               </form>
 
-              <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
+              {/* <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
                 Or sign in using
               </div>
 
@@ -76,7 +149,7 @@ export default function SignUpForm() {
                     Log In via Google+
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

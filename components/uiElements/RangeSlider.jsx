@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Slider from "@mui/material/Slider";
+// import Slider from "@mui/material/Slider";
 export default function RangeSlider() {
   const [value, setValue] = useState([200, 1500]);
   const handleChange = (event, newValue) => {
@@ -14,7 +14,7 @@ export default function RangeSlider() {
       </div>
 
       <div className="js-price-rangeSlider">
-        <div className="px-5">
+        {/* <div className="px-5">
           <Slider
             getAriaLabel={() => "Minimum distance"}
             value={value}
@@ -24,7 +24,7 @@ export default function RangeSlider() {
             min={200}
             disableSwap
           />
-        </div>
+        </div> */}
 
         <div className="d-flex justify-center mt-15">
           <div className="d-flex items-center h-30 px-15 rounded-4 bg-purple-3 text-14 text-purple-1">

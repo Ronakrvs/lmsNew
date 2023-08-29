@@ -28,10 +28,10 @@ export default function page() {
     <div className="main-content  ">
       <Preloader/>
 
-        <HeaderAuth/>
+        {/* <HeaderAuth/> */}
         <div className="content-wrapper js-content-wrapper overflow-hidden">
             <section  className="form-page js-mouse-move-container">
-                <AuthImageMove/>
+                <AuthImageMove showbg={true}/>
                 <LoginForm/>
             </section>
            

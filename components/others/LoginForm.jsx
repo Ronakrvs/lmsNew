@@ -1,11 +1,68 @@
 "use client";
 
+import { loginUser } from "@/service/user";
 import Link from "next/link";
-import React from "react";
-
+import React, { useState } from "react";
+import {message} from 'antd'
+import {Cookies} from "react-cookie";
+import { httpClient } from "@/utils/api";
+import { useRouter } from "next/navigation";
 export default function LoginForm() {
-  const handleSubmit = (e) => {
+  const [authUser, setAuthUser] = useState(null);
+  const [loading, setLoading] = useState(false)
+  const router = useRouter()
+  const [formData, setFormData] = useState({
+    email: "",
+    password: ""
+  });
+
+  const getAuthUser = (data) => {
+    setLoading(true)
+    httpClient.get("user/auth/me").then(({data}) => {
+      if (data) {
+       setLoading(false)
+        setAuthUser(data);
+        router.push('/dshb-courses')
+      } else {
+        setLoading(false)
+      }
+    }).catch(function (error) {
+      httpClient.defaults.headers.common['Authorization'] = '';
+      message.error({content:error.message,key:"1"});
+    });
+  }
+  const handleSubmit = async(e) => {
     e.preventDefault();
+    try {
+      await loginUser(formData).then(({ data }) => {
+        console.log(data);
+        if (data) {
+         setLoading(false)
+          httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
+          const cookies = new Cookies();
+          cookies.set('token', data.token);
+          getAuthUser(data);
+          // if (callbackFun) callbackFun();
+        } else {
+          setLoading(false)
+        }
+      })
+    } catch (error) {
+      message.error({ content: error.message, key: "1" });
+      
+      setLoading(false);
+    }
+
+      
+   
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
   return (
     <div className="form-page__content lg:py-50">
@@ -29,7 +86,9 @@ export default function LoginForm() {
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Username Or Email
                   </label>
-                  <input required type="text" name="title" placeholder="Name" />
+                  <input required type="text" name="email" placeholder="Name"
+                    value={formData.email}
+            onChange={handleChange} />
                 </div>
                 <div className="col-12">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
@@ -38,7 +97,9 @@ export default function LoginForm() {
                   <input
                     required
                     type="password"
-                    name="title"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
                     placeholder="Password"
                   />
                 </div>
@@ -54,11 +115,11 @@ export default function LoginForm() {
                 </div>
               </form>
 
-              <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
+              {/* <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
                 Or sign in using
-              </div>
+              </div> */}
 
-              <div className="d-flex x-gap-20 items-center justify-between pt-20">
+              {/* <div className="d-flex x-gap-20 items-center justify-between pt-20">
                 <div>
                   <button className="button -sm px-24 py-20 -outline-blue-3 text-blue-3 text-14">
                     Log In via Facebook
@@ -69,7 +130,7 @@ export default function LoginForm() {
                     Log In via Google+
                   </button>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

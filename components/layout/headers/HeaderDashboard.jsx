@@ -108,19 +108,20 @@ export default function HeaderDashboard() {
                 <div className="header__logo ml-30 md:ml-20">
                   <Link data-barba href="/">
                     <Image
-                      width={140}
+                      width={90}
                       height={50}
                       className="-light-d-none"
-                      src="/assets/img/general/logo.svg"
+                      src="/assets/logo.webp"
                       alt="logo"
                     />
                     <Image
-                      width={140}
+                      width={90}
                       height={50}
                       className="-dark-d-none"
-                      src="/assets/img/general/logo-dark.svg"
+                      src="/assets/logo.webp"
                       alt="logo"
                     />
+                    DENTA <b>BEST</b>
                   </Link>
                 </div>
               </div>
