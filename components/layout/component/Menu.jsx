@@ -436,13 +436,13 @@ export default function Menu({ allClasses, headerPosition }) {
             <li
               
             >
-              <Link data-barba href="/contact-1"  className={
-                pathname == "/contact-1" ? "activeMenu" : "inActiveMenuTwo"
+              <Link data-barba href="/contact-2"  className={
+                pathname == "/contact-2" ? "activeMenu" : "inActiveMenuTwo"
               }>
                 Contact Us
               </Link>
             </li>
-            <li
+            {/* <li
               
             >
               <Link data-barba href="/about-1"  className={
@@ -450,7 +450,7 @@ export default function Menu({ allClasses, headerPosition }) {
               }>
                 About Us
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
 

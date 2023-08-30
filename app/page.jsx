@@ -23,6 +23,10 @@ import { useRouter } from "next/navigation";
 import { Cookies } from 'react-cookie';
 import { httpClient } from '@/utils/api';
 import Header from '@/components/layout/headers/Header'
+import InstractorSeven from '@/components/homes/instractors/InstractorSeven'
+import BlogsTwo from '@/components/homes/blogs/BlogsTwo'
+import GetAppSix from '@/components/homes/getApp/GetAppSix'
+import FooterThree from '@/components/layout/footers/FooterThree'
 
 
 // export const metadata = {
@@ -58,17 +62,20 @@ export default function HomePage() {
     <div className="content-wrapper  js-content-wrapper overflow-hidden">
     
        <HeroFive/>
-          <BrandsTwo/>
+        {/* <BrandsTwo/> */}
+        <InstractorSeven/>
           <CoursesFive/>
-          <CategoriesFive/>
+          {/* <CategoriesFive/> */}
           <Instructors backgroundColor={'bg-beige-1'}/>
-          <StudentsFive/>
+          {/* <StudentsFive/> */}
           <LearningPathFive/>
           <Pricing/>
-          <GetAppFive/>
-          <BlogsFive/>
-          <RecomentationFive/>
-          <FooterFive/>
+          {/* <GetAppFive/> */}
+        {/* <BlogsFive/> */}
+          <BlogsTwo/>
+          {/* <RecomentationFive/> */}
+          <GetAppSix/>
+            <FooterThree/>
       
       
     </div>

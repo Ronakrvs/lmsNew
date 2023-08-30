@@ -39,7 +39,7 @@ export default function AuthImageMove({showbg=false}) {
     parallaxIt();
   }, []);
   return (
-    <div className="form-page__img bg-dark-1">
+    <div className="form-page__img bg-dark-1" style={{width:"70vw"}}>
       {!showbg ?
         <div className="form-page-composition">
         <div className="-bg">
@@ -95,12 +95,12 @@ export default function AuthImageMove({showbg=false}) {
           />
         </div>
       </div>:<Image
-            width={500}
-            height={500}
+            width={700}
+            height={700}
             style={{ width: "40%" }}
-            data-move="30"
-            className="js-mouse-move"
-            src="/assets/logo.webp"
+            // data-move="30"
+            // className="js-mouse-move"
+            src="/assets/img.webp"
             alt="bg"
           />}
     </div>

@@ -8,17 +8,17 @@ export default function ContactTwo() {
   };
   return (
     <>
-      <section className="page-header -type-4 bg-beige-1">
+      <section className="page-header -type-4 bg-dark-1 text-white">
         <div className="container">
           <div className="page-header__content">
             <div className="row">
               <div className="col-auto">
                 <div>
-                  <h1 className="page-header__title">Contact Us</h1>
+                  <h1 className="page-header__title text-white">Contact Us</h1>
                 </div>
 
                 <div>
-                  <p className="page-header__text">
+                  <p className="page-header__text text-white">
                     We’re on a mission to deliver engaging, curated
                     <br /> courses at a reasonable price.
                   </p>
@@ -75,7 +75,7 @@ export default function ContactTwo() {
                     <input
                       required
                       type="text"
-                      name="title"
+                      name="name"
                       placeholder="Name..."
                     />
                   </div>
@@ -86,8 +86,19 @@ export default function ContactTwo() {
                     <input
                       required
                       type="text"
-                      name="title"
+                      name="email"
                       placeholder="Email..."
+                    />
+                  </div>
+                  <div className="col-12">
+                    <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+                     Mobile Number
+                    </label>
+                    <input
+                      required
+                      type="text"
+                      name="mobile"
+                      placeholder="Mobile..."
                     />
                   </div>
                   <div className="col-12">
@@ -106,7 +117,7 @@ export default function ContactTwo() {
                       type="submit"
                       name="submit"
                       id="submit"
-                      className="button -md -purple-1 text-white"
+                      className="button -md -dark-1 text-white fw-500 w-1/1"
                     >
                       Send Message
                     </button>

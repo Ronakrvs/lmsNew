@@ -31,7 +31,8 @@ export default function page() {
         {/* <HeaderAuth/> */}
         <div className="content-wrapper js-content-wrapper overflow-hidden">
             <section  className="form-page js-mouse-move-container">
-                <AuthImageMove showbg={true}/>
+          <AuthImageMove showbg={true} />
+          {/* <Image src="/assets/logo.webp" width={60} height={90} /> */}
                 <LoginForm/>
             </section>
            

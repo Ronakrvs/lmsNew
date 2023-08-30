@@ -43,7 +43,7 @@ export default function CoursesFive({ tabBtnStyle }) {
               </div>
             </div>
 
-            <div className="col-auto">
+            {/* <div className="col-auto">
               <div className="tabs__controls d-flex justify-center x-gap-10 js-tabs-controls">
                 {courseStates.map((elm, i) => (
                   <div key={i}>
@@ -62,7 +62,7 @@ export default function CoursesFive({ tabBtnStyle }) {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
 
           <div className="tabs__content pt-60 lg:pt-50 js-tabs-content">

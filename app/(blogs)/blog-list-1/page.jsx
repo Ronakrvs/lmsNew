@@ -8,6 +8,7 @@ import PageLinks from '@/components/common/PageLinks'
 import Preloader from '@/components/common/Preloader'
 
 import FooterOne from '@/components/layout/footers/FooterOne'
+import FooterThree from '@/components/layout/footers/FooterThree'
 import Header from '@/components/layout/headers/Header'
 import React from 'react'
 
@@ -30,7 +31,7 @@ export default function page() {
 
             <BlogsOne/>
             
-            <FooterOne/>
+            <FooterThree/>
         </div>
 
     </div>

@@ -2,6 +2,7 @@
 
 import { registerNewUser } from "@/service/user";
 import { message } from "antd";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {useState} from 'react'
@@ -55,18 +56,16 @@ export default function SignUpForm() {
    
   };
   return (
+    <>
+     
     <div className="form-page__content lg:py-50">
       <div className="container">
         <div className="row justify-center items-center">
-          <div className="col-xl-8 col-lg-9">
-            <div className="px-50 py-50 md:px-25 md:py-25 bg-white shadow-1 rounded-16">
+          <div className="col-xl-10 col-lg-9">
+              <div className="px-50 py-50 md:px-25 md:py-25 bg-white rounded-16">
+            
               <h3 className="text-30 lh-13">Sign Up</h3>
-              <p className="mt-10">
-                Already have an account?
-                <Link href="/login" className="text-purple-1">
-                  Log in
-                </Link>
-              </p>
+            
 
               <form
                 className="contact-form respondForm__form row y-gap-20 pt-30"
@@ -127,11 +126,17 @@ export default function SignUpForm() {
                     type="submit"
                     name="submit"
                     id="submit"
-                    className="button -md -green-1 text-dark-1 fw-500 w-1/1"
+                    className="button -md -dark-1 text-white fw-500 w-1/1"
                   >
                     Register
                   </button>
                 </div>
+                <p className="mt-10">
+                Already have an account?
+                <Link href="/login" className="text-purple-1">
+                  Log in
+                </Link>
+              </p>
               </form>
 
               {/* <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
@@ -154,6 +159,7 @@ export default function SignUpForm() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </>
   );
 }

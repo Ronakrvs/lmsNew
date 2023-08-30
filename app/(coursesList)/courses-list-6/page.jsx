@@ -10,6 +10,7 @@ import PageHeading from '@/components/courseList/PageHeading'
 
 
 import FooterOne from '@/components/layout/footers/FooterOne'
+import FooterThree from '@/components/layout/footers/FooterThree'
 import Header from '@/components/layout/headers/Header'
 import React from 'react'
 export const metadata = {
@@ -30,7 +31,7 @@ export default function page() {
             <Instractors/>
            
             <CourseListSix/>
-            <FooterOne/>
+            <FooterThree/>
         </div>
     </div>
   )

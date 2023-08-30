@@ -12,6 +12,7 @@ import Preloader from '@/components/common/Preloader'
 import ContactTwo from '@/components/contacts/ContactTwo'
 
 import FooterOne from '@/components/layout/footers/FooterOne'
+import FooterThree from '@/components/layout/footers/FooterThree'
 import Header from '@/components/layout/headers/Header'
 import React from 'react'
 export const metadata = {
@@ -31,11 +32,11 @@ export default function page() {
             
 
             <ContactTwo/>
-            <Faq/>
+            {/* <Faq/> */}
 
            
             
-            <FooterOne/>
+            <FooterThree/>
         </div>
 
     </div>
