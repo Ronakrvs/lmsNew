@@ -7,30 +7,30 @@ import Image from "next/image";
 export default function PinContent({ pageItem }) {
   const { isAddedToCartCourses, addCourseToCart } = useContextElement();
   const [isOpen, setIsOpen] = useState(false);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  // const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   // useEffect hook to update the screen width when the window is resized
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenWidth(window.innerWidth);
-    };
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setScreenWidth(window.innerWidth);
+  //   };
 
-    window.addEventListener("resize", handleResize);
+  //   window.addEventListener("resize", handleResize);
 
-    // Cleanup the event listener when the component is unmounted
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  //   // Cleanup the event listener when the component is unmounted
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, []);
 
   return (
     <>
       <div
         id="js-pin-content"
-        style={
-          screenWidth < 991
-            ? { height: "fit-content", right: "0%" }
-            : { height: "100%", right: "7%", paddingTop: "80px" }
-        }
+        // style={
+        //   screenWidth < 991
+        //     ? { height: "fit-content", right: "0%" }
+        //     : { height: "100%", right: "7%", paddingTop: "80px" }
+        // }
         className="courses-single-info js-pin-content"
       >
         <div

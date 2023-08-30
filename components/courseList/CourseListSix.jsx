@@ -16,6 +16,7 @@ import Star from "../common/Star";
 import PaginationTwo from "../common/PaginationTwo";
 import Image from "next/image";
 import Link from "next/link";
+import HeaderFive from "../layout/headers/HeaderFive";
 
 export default function CourseListSix() {
   const [categoryOpen, setCategoryOpen] = useState(true);
@@ -184,7 +185,9 @@ export default function CourseListSix() {
     setFilterDuration(item);
   };
   return (
+    <>
     <section className="layout-pt-md layout-pb-md">
+    {/* <HeaderFive/> */}
       <div className="container">
         <div className="row">
           <div className="col-auto">
@@ -1529,6 +1532,7 @@ export default function CourseListSix() {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+      </>
   );
 }

@@ -49,7 +49,7 @@ export default function Menu({ allClasses, headerPosition }) {
 
         <div className="menu js-navList">
           <ul className={`${allClasses ? allClasses : ""}`}>
-            <li className="menu-item-has-children">
+            {/* <li className="menu-item-has-children">
               <Link
                 data-barba
                 href="#"
@@ -76,9 +76,9 @@ export default function Menu({ allClasses, headerPosition }) {
                   </li>
                 ))}
               </ul>
-            </li>
+            </li> */}
 
-            <li className="menu-item-has-children -has-mega-menu">
+             {/* <li className="menu-item-has-children -has-mega-menu">
               <Link
                 data-barba
                 href="#"
@@ -216,9 +216,9 @@ export default function Menu({ allClasses, headerPosition }) {
                   </div>
                 </div>
               </div>
-            </li>
+            </li> */}
 
-            <li className="menu-item-has-children">
+           {/* <li className="menu-item-has-children">
               <Link
                 data-barba
                 href="#"
@@ -404,15 +404,51 @@ export default function Menu({ allClasses, headerPosition }) {
                     </li>
                   ))}
               </ul>
-            </li>
+            </li> */}
 
+            <li
+              
+            >
+              <Link data-barba href="/"  className={
+                pathname == "/" ? "activeMenu" : "inActiveMenuTwo"
+              }>
+                Home
+              </Link>
+            </li>
+            <li
+              
+            >
+              <Link data-barba href="/courses-list-6"  className={
+                pathname == "/courses-list-6" ? "activeMenu" : "inActiveMenuTwo"
+              }>
+                Courses
+              </Link>
+            </li>
+            <li
+              
+            >
+              <Link data-barba href="/blog-list-1"  className={
+                pathname == "/blog-list-1" ? "activeMenu" : "inActiveMenuTwo"
+              }>
+                Blog
+              </Link>
+            </li>
             <li
               
             >
               <Link data-barba href="/contact-1"  className={
                 pathname == "/contact-1" ? "activeMenu" : "inActiveMenuTwo"
               }>
-                Contact
+                Contact Us
+              </Link>
+            </li>
+            <li
+              
+            >
+              <Link data-barba href="/about-1"  className={
+                pathname == "/about-1" ? "activeMenu" : "inActiveMenuTwo"
+              }>
+                About Us
               </Link>
             </li>
           </ul>

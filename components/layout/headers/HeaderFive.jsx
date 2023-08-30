@@ -24,13 +24,14 @@ export default function HeaderFive() {
             <div className="header-left d-flex items-center">
               <div className="header__logo pr-30 xl:pr-20 md:pr-0">
                 <Link href="/">
-                  <Image
-                    width={140}
-                    height={50}
-                    src="/assets/img/general/logo-dark.svg"
-                    alt="logo"
-                  />
-                </Link>
+                <Image
+                      width={70}
+                      height={50}
+                      src="/assets/logo.webp"
+                      alt="logo"
+                    />
+                    DENTA <b>BEST</b>
+                  </Link>
               </div>
 
               <HeaderExplore

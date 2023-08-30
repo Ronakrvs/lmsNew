@@ -1,26 +1,28 @@
 // import HomeOne from "@/components/homes/home";
 "use client"
 import {useEffect} from 'react'
-import  Header  from "../components/layout/headers/Header";
-// import MobileMenu from "@/components/layout/component/MobileMenu";
 
-import HomeHero from "../components/homes/heros/HomeHero";
+import BrandsTwo from '@/components/homes/brands/BrandsTwo'
+import HeroFive from '@/components/homes/heros/HeroFive'
+import HeaderFive from '@/components/layout/headers/HeaderFive'
+import CoursesFive from '@/components/homes/courses/CoursesFive'
+import React from 'react'
+import CategoriesFive from '@/components/homes/categories/CategoriesFive'
+import StudentsFive from '@/components/homes/students/StudentsFive'
+import LearningPathFive from '@/components/common/LearningCommon'
+import Pricing from '@/components/homes/pricing/Pricing'
 
-import Brands from "../components/common/Brands";
-import Categories from "../components/homes/categories/Categories";
-import Courses from "../components/homes/courses/Courses";
-import TestimonialsOne from "../components/common/TestimonialsOne";
-import FeaturesOne from "../components/homes/features/FeaturesOne";
-import WhyCourse from "../components/homes/WhyCourse";
+import GetAppFive from '@/components/homes/getApp/GetAppFive'
+import BlogsFive from '@/components/homes/blogs/BlogsFive'
+import RecomentationFive from '@/components/homes/LearningRecomentation/RecomentationFive'
+import FooterFive from '@/components/layout/footers/FooterFive'
 import Instructors from "../components/common/Instructors";
-import GetApp from "../components/homes/getApp/GetApp";
-import Blog from "../components/homes/blogs/Blog";
-import Join from "../components/homes/join/Join";
-import FooterOne from "../components/layout/footers/FooterOne";
+
 import Preloader from "@/components/common/Preloader";
 import { useRouter } from "next/navigation";
 import { Cookies } from 'react-cookie';
 import { httpClient } from '@/utils/api';
+import Header from '@/components/layout/headers/Header'
 
 
 // export const metadata = {
@@ -51,22 +53,22 @@ export default function HomePage() {
     
     <>
     <Preloader/>
-    <Header />
+    <Header/>
     
     <div className="content-wrapper  js-content-wrapper overflow-hidden">
     
-      <HomeHero />
-      <Brands/>
-      <Categories />
-      <Courses/>
-      <TestimonialsOne/>
-      <FeaturesOne/>
-      <WhyCourse/>
-      <Instructors/>
-      <GetApp/>
-      <Blog/>
-      <Join/>
-      <FooterOne/>
+       <HeroFive/>
+          <BrandsTwo/>
+          <CoursesFive/>
+          <CategoriesFive/>
+          <Instructors backgroundColor={'bg-beige-1'}/>
+          <StudentsFive/>
+          <LearningPathFive/>
+          <Pricing/>
+          <GetAppFive/>
+          <BlogsFive/>
+          <RecomentationFive/>
+          <FooterFive/>
       
       
     </div>
