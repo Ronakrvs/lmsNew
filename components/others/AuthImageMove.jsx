@@ -1,6 +1,7 @@
 "use client";
 import gsap from "gsap";
 import Image from "next/image";
+import loginImage from '../../public/assets/img.webp'
 
 import React, { useEffect } from "react";
 
@@ -100,9 +101,16 @@ export default function AuthImageMove({showbg=false}) {
             style={{ width: "40%" }}
             // data-move="30"
             // className="js-mouse-move"
-            src="/assets/img.webp"
+            src={loginImage}
             alt="bg"
-          />}
+        />}
+      
+      {/* <Image
+                width={700}
+                height={410}
+                src="/assets/img/home-5/masthead/bg.svg"
+                alt="image"
+              /> */}
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function Preloader() {
   return (
     <div className="preloader js-preloader">
       <div
-        className="preloader__bg"
+        className=""
         style={preloaderDisable ? { transform: "scale(1,0)" } : {}}
       ></div>
     </div>

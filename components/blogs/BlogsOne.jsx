@@ -1,19 +1,41 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import { blogs, categories } from "@/data/blog";
+import { blogs } from "@/data/blog";
 import Link from "next/link";
+import { getBlogsByCategory, getallBlogCategory } from "@/service/blog";
+import moment from "moment";
 export default function BlogsOne() {
   const [pageItems, setPageItems] = useState([]);
-  const [currentCategory, setCurrentCategory] = useState("All Categories");
+  const [currentCategory, setCurrentCategory] = useState('ALL');
+  const [categories, setCategories] = useState([]);
+
   useEffect(() => {
-    if (currentCategory == "All Categories") {
-      setPageItems(blogs);
-    } else {
-      let filtered = blogs.filter((elm) => elm.category == currentCategory);
-      setPageItems(filtered);
-    }
-  }, [currentCategory]);
+    getAllCategory()
+
+  }, [])
+  useEffect(() => {
+   
+    getblogBycategory(currentCategory)
+   
+  }, [currentCategory])
+
+  
+
+  const getAllCategory = async() => {
+    await getallBlogCategory().then(({data}) => { 
+      console.log("blogs", data)
+      setCategories(data?.category)
+    })
+  }
+
+  const getblogBycategory = async (currentCategory) => {
+    setCurrentCategory(currentCategory)
+    await getBlogsByCategory(currentCategory).then(({data}) => { 
+    setPageItems(data?.blog)
+    })
+  }
+  
   return (
     <>
       <section className="page-header -type-1">
@@ -22,14 +44,14 @@ export default function BlogsOne() {
             <div className="row justify-center text-center">
               <div className="col-auto">
                 <div>
-                  <h1 className="page-header__title">Latest News</h1>
+                  <h1 className="page-header__title">Latest Blogs and Events</h1>
                 </div>
 
                 <div>
-                  <p className="page-header__text">
+                  {/* <p className="page-header__text">
                     We’re on a mission to deliver engaging, curated courses at a
                     reasonable price.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>
@@ -42,15 +64,15 @@ export default function BlogsOne() {
           <div className="tabs -pills js-tabs">
             <div className="tabs__controls d-flex justify-center flex-wrap y-gap-20 x-gap-10 js-tabs-controls">
               {categories.map((elm, i) => (
-                <div key={i} onClick={() => setCurrentCategory(elm)}>
+                <div key={i} onClick={() => getblogBycategory(elm?.category)}>
                   <button
                     className={`tabs__button px-15 py-8 rounded-8 js-tabs-button ${
-                      currentCategory == elm ? "is-active" : ""
+                      currentCategory == elm?.category ? "is-active" : ""
                     } `}
                     data-tab-target=".-tab-item-1"
                     type="button"
                   >
-                    {elm}
+                    {elm?.category_title}
                   </button>
                 </div>
               ))}
@@ -63,11 +85,11 @@ export default function BlogsOne() {
                     <div key={i} className="col-lg-4 col-md-6">
                       <div className="blogCard -type-1">
                         <div className="blogCard__image">
-                          <Image
+                          <img
                             width={530}
                             height={450}
                             className="w-1/1 rounded-8"
-                            src={elm.imageSrc}
+                            src={elm.thumbnail}
                             alt="image"
                           />
                         </div>
@@ -78,13 +100,13 @@ export default function BlogsOne() {
                           <h4 className="blogCard__title text-20 lh-15 fw-500 mt-5">
                             <Link
                               className="linkCustom"
-                              href={`/blogs/${elm.id}`}
+                              href={`/blogs/${elm._id}`}
                             >
                               {elm.title}
                             </Link>
                           </h4>
                           <div className="blogCard__date text-14 mt-5">
-                            {elm.date}
+                            {moment(elm.createdAt).format('DD-MM-YYYY')}
                           </div>
                         </div>
                       </div>
@@ -92,7 +114,7 @@ export default function BlogsOne() {
                   ))}
                 </div>
 
-                <div className="row justify-center pt-60 lg:pt-40">
+                {/* <div className="row justify-center pt-60 lg:pt-40">
                   <div className="col-auto">
                     <div className="pagination -buttons">
                       <button className="pagination__button -prev">
@@ -114,7 +136,7 @@ export default function BlogsOne() {
                       </button>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

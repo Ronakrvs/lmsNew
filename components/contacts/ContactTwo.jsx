@@ -1,10 +1,36 @@
 "use client";
 
-import React from "react";
+import React,{useState} from "react";
 import { locationData } from "@/data/officeLocation";
+import { message } from "antd";
+import {onContactUsSubmit} from '../../service/contact'
 export default function ContactTwo() {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    name: "",
+    mobile: "",
+    comment: "",
+  });
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      await onContactUsSubmit(formData).then(({ data }) => {
+        message.success({ content: data?.message, key: "1" })
+      })
+
+    } catch (error) {
+      message.error({content:data?.message,key:"1"})
+    }
+  }  
+ 
+
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value
+    }));
   };
   return (
     <>
@@ -59,10 +85,7 @@ export default function ContactTwo() {
             <div className="col-lg-6">
               <div className="px-40 py-40 bg-white border-light shadow-1 rounded-8 contact-form-to-top">
                 <h3 className="text-24 fw-500">Send a Message</h3>
-                <p className="mt-25">
-                  Neque convallis a cras semper auctor. Libero id faucibus nisl
-                  <br /> tincidunt egetnvallis.
-                </p>
+               
 
                 <form
                   className="contact-form row y-gap-30 pt-60 lg:pt-40"
@@ -76,6 +99,8 @@ export default function ContactTwo() {
                       required
                       type="text"
                       name="name"
+                      value={formData.name}
+                      onChange={handleChange}
                       placeholder="Name..."
                     />
                   </div>
@@ -87,6 +112,8 @@ export default function ContactTwo() {
                       required
                       type="text"
                       name="email"
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="Email..."
                     />
                   </div>
@@ -98,6 +125,8 @@ export default function ContactTwo() {
                       required
                       type="text"
                       name="mobile"
+                      value={formData.mobile}
+                      onChange={handleChange}
                       placeholder="Mobile..."
                     />
                   </div>
@@ -107,8 +136,10 @@ export default function ContactTwo() {
                     </label>
                     <textarea
                       name="comment"
+                      value={formData.comment}
+                      onChange={handleChange}
                       placeholder="Message"
-                      rows="8"
+                      rows="4"
                       required
                     ></textarea>
                   </div>

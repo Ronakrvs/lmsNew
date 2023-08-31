@@ -23,10 +23,12 @@ import { useRouter } from "next/navigation";
 import { Cookies } from 'react-cookie';
 import { httpClient } from '@/utils/api';
 import Header from '@/components/layout/headers/Header'
-import InstractorSeven from '@/components/homes/instractors/InstractorSeven'
-import BlogsTwo from '@/components/homes/blogs/BlogsTwo'
-import GetAppSix from '@/components/homes/getApp/GetAppSix'
-import FooterThree from '@/components/layout/footers/FooterThree'
+const InstractorSeven = React.lazy(() => import('@/components/homes/instractors/InstractorSeven'));
+const BlogsTwo = React.lazy(() => import('@/components/homes/blogs/BlogsTwo'));
+const GetAppSix = React.lazy(() => import('@/components/homes/getApp/GetAppSix'));
+const FooterThree = React.lazy(() => import('@/components/layout/footers/FooterThree'));
+const JoinTwo = React.lazy(() => import('@/components/homes/join/JoinTwo'));
+
 
 
 // export const metadata = {
@@ -38,11 +40,12 @@ import FooterThree from '@/components/layout/footers/FooterThree'
 
 export default function HomePage() {
   const router = useRouter()
+  const cookies = new Cookies();
+  const token = cookies.get("token");
+  const newsletter = cookies.get("newsletter");
   useEffect(() => {
-    const cookies = new Cookies();
-    const token = cookies.get("token");
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-
+console.log("token",token)
     if (token) {
       router.push('/')
     } else {
@@ -72,7 +75,8 @@ export default function HomePage() {
           <Pricing/>
           {/* <GetAppFive/> */}
         {/* <BlogsFive/> */}
-          <BlogsTwo/>
+        <BlogsTwo />
+        {!newsletter && <JoinTwo />}
           {/* <RecomentationFive/> */}
           <GetAppSix/>
             <FooterThree/>

@@ -1,13 +1,31 @@
 "use client";
 
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { blogs, tags } from "@/data/blog";
 import Image from "next/image";
+import { getBlogDetails } from "@/service/blog";
+import moment from "moment";
 export default function BlogDetails({ id }) {
-  const data = blogs.filter((elm) => elm.id == id)[0] || blogs[0];
+
+  const [data,setBlogData] = useState({})
+  // const data = blogs.filter((elm) => elm.id == id)[0] || blogs[0];
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  useEffect(() => {
+    
+  getBlogById()
+    
+  }, [id])
+
+  const getBlogById = async() => {
+    await getBlogDetails(id).then(({ data }) => {
+      console.log(data);
+      setBlogData(data?.blog)
+    })
+  }
+  
   return (
     <>
       <section className="page-header -type-1">
@@ -17,16 +35,16 @@ export default function BlogDetails({ id }) {
               <div className="col-auto">
                 <div>
                   <div className="text-14 text-purple-1 uppercase fw-500 mb-8">
-                    {data.category.toUpperCase()}
+                    {data?.category?.toUpperCase()}
                   </div>
 
                   <h1 className="page-header__title lh-14">
-                    {data.title.split(" ").slice(0, 4).join(" ")}
+                    {data?.title?.split(" ").slice(0, 4).join(" ")}
                     <br />
-                    {data.title.split(" ").slice(4, -1).join(" ")}
+                    {data?.title?.split(" ").slice(4, -1).join(" ")}
                   </h1>
 
-                  <p className="page-header__text">{data.date}</p>
+                  <p className="page-header__text">{moment(data?.createAt).format('DD-MM-YYYY')}</p>
                 </div>
               </div>
             </div>
@@ -38,7 +56,7 @@ export default function BlogDetails({ id }) {
         <div className="container">
           <div
             className="ratio ratio-16:9 rounded-8 bg-image js-lazy"
-            style={{ backgroundImage: `url(${data.imageSrc})` }}
+            style={{ backgroundImage: `url(${data?.thumbnail})` }}
             data-bg="img/blog/blog-single/images.png"
           ></div>
         </div>
@@ -51,22 +69,14 @@ export default function BlogDetails({ id }) {
               <div className="row justify-center">
                 <div className="col-xl-8 col-lg-9 col-md-11">
                   <div className="blogCard__content">
-                    <h4 className="text-18 fw-500">
+                    {/* <h4 className="text-18 fw-500">
                       What makes a good brand book?
-                    </h4>
+                    </h4> */}
                     <p className="mt-30">
-                      Sed viverra ipsum nunc aliquet bibendum enim facilisis
-                      gravida. Diam phasellus vestibulum lorem sed risus
-                      ultricies. Magna sit amet purus gravida quis blandit. Arcu
-                      cursus vitae congue mauris. Nunc mattis enim ut tellus
-                      elementum sagittis vitae et leo. Semper risus in hendrerit
-                      gravida rutrum quisque non. At urna condimentum mattis
-                      pellentesque id nibh tortor. A erat nam at lectus urna
-                      duis convallis convallis tellus. Sit amet mauris commodo
-                      quis imperdiet massa. Vitae congue eu consequat ac felis.
+                     {data?.description}
                     </p>
 
-                    <ul className="ul-list y-gap-10 mt-30">
+                    {/* <ul className="ul-list y-gap-10 mt-30">
                       <li>
                         Sed viverra ipsum nunc aliquet bibendum enim facilisis
                         gravida.
@@ -80,7 +90,7 @@ export default function BlogDetails({ id }) {
                         Bibendum est ultricies integer quis. Semper eget duis at
                         tellus.
                       </li>
-                    </ul>
+                    </ul> */}
 
                     {/* <!-- <div className="py-25 pl-90 lg:pl-80 md:px-32 border-left-2-accent text-center mt-30 lg:mt-40">
                   <div className="">
@@ -92,7 +102,7 @@ export default function BlogDetails({ id }) {
                   </div>
                 </div> --> */}
 
-                    <p className="mt-30">
+                    {/* <p className="mt-30">
                       Donec purus posuere nullam lacus aliquam egestas arcu. A
                       egestas a, tellus massa, ornare vulputate. Erat enim eget
                       laoreet ullamcorper lectus aliquet nullam tempus id.
@@ -114,10 +124,10 @@ export default function BlogDetails({ id }) {
                       Consectetur eleifend aenean eu neque euismod amet
                       parturient turpis vitae. Faucibus ipsum felis et duis
                       fames.
-                    </p>
+                    </p> */}
                   </div>
 
-                  <div className="row y-gap-30 pt-30">
+                  {/* <div className="row y-gap-30 pt-30">
                     <div className="col-sm-6">
                       <Image
                         width={530}
@@ -162,12 +172,12 @@ export default function BlogDetails({ id }) {
                       parturient turpis vitae. Faucibus ipsum felis et duis
                       fames.
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
 
-            <div className="row justify-center pt-30">
+            {/* <div className="row justify-center pt-30">
               <div className="col-xl-8 col-lg-9 col-md-11">
                 <div className="row y-gap-20 justify-between items-center">
                   <div className="col-auto">
@@ -483,7 +493,7 @@ export default function BlogDetails({ id }) {
                   </form>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

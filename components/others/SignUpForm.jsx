@@ -1,13 +1,17 @@
 "use client";
 
 import { registerNewUser } from "@/service/user";
+import { httpClient } from "@/utils/api";
 import { message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import {useState} from 'react'
+import { Cookies } from "react-cookie";
 
 export default function SignUpForm() {
+  const [loading, setLoading] = useState(false)
+  const [authUser, setAuthUser] = useState(null);
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
@@ -26,6 +30,21 @@ export default function SignUpForm() {
       [name]: value
     }));
   };
+  const getAuthUser = (data) => {
+    setLoading(true)
+    httpClient.get("user/auth/me").then(({data}) => {
+      if (data) {
+       setLoading(false)
+        // setAuthUser(data);
+        router.push('/')
+      } else {
+        setLoading(false)
+      }
+    }).catch(function (error) {
+      httpClient.defaults.headers.common['Authorization'] = '';
+      message.error({content:error.message,key:"1"});
+    });
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
    
@@ -41,8 +60,8 @@ export default function SignUpForm() {
            httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
            const cookies = new Cookies();
            cookies.set('token', data.token);
-          getAuthUser(data);
-          router.push('/')
+          // getAuthUser(data);
+          router.push('/login')
            // if (callbackFun) callbackFun();
          } else {
            setLoading(false)

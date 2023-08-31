@@ -7,58 +7,50 @@ import {Checkbox, message} from 'antd'
 import {Cookies} from "react-cookie";
 import { httpClient } from "@/utils/api";
 import { useRouter } from "next/navigation";
-export default function LoginForm() {
+import { forgetPassword } from "../../service/user";
+export default function ForgetPassword() {
   const [authUser, setAuthUser] = useState(null);
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [formData, setFormData] = useState({
     email: "",
-    password: ""
+   
   });
 
-  useEffect(() => {
-    const cookies = new Cookies();
-    const token = cookies.get("token");
-    httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-console.log("token",token)
-    if (token) {
-      router.push('/')
-    } 
+//   useEffect(() => {
+//     const cookies = new Cookies();
+//     const token = cookies.get("token");
+//     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+// console.log("token",token)
+//     if (token) {
+//       router.push('/')
+//     } 
   
    
-  }, [])
+//   }, [])
   
 
-  const getAuthUser = (data) => {
-    setLoading(true)
-    httpClient.get("user/auth/me").then(({data}) => {
-      if (data) {
-       setLoading(false)
-        setAuthUser(data);
-        router.push('/dshb-courses')
-      } else {
-        setLoading(false)
-      }
-    }).catch(function (error) {
-      httpClient.defaults.headers.common['Authorization'] = '';
-      message.error({content:error.message,key:"1"});
-    });
-  }
+  // const getAuthUser = (data) => {
+  //   setLoading(true)
+  //   httpClient.get("user/auth/me").then(({data}) => {
+  //     if (data) {
+  //      setLoading(false)
+  //       setAuthUser(data);
+  //       router.push('/dshb-courses')
+  //     } else {
+  //       setLoading(false)
+  //     }
+  //   }).catch(function (error) {
+  //     httpClient.defaults.headers.common['Authorization'] = '';
+  //     message.error({content:error.message,key:"1"});
+  //   });
+  // }
   const handleSubmit = async(e) => {
     e.preventDefault();
     try {
-      await loginUser(formData).then(({ data }) => {
+      await forgetPassword(formData).then(({ data }) => {
         console.log(data);
-        if (data) {
-         setLoading(false)
-          httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
-          const cookies = new Cookies();
-          cookies.set('token', data.token);
-          getAuthUser(data);
-          // if (callbackFun) callbackFun();
-        } else {
-          setLoading(false)
-        }
+      router.push('/login')
       })
     } catch (error) {
       message.error({ content: error.message, key: "1" });
@@ -92,13 +84,13 @@ console.log("token",token)
               >
                 <div className="col-12">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Username Or Email
+                    Email
                   </label>
-                  <input required type="text" name="email" placeholder="Name"
+                  <input required type="text" name="email" placeholder="Enter Email"
                     value={formData.email}
             onChange={handleChange} />
                 </div>
-                <div className="col-12">
+                {/* <div className="col-12">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Password
                   </label>
@@ -110,11 +102,9 @@ console.log("token",token)
                     onChange={handleChange}
                     placeholder="Password"
                   />
-                </div>
-                <div className="col-6"><Checkbox >Remember me</Checkbox></div>
-                <div className="col-6 text-right">  <Link href="/forget-password" className="text-purple-1">
-                  Forget Password
-                </Link></div>
+                </div> */}
+               
+             
                 <div className="col-12">
                   <button
                     type="submit"
@@ -122,33 +112,41 @@ console.log("token",token)
                     id="submit"
                     className="button -md -dark-1 text-white fw-500 w-1/1"
                   >
-                    Login
+                    Send Link
                   </button>
-                  <p className="mt-10">
-                Don't have an account yet?
-                <Link href="/signup" className="text-purple-1">
-                  Sign up for free
+                  {/* <div className="row">
+                  <div className="col-6 ">
+                    <Link href="/signin" className="text-purple-1">
+                  Sign In
+                </Link></div>
+                <Link href="/signup" className="col-6 text-purple-1 text-right">
+                  Sign up
                 </Link>
-              </p>
-                </div>
+              
+                  </div> */}
+                  </div>
               </form>
 
-              {/* <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
-                Or sign in using
-              </div> */}
+              <div className="lh-12 text-dark-1 fw-500 text-center mt-20">
+                Or 
+              </div>
 
-              {/* <div className="d-flex x-gap-20 items-center justify-between pt-20">
+              <div className="d-flex x-gap-20 items-center justify-between pt-20">
                 <div>
-                  <button className="button -sm px-24 py-20 -outline-blue-3 text-blue-3 text-14">
-                    Log In via Facebook
+                  <button className="button -md -dark-1 text-white fw-500 w-1/1">
+                  <Link href="/login" >
+                  Sign In
+                </Link>
                   </button>
                 </div>
                 <div>
-                  <button className="button -sm px-24 py-20 -outline-red-3 text-red-3 text-14">
-                    Log In via Google+
+                  <button className="button -md -dark-1 text-white fw-500 w-1/1">
+                  <Link href="/signup" >
+                  Sign Up
+                </Link>
                   </button>
                 </div>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>
