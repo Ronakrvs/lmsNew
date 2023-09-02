@@ -1,6 +1,7 @@
 
 
 
+"use client";
 import React from 'react'
 import HeaderThree from '@/components/layout/headers/HeaderThree'
 import HeroThree from '@/components/homes/heros/HeroThree'

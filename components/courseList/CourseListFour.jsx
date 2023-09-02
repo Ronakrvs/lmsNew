@@ -16,6 +16,7 @@ import Star from "../common/Star";
 import Image from "next/image";
 import Link from "next/link";
 import PaginationTwo from "../common/PaginationTwo";
+import {getAllCoursesList} from '../../service/courses'
 
 export default function CourseListFour() {
   const [filterCategories, setFilterCategories] = useState([]);
@@ -31,6 +32,7 @@ export default function CourseListFour() {
   const [filteredData, setFilteredData] = useState([]);
 
   const [sortedFilteredData, setSortedFilteredData] = useState([]);
+  const [allCourses, setAllCourses] = useState([]);
 
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -133,6 +135,21 @@ export default function CourseListFour() {
     }
   }, [currentSortingOption, filteredData]);
 
+  useEffect(() => {
+  getAllCourses()
+  }, [])
+  
+  const getAllCourses = async() => {
+    try {
+      await getAllCoursesList().then(({data}) => {
+        setAllCourses(data?.courses)
+      })
+
+    } catch (error) {
+      message.error({content:error?.message,key:"1"})
+    }
+  }
+
   const handleFilterCategories = (item) => {
     if (filterCategories.includes(item)) {
       setFilterCategories([]);
@@ -193,7 +210,7 @@ export default function CourseListFour() {
             <div className="row">
               <div className="col-auto">
                 <div>
-                  <h1 className="page-header__title">User Interface Courses</h1>
+                  <h1 className="page-header__title">All Courses</h1>
                 </div>
 
                 <div>
@@ -214,7 +231,7 @@ export default function CourseListFour() {
               <div className="text-14 lh-12">
                 Showing{" "}
                 <span className="text-dark-1 fw-500">
-                  {filteredData.length}
+                  {allCourses.length}
                 </span>{" "}
                 total results
               </div>
@@ -700,18 +717,18 @@ export default function CourseListFour() {
           </div>
 
           <div className="row y-gap-30">
-            {sortedFilteredData
+            {allCourses
               .slice((pageNumber - 1) * 12, pageNumber * 12)
               .map((elm, i) => (
                 <div key={i} className="col-xl-3 col-lg-4 col-md-6">
                   <div className="coursesCard -type-1 ">
                     <div className="relative">
                       <div className="coursesCard__image overflow-hidden rounded-8">
-                        <Image
+                        <img
                           width={510}
                           height={360}
                           className="w-1/1"
-                          src={elm.imageSrc}
+                          src={elm.image}
                           alt="image"
                         />
                         <div className="coursesCard__image_overlay rounded-8"></div>
@@ -745,10 +762,10 @@ export default function CourseListFour() {
                           {elm.rating}
                         </div>
                         <div className="d-flex x-gap-5 items-center">
-                          <Star star={elm.rating} />
+                          <Star star={elm.totalRating} />
                         </div>
                         <div className="text-13 lh-1 ml-10">
-                          ({elm.ratingCount})
+                          ({elm.totalRating})
                         </div>
                       </div>
 
@@ -786,8 +803,8 @@ export default function CourseListFour() {
                             />
                           </div>
                           <div className="text-14 lh-1">{`${Math.floor(
-                            elm.duration / 60,
-                          )}h ${Math.floor(elm.duration % 60)}m`}</div>
+                            elm.totalHours ,
+                          )}h ${Math.floor(elm.totalHours % 60)}m`}</div>
                         </div>
 
                         <div className="d-flex items-center">
@@ -805,10 +822,10 @@ export default function CourseListFour() {
 
                       <div className="coursesCard-footer">
                         <div className="coursesCard-footer__author">
-                          <Image
+                          <img
                             width={30}
                             height={30}
-                            src={elm.authorImageSrc}
+                            src={elm.image}
                             alt="image"
                           />
                           <div>{elm.authorName}</div>
@@ -817,8 +834,8 @@ export default function CourseListFour() {
                         <div className="coursesCard-footer__price">
                           {elm.paid ? (
                             <>
-                              <div>${elm.originalPrice}</div>
-                              <div>${elm.discountedPrice}</div>
+                              <div></div>
+                              <div>${elm.price}</div>
                             </>
                           ) : (
                             <>

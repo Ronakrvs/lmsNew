@@ -7,11 +7,12 @@ import { coursesData } from "@/data/courses";
 import { courseStates } from "@/data/courses";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import {getAllCoursesList} from '../../../service/courses'
 export default function CoursesFive({ tabBtnStyle }) {
   const [showSlider, setShowSlider] = useState(false);
   const [currentCourseState, setCurrentCourseState] = useState("All");
   const [pageItem, setPageItem] = useState([]);
+  const [coursesList, setCoursesList] = useState([]);
   useEffect(() => {
     if (currentCourseState == "All") {
       setPageItem(coursesData);
@@ -26,6 +27,19 @@ export default function CoursesFive({ tabBtnStyle }) {
   useEffect(() => {
     setShowSlider(true);
   }, []);
+  useEffect(() => {
+    getCoursesList()
+  
+   
+  }, [])
+  const getCoursesList = async () => {
+    console.log("Loading")
+    await getAllCoursesList().then(({data}) => {
+      console.log("Loading",data)
+      setCoursesList(data?.courses)
+    })
+  }
+  
   return (
     <section className="layout-pt-lg layout-pb-md">
       <div className="container">
@@ -102,7 +116,7 @@ export default function CoursesFive({ tabBtnStyle }) {
                       },
                     }}
                   >
-                    {pageItem.map((elm, i) => (
+                    {coursesList.map((elm, i) => (
                       <SwiperSlide key={i}>
                         <CourceCard data={elm} index={i} />
                       </SwiperSlide>

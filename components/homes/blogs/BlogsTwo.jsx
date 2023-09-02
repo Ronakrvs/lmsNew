@@ -1,4 +1,5 @@
-import React,{useEffect,useState} from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { blogs } from "../../../data/blog";
 import { getHomePageBlog } from "../../../service/blog";
 import Image from "next/image";

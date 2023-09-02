@@ -127,7 +127,7 @@ export default function HeaderDashboard() {
               </div>
             </div>
 
-            <div className="col-auto">
+            {/* <div className="col-auto">
               <div className="d-flex items-center">
                 <div className="text-white d-flex items-center lg:d-none mr-15">
                   <div className="dropdown bg-transparent px-0 py-0">
@@ -329,10 +329,10 @@ export default function HeaderDashboard() {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
-        <Messages setMessageOpen={setMessageOpen} messageOpen={messageOpen} />
+        {/* <Messages setMessageOpen={setMessageOpen} messageOpen={messageOpen} /> */}
       </header>
     </>
   );

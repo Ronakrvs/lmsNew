@@ -11,6 +11,12 @@ export const sidebarItems = [
     iconClass: "text-20 icon-play-button",
     text: "My Courses",
   },
+  {
+    id: 13,
+    href: "/dshb-administration",
+    text: "Course Material",
+    iconClass: "text-20 icon-person-2",
+  },
 
   // {
   //   id: 3,
@@ -43,12 +49,31 @@ export const sidebarItems = [
     text: "Settings",
   },
 
-  // {
-  //   id: 9,
-  //   href: "/dshb-administration",
-  //   text: "Administration",
-  //   iconClass: "text-20 icon-person-2",
-  // },
+  {
+    id: 9,
+    href: "/dshb-administration",
+    text: "Help",
+    iconClass: "text-20 icon-person-2",
+  },
+  {
+    id: 10,
+    href: "/dshb-administration",
+    text: "Invoice",
+    iconClass: "text-20 icon-person-2",
+  },
+  {
+    id: 11,
+    href: "/dshb-administration",
+    text: "payment history",
+    iconClass: "text-20 icon-person-2",
+  },
+  {
+    id: 12,
+    href: "/dshb-administration",
+    text: "Profile",
+    iconClass: "text-20 icon-person-2",
+  },
+  
   // {
   //   id: 10,
   //   href: "/dshb-assignment",

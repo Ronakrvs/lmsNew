@@ -20,6 +20,8 @@ export const metadata = {
   
 }
 export default function page() {
+
+ 
   return (
     <div className="main-content  ">
       <Preloader/>
@@ -28,7 +30,7 @@ export default function page() {
             <PageLinks/>
             <PageHeading/>
             <CoursesSlider/>
-            <Instractors/>
+            {/* <Instractors/> */}
            
             <CourseListSix/>
             <FooterThree/>

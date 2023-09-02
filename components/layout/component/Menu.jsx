@@ -418,8 +418,8 @@ export default function Menu({ allClasses, headerPosition }) {
             <li
               
             >
-              <Link data-barba href="/courses-list-6"  className={
-                pathname == "/courses-list-6" ? "activeMenu" : "inActiveMenuTwo"
+              <Link data-barba href="/courses-list-4"  className={
+                pathname == "/courses-list-4" ? "activeMenu" : "inActiveMenuTwo"
               }>
                 Courses
               </Link>

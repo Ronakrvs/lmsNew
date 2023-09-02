@@ -26,13 +26,27 @@ export default function CoursesSlider({ tabBtnStyle }) {
   useEffect(() => {
     setShowSlider(true);
   }, []);
+
+  useEffect(() => {
+    getEnrolledCourses()
+  
+  
+  }, [])
+
+  const getEnrolledCourses = async() => {
+    await getEnrolledCourses().then(() => {
+      
+
+    })
+  }
+  
   return (
     <section className="layout-pt-lg layout-pb-md">
       <div className="container">
         <div className="tabs -pills js-tabs">
           <div className="row y-gap-20 justify-between items-end">
             <div className="col-auto">
-              <h2 className="text-24 lh-12">Courses to get you started</h2>
+              <h2 className="text-24 lh-12">Courses you Enrolled</h2>
             </div>
 
             <div className="col-auto">

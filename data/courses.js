@@ -2,6 +2,7 @@ export const coursesData = [
   {
       "id": 1,
       "imageSrc": "/assets/img/coursesCards/9.webp",
+      "image": "/assets/img/coursesCards/9.webp",
       "authorImageSrc": "/assets/img/general/avatar-1.png",
       "title": "Learn Figma - UI/UX Design Essential Training",
       "rating": 4.3,
@@ -23,6 +24,7 @@ export const coursesData = [
   {
       "id": 2,
       "imageSrc": "/assets/img/coursesCards/1.webp",
+      "image": "/assets/img/coursesCards/1.webp",
       "authorImageSrc": "/assets/img/general/avatar-1.png",
       "title": "Complete Python Bootcamp From Zero to Hero in Python",
       "rating": 4.7,
@@ -47,6 +49,7 @@ export const coursesData = [
   {
       "id": 3,
       "imageSrc": "/assets/img/coursesCards/6.webp",
+      "image": "/assets/img/coursesCards/6.webp",
       "authorImageSrc": "/assets/img/general/avatar-1.png",
       "title": "Angular - The Complete Guide (2022 Edition)",
       "rating": 4.5,
@@ -68,6 +71,7 @@ export const coursesData = [
   {
       "id": 4,
       "imageSrc": "/assets/img/coursesCards/1.webp",
+      "image": "/assets/img/coursesCards/1.webp",
       "authorImageSrc": "/assets/img/general/avatar-1.png",
       "title": "The Ultimate Drawing Course Beginner to Advanced",
       "rating": 4.2,
@@ -89,6 +93,7 @@ export const coursesData = [
   {
       "id": 5,
       "imageSrc": "/assets/img/coursesCards/1.webp",
+      "image": "/assets/img/coursesCards/1.webp",
       "authorImageSrc": "/assets/img/general/avatar-1.png",
       "title": "Photography Masterclass: A Complete Guide to Photography",
       "rating": 3.8,
@@ -110,6 +115,7 @@ export const coursesData = [
   {
       "id": 6,
       "imageSrc": "/assets/img/coursesCards/6.webp",
+      "image": "/assets/img/coursesCards/6.webp",
       "imageAlt": "image",
       "rating": 4.6,
       "ratingCount": 1991,

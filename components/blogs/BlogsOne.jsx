@@ -18,7 +18,7 @@ export default function BlogsOne() {
    
     getblogBycategory(currentCategory)
    
-  }, [currentCategory])
+  }, [])
 
   
 
@@ -30,8 +30,8 @@ export default function BlogsOne() {
   }
 
   const getblogBycategory = async (currentCategory) => {
-    setCurrentCategory(currentCategory)
     await getBlogsByCategory(currentCategory).then(({data}) => { 
+      setCurrentCategory(currentCategory)
     setPageItems(data?.blog)
     })
   }
