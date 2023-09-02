@@ -6,6 +6,7 @@ import BrandsTwo from '@/components/homes/brands/BrandsTwo'
 import HeroFive from '@/components/homes/heros/HeroFive'
 import HeaderFive from '@/components/layout/headers/HeaderFive'
 import CoursesFive from '@/components/homes/courses/CoursesFive'
+import ExamFive from '@/components/homes/exam/ExamFive'
 import React from 'react'
 import CategoriesFive from '@/components/homes/categories/CategoriesFive'
 import StudentsFive from '@/components/homes/students/StudentsFive'
@@ -68,6 +69,7 @@ console.log("token",token)
         {/* <BrandsTwo/> */}
         <InstractorSeven/>
           <CoursesFive/>
+          <ExamFive/>
           {/* <CategoriesFive/> */}
           <Instructors backgroundColor={'bg-beige-1'}/>
           {/* <StudentsFive/> */}
