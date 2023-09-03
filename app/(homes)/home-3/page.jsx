@@ -20,12 +20,12 @@ import BlogsTwo from '@/components/homes/blogs/BlogsTwo'
 import JoinTwo from '@/components/homes/join/JoinTwo'
 import FooterTwo from '@/components/layout/footers/FooterThree'
 import Preloader from '@/components/common/Preloader'
-export const metadata = {
-  title: 'Home-3 || Educrat - Professional LMS Online Education Course NextJS Template',
-  description:
-    'Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.',
+// export const metadata = {
+//   title: 'Home-3 || Educrat - Professional LMS Online Education Course NextJS Template',
+//   description:
+//     'Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.',
   
-}
+// }
 export default function page() {
   return (
     <main className="main-content overflow-hidden ">
