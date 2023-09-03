@@ -3,6 +3,7 @@ import Links from "../component/Links";
 import Socials from "@/components/common/Socials";
 import FooterLinks from "../component/FooterLinks";
 import Image from "next/image";
+import logoImg from '../../../public/assets/logo.webp'
 import Link from "next/link";
 
 export default function FooterThree() {
@@ -16,7 +17,7 @@ export default function FooterThree() {
                 <Image
                       width={70}
                       height={50}
-                      src="/assets/logo.webp"
+                      src={logoImg}
                       alt="logo"
                     />
                     DENTA <b>BEST</b>

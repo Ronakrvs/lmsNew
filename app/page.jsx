@@ -71,7 +71,7 @@ console.log("token",token)
           <CoursesFive/>
           <ExamFive/>
           {/* <CategoriesFive/> */}
-          <Instructors backgroundColor={'bg-beige-1'}/>
+          {/* <Instructors backgroundColor={'bg-beige-1'}/> */}
           {/* <StudentsFive/> */}
           <LearningPathFive/>
           <Pricing/>

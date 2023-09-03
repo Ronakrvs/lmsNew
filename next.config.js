@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // distDir: "build",
+    distDir: "build",
     // trailingSlash: true,
-    // output: 'export',
+    output: 'export',
     // loader: 'default',
     images: {
         formats: ['image/avif', 'image/webp'],

@@ -48,7 +48,7 @@ export default function BlogsTwo() {
         </div>
 
         <div className="row y-gap-30 pt-60">
-          {blogList.slice(0, 4).map((elm, i) => (
+          {blogList?.slice(0, 4).map((elm, i) => (
             <div
               key={i}
               className="col-lg-3 col-md-6"

@@ -7,6 +7,7 @@ import Menu from "../component/Menu";
 import MobileMenu from "../component/MobileMenu";
 import Image from "next/image";
 import Link from "next/link";
+import logoImg from '../../../public/assets/logo.webp'
 
 export default function HeaderFive() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
@@ -27,7 +28,7 @@ export default function HeaderFive() {
                 <Image
                       width={70}
                       height={50}
-                      src="/assets/logo.webp"
+                      src={logoImg}
                       alt="logo"
                     />
                     DENTA <b>BEST</b>
