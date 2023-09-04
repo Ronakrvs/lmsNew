@@ -32,7 +32,7 @@ export const states = [
 export const coursesData = [
   {
     id: 1,
-    imageSrc: "/assets/img/coursesCards/1.png",
+    imageSrc: "https://media.istockphoto.com/id/665117030/photo/image-of-business-documents-on-workplace.webp?s=170667a&w=0&k=20&c=NExEC8nhcK6onzzaI5TMLhba_1Wr9QnATgKhvCHyXq0=",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Learn Figma - UI/UX Design Essential Training",
     rating: 4.3,
@@ -53,7 +53,7 @@ export const coursesData = [
   },
   {
     id: 2,
-    imageSrc: "/assets/img/coursesCards/2.png",
+    imageSrc: "https://images.unsplash.com/photo-1452830978618-d6feae7d0ffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Complete Python Bootcamp From Zero to Hero in Python",
     rating: 4.7,
@@ -75,7 +75,7 @@ export const coursesData = [
   },
   {
     id: 3,
-    imageSrc: "/assets/img/coursesCards/3.png",
+    imageSrc: "https://images.unsplash.com/photo-1523289333742-be1143f6b766?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Angular - The Complete Guide (2022 Edition)",
     rating: 4.5,
@@ -95,7 +95,7 @@ export const coursesData = [
   },
   {
     id: 4,
-    imageSrc: "/assets/img/coursesCards/4.png",
+    imageSrc: "https://images.unsplash.com/photo-1452830978618-d6feae7d0ffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDN8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "The Ultimate Drawing Course Beginner to Advanced",
     rating: 4.2,
@@ -115,7 +115,7 @@ export const coursesData = [
   },
   {
     id: 5,
-    imageSrc: "/assets/img/coursesCards/5.png",
+    imageSrc: "https://media.istockphoto.com/id/547537182/photo/office-desktop-with-laptop.webp?s=170667a&w=0&k=20&c=bCmqCcg6STOPU9a6q-1W5QDLXHSmN3f0a15BKz2Pt4w=",
     authorImageSrc: "/assets/img/general/avatar-1.png",
     title: "Photography Masterclass: A Complete Guide to Photography",
     rating: 3.8,
@@ -135,7 +135,7 @@ export const coursesData = [
   },
   {
     id: 6,
-    imageSrc: "/assets/img/coursesCards/7.png",
+    imageSrc: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     imageAlt: "image",
     rating: 4.6,
     textRatingCount: 1991,
@@ -157,7 +157,7 @@ export const coursesData = [
   },
   {
     id: 7,
-    imageSrc: "/assets/img/coursesCards/8.png",
+    imageSrc: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     imageAlt: "image",
     rating: 3.5,
     textRatingCount: 1991,
@@ -179,7 +179,7 @@ export const coursesData = [
   },
   {
     id: 8,
-    imageSrc: "/assets/img/coursesCards/9.png",
+    imageSrc: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     imageAlt: "image",
     rating: 4.8,
     textRatingCount: 1991,
@@ -201,7 +201,7 @@ export const coursesData = [
   },
   {
     id: 9,
-    imageSrc: "/assets/img/coursesCards/10.png",
+    imageSrc: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     imageAlt: "image",
     rating: 3.9,
     textRatingCount: 1991,
@@ -223,7 +223,7 @@ export const coursesData = [
   },
   {
     id: 10,
-    imageSrc: "/assets/img/coursesCards/11.png",
+    imageSrc: "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     imageAlt: "image",
     rating: 4.2,
     textRatingCount: 1991,
@@ -245,7 +245,7 @@ export const coursesData = [
   },
   {
     id: 11,
-    imageSrc: "/assets/img/coursesCards/12.png",
+    imageSrc: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D&auto=format&fit=crop&w=500&q=60",
     imageAlt: "image",
     rating: 5.0,
     textRatingCount: 1991,

@@ -22,7 +22,8 @@ export default function LoginForm() {
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 console.log("token",token)
     if (token) {
-      // router.push('/')
+      // router.push('/')'
+      getAuthUser()
     } 
   
    
@@ -54,7 +55,10 @@ console.log("token",token)
           httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
           const cookies = new Cookies();
           cookies.set('token', data.token);
-          getAuthUser(data);
+          setAuthUser(data);
+          router.push('/dshb-courses')
+          // getAuthUser(data);
+
           // if (callbackFun) callbackFun();
         } else {
           setLoading(false)

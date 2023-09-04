@@ -9,7 +9,7 @@ export default function InstractorSeven() {
           <div className="col-lg-6">
             <div className="composition -type-4">
               <div className="-el-1">
-                <Image
+                <img
                   width={690}
                   height={690}
                   className="w-1/1"

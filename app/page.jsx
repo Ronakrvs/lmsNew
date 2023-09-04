@@ -49,9 +49,6 @@ export default function HomePage() {
 console.log("token",token)
     if (token) {
       router.push('/')
-    } else {
-      router.push('/login')
-      
     }
   
     

@@ -65,7 +65,7 @@ export default function MyCourses() {
                     type="button"
                     onClick={() => setActiveTab(1)}
                   >
-                    All Courses
+                    All Enrolled Courses
                   </button>
                   <button
                     className={`text-light-1 lh-12 tabs__button js-tabs-button ml-30 ${
@@ -77,7 +77,7 @@ export default function MyCourses() {
                   >
                     Finished
                   </button>
-                  <button
+                  {/* <button
                     className={`text-light-1 lh-12 tabs__button js-tabs-button ml-30 ${
                       activeTab == 3 ? "is-active" : ""
                     } `}
@@ -86,7 +86,7 @@ export default function MyCourses() {
                     onClick={() => setActiveTab(3)}
                   >
                     Not enrolled
-                  </button>
+                  </button> */}
                 </div>
 
                 <div className="tabs__content py-30 px-30 js-tabs-content">
@@ -101,6 +101,7 @@ export default function MyCourses() {
                             required
                             className="bg-white -dark-bg-dark-2 pr-50"
                             type="text"
+
                             placeholder="Search Courses"
                           />
                           <button className="" type="submit">
@@ -246,7 +247,7 @@ export default function MyCourses() {
 
                     <div className="row justify-center pt-30">
                       <div className="col-auto">
-                        <Pagination />
+                        {/* <Pagination /> */}
                       </div>
                     </div>
                   </div>

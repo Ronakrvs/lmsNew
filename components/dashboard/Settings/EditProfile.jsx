@@ -66,6 +66,7 @@ export default function EditProfile({ activeTab }) {
                   required
                   id="imageUpload1"
                   type="file"
+                  name="user_image"
                   accept="image/*"
                   onChange={handleImageChange}
                   style={{ display: "none" }}
@@ -95,7 +96,7 @@ export default function EditProfile({ activeTab }) {
               First Name
             </label>
 
-            <input required type="text" placeholder="First Name" />
+            <input required type="text" name="firstname" placeholder="First Name" />
           </div>
 
           <div className="col-md-6">
@@ -103,7 +104,7 @@ export default function EditProfile({ activeTab }) {
               Last Name
             </label>
 
-            <input required type="text" placeholder="Last Name" />
+            <input required type="text" name="lastname" placeholder="Last Name" />
           </div>
 
           <div className="col-md-6">
@@ -111,7 +112,7 @@ export default function EditProfile({ activeTab }) {
               Phone
             </label>
 
-            <input required type="text" placeholder="Phone" />
+            <input required type="text" name="phone" placeholder="Phone" />
           </div>
 
           <div className="col-md-6">
@@ -119,7 +120,7 @@ export default function EditProfile({ activeTab }) {
               Birthday
             </label>
 
-            <input required type="text" placeholder="Birthday" />
+            <input required type="text" name="dob" placeholder="Birthday" />
           </div>
 
           <div className="col-md-6">
@@ -127,7 +128,7 @@ export default function EditProfile({ activeTab }) {
               Address Line 1
             </label>
 
-            <input required type="text" placeholder="Address Line 1" />
+            <input required type="text" name="address_line1" placeholder="Address Line 1" />
           </div>
 
           <div className="col-md-6">
@@ -135,7 +136,7 @@ export default function EditProfile({ activeTab }) {
               Address Line 2
             </label>
 
-            <input required type="text" placeholder="Address Line 2" />
+            <input required type="text" name="address_line2" placeholder="Address Line 2" />
           </div>
 
           <div className="col-md-6">
@@ -143,7 +144,7 @@ export default function EditProfile({ activeTab }) {
               State
             </label>
 
-            <input required type="text" placeholder="State" />
+            <input required type="text" name="state" placeholder="State" />
           </div>
 
           <div className="col-md-6">
@@ -151,7 +152,14 @@ export default function EditProfile({ activeTab }) {
               Country
             </label>
 
-            <input required type="text" placeholder="Country" />
+            <input required type="text" name="country" placeholder="Country" />
+          </div>
+          <div className="col-md-6">
+            <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+              Postal Code
+            </label>
+
+            <input required type="text" name="postal_code" placeholder="Country" />
           </div>
 
           <div className="col-12">
