@@ -21,6 +21,8 @@
     "@fullcalendar/react": "^6.1.8",
     "@mui/material": "^5.13.7",
     "@popperjs/core": "^2.11.8",
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-less": "^1.0.1",
     "antd": "^5.8.5",
     "aos": "^2.3.4",
     "axios": "^1.5.0",

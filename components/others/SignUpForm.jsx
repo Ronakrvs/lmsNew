@@ -5,6 +5,7 @@ import { httpClient } from "@/utils/api";
 import { message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import {useState} from 'react'
 import { Cookies } from "react-cookie";
@@ -12,6 +13,7 @@ import { Cookies } from "react-cookie";
 export default function SignUpForm() {
   const [loading, setLoading] = useState(false)
   const [authUser, setAuthUser] = useState(null);
+  const router = useRouter()
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',

@@ -8,6 +8,7 @@ import { notifications } from "@/data/notifications";
 import Messages from "../component/Messages";
 import MyCourses from "../component/MyCourses";
 import Link from "next/link";
+import logoImg from '../../../public/assets/logo.webp'
 
 export default function HeaderDashboard() {
   const [messageOpen, setMessageOpen] = useState(false);
@@ -111,14 +112,14 @@ export default function HeaderDashboard() {
                       width={90}
                       height={50}
                       className="-light-d-none"
-                      src="/assets/logo.webp"
+                      src={logoImg}
                       alt="logo"
                     />
                     <Image
                       width={90}
                       height={50}
                       className="-dark-d-none"
-                      src="/assets/logo.webp"
+                      src={logoImg}
                       alt="logo"
                     />
                     DENTA <b>BEST</b>
