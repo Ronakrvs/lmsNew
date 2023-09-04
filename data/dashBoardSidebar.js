@@ -13,7 +13,7 @@ export const sidebarItems = [
   },
   {
     id: 13,
-    href: "/dshb-administration",
+    href: "/material",
     text: "Course Material",
     iconClass: "text-20 icon-person-2",
   },
@@ -38,38 +38,38 @@ export const sidebarItems = [
   // },
   {
     id: 6,
-    href: "/dshb-reviews",
+    href: "/reviews",
     iconClass: "text-20 icon-comment",
     text: "Reviews",
   },
   {
     id: 7,
-    href: "/dshb-settings",
+    href: "/settings",
     iconClass: "text-20 icon-setting",
     text: "Settings",
   },
 
   {
     id: 9,
-    href: "/dshb-administration",
+    href: "/help",
     text: "Help",
     iconClass: "text-20 icon-person-2",
   },
   {
     id: 10,
-    href: "/dshb-administration",
+    href: "/invoice",
     text: "Invoice",
     iconClass: "text-20 icon-person-2",
   },
   {
     id: 11,
-    href: "/dshb-administration",
+    href: "/paymenthistory",
     text: "payment history",
     iconClass: "text-20 icon-person-2",
   },
   {
     id: 12,
-    href: "/dshb-administration",
+    href: "dashboard/profile",
     text: "Profile",
     iconClass: "text-20 icon-person-2",
   },
@@ -124,7 +124,7 @@ export const sidebarItems = [
   // },
   {
     id: 18,
-    href: "/dshb-quiz",
+    href: "/quiz",
     text: "Quiz",
     iconClass: "text-20 icon-time-management",
   },

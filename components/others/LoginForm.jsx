@@ -22,7 +22,7 @@ export default function LoginForm() {
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 console.log("token",token)
     if (token) {
-      router.push('/')
+      // router.push('/')
     } 
   
    

@@ -1,0 +1,34 @@
+.user_profile {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    /* height: 100vh; */
+  }
+  
+  .user_profile_card {
+    width: 400px;
+    padding: 16px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  }
+  
+  .user_profile_avatar {
+    margin-bottom: 16px;
+  }
+  
+  .user_profile_button {
+    margin-top: 16px;
+  }
+  
+  /* Style form input fields */
+  
+  .ant_form_item {
+    margin-bottom: 16px;
+  }
+  
+  /* Style edit button */
+  
+  .edit_button {
+    margin-top: 16px;
+  }

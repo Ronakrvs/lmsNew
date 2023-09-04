@@ -1,7 +1,7 @@
 import { httpClient } from "../utils/api"
 
 export const getHomePageBlog = () => {
-    return  httpClient.get(`blog`)
+    return  httpClient.get(`blog/all`)
   }
 export const getBlogsByCategory = (category) => {
     return  httpClient.get(`blog?category=${category}`)

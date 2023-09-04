@@ -137,6 +137,7 @@ const useProvideAuth = () => {
       }).catch(function (error) {
         cookies.remove('token');
         httpClient.defaults.headers.common['Authorization'] = '';
+        router.push("/login")
         setLoadingUser(false);
       });
     // if (token) {
