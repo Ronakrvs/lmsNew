@@ -7,8 +7,11 @@ import {Checkbox, message} from 'antd'
 import {Cookies} from "react-cookie";
 import { httpClient } from "@/utils/api";
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { setUserAuthInfo } from "@/store/actions/userAction";
 export default function LoginForm() {
   const [authUser, setAuthUser] = useState(null);
+  const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [formData, setFormData] = useState({
@@ -36,6 +39,7 @@ console.log("token",token)
       if (data) {
        setLoading(false)
         setAuthUser(data);
+      
         router.push('/dshb-courses')
       } else {
         setLoading(false)
@@ -56,6 +60,7 @@ console.log("token",token)
           const cookies = new Cookies();
           cookies.set('token', data.token);
           setAuthUser(data);
+          dispatch(setUserAuthInfo(data))
           router.push('/dshb-courses')
           // getAuthUser(data);
 
@@ -96,7 +101,7 @@ console.log("token",token)
               >
                 <div className="col-12">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Username Or Email
+                   Email
                   </label>
                   <input required type="text" name="email" placeholder="Name"
                     value={formData.email}

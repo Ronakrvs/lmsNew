@@ -5,18 +5,42 @@ export const sidebarItems = [
     iconClass: "text-20 icon-discovery",
     text: "Dashboard",
   },
+  // {
+  //   id: 12,
+  //   href: "/profile",
+  //   text: "Profile",
+  //   iconClass: "text-20 icon-person-2",
+  // },
+  {
+    id: 12,
+    href: "/dshb-settings",
+    text: "Profile",
+    iconClass: "text-20 icon-person-2",
+  },
   {
     id: 2,
+    href: "/dshb-grades",
+    iconClass: "text-20 icon-play-button",
+    text: "My Exams",
+  },
+  {
+    id: 3,
     href: "/dshb-courses",
     iconClass: "text-20 icon-play-button",
     text: "My Courses",
   },
   {
-    id: 13,
-    href: "/material",
-    text: "Course Material",
-    iconClass: "text-20 icon-person-2",
+    id: 4,
+    href: "/dshb-quiz",
+    iconClass: "text-20 icon-play-button",
+    text: "My Subjects",
   },
+  // {
+  //   id: 13,
+  //   href: "/material",
+  //   text: "Course Material",
+  //   iconClass: "text-20 icon-person-2",
+  // },
 
   // {
   //   id: 3,
@@ -37,42 +61,38 @@ export const sidebarItems = [
   //   text: "Create Course",
   // },
   {
+    id: 11,
+    href: "/dshb-forums",
+    text: "My payment",
+    iconClass: "text-20 icon-person-2",
+  },
+  {
     id: 6,
-    href: "/reviews",
+    href: "/dshb-reviews",
     iconClass: "text-20 icon-comment",
     text: "Reviews",
   },
   {
     id: 7,
-    href: "/settings",
+    href: "/dshb-administration",
     iconClass: "text-20 icon-setting",
     text: "Settings",
   },
 
   {
     id: 9,
-    href: "/help",
-    text: "Help",
+    href: "/dshb-survey",
+    text: "Help & Support",
     iconClass: "text-20 icon-person-2",
   },
-  {
-    id: 10,
-    href: "/invoice",
-    text: "Invoice",
-    iconClass: "text-20 icon-person-2",
-  },
-  {
-    id: 11,
-    href: "/paymenthistory",
-    text: "payment history",
-    iconClass: "text-20 icon-person-2",
-  },
-  {
-    id: 12,
-    href: "dashboard/profile",
-    text: "Profile",
-    iconClass: "text-20 icon-person-2",
-  },
+  // {
+  //   id: 10,
+  //   href: "/invoice",
+  //   text: "Invoice",
+  //   iconClass: "text-20 icon-person-2",
+  // },
+ 
+  
   
   // {
   //   id: 10,
@@ -122,12 +142,12 @@ export const sidebarItems = [
   //   text: "Participants",
   //   iconClass: "text-20 icon-person-3",
   // },
-  {
-    id: 18,
-    href: "/quiz",
-    text: "Quiz",
-    iconClass: "text-20 icon-time-management",
-  },
+  // {
+  //   id: 18,
+  //   href: "/quiz",
+  //   text: "Quiz",
+  //   iconClass: "text-20 icon-time-management",
+  // },
   // {
   //   id: 19,
   //   href: "/dshb-survey",

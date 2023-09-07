@@ -1,10 +1,27 @@
 "use client";
 
 import { sidebarItems } from "@/data/dashBoardSidebar";
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname ,useRouter} from "next/navigation";
+import { Modal } from "antd";
+import { Cookies } from "react-cookie";
+// import { useRouter } from "next/router";
 export default function Sidebar() {
+  const [open, setOpen] = useState(false);
+  const router  = useRouter()
+
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const hideModal = () => {
+    router.push('/')
+    const cookies = new Cookies();
+    cookies.remove('token');
+    setOpen(false);
+  };
+
   const pathname = usePathname();
   return (
     <div className="sidebar -dashboard">
@@ -15,14 +32,37 @@ export default function Sidebar() {
             pathname == elm.href ? "-is-active" : ""
           } `}
         >
-          <Link
-            key={i}
-            href={elm.href}
-            className="d-flex items-center text-17 lh-1 fw-500 "
-          >
-            <i className={`${elm.iconClass} mr-15`}></i>
-            {elm.text}
-          </Link>
+          {elm?.id == 8 ?  <Link
+              key={i}
+              onClick={()=>showModal()}
+              href={''}
+              className="d-flex items-center text-17 lh-1 fw-500 "
+            >
+              <i className={`${elm.iconClass} mr-15`}></i>
+              {elm.text}
+            </Link> :
+           
+            <Link
+              key={i}
+              
+              href={elm.href}
+              className="d-flex items-center text-17 lh-1 fw-500 "
+            >
+              <i className={`${elm.iconClass} mr-15`}></i>
+              {elm.text}
+          </Link>}
+          
+          <Modal
+        title="Modal"
+        open={open}
+        onOk={hideModal}
+        onCancel={hideModal}
+            okText="Ok"
+            
+        cancelText="Cancel"
+      >
+      Are you Sure you want to Logout
+      </Modal>
         </div>
       ))}
     </div>

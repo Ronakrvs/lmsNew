@@ -11,9 +11,9 @@ import Notification from "./Notifications";
 const buttons = [
   "Edit Profile",
   "Password",
-  "Social Profiles",
-  "Notifications",
-  "Close Account",
+  "Basic Info",
+  // "Notifications",
+  // "Close Account",
 ];
 
 export default function Settings() {
@@ -26,7 +26,7 @@ export default function Settings() {
           <div className="col-auto">
             <h1 className="text-30 lh-12 fw-700">Settings</h1>
             <div className="mt-10">
-              Lorem ipsum dolor sit amet, consectetur.
+              {/* Lorem ipsum dolor sit amet, consectetur. */}
             </div>
           </div>
         </div>
@@ -54,8 +54,8 @@ export default function Settings() {
                   <EditProfile activeTab={activeTab} />
                   <Password activeTab={activeTab} />
                   <SocialProfiles activeTab={activeTab} />
-                  <Notification activeTab={activeTab} />
-                  <CloseAccount activeTab={activeTab} />
+                  {/* <Notification activeTab={activeTab} />
+                  <CloseAccount activeTab={activeTab} /> */}
                 </div>
               </div>
             </div>

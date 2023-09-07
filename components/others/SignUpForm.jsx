@@ -2,7 +2,7 @@
 
 import { registerNewUser } from "@/service/user";
 import { httpClient } from "@/utils/api";
-import { message } from "antd";
+import { DatePicker, message } from "antd";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -15,10 +15,10 @@ export default function SignUpForm() {
   const [authUser, setAuthUser] = useState(null);
   const router = useRouter()
   const [formData, setFormData] = useState({
-    firstname: '',
-    lastname: '',
+    fullName: '',
+    // lastname: '',
     mobile: '',
-    profession:'',
+    dob:'',
     email: "",
     password: "",
     confirmPassword: "",
@@ -92,20 +92,20 @@ export default function SignUpForm() {
                 className="contact-form respondForm__form row y-gap-20 pt-30"
                 onSubmit={handleSubmit}
               >
-                 <div className="col-lg-6">
+                 <div className="col-lg-12">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    First Name *
+                    Full Name *
                   </label>
                   <input required type="text" name="firstname" placeholder="Enter First Name"  value={formData.firstname}
             onChange={handleChange}/>
                 </div>
-                <div className="col-lg-6">
+                {/* <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Last Name *
                   </label>
                   <input required type="text" name="lastname" placeholder="Enter Last Name"  value={formData.lastname}
             onChange={handleChange}/>
-                </div>
+                </div> */}
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                    Email *
@@ -122,10 +122,12 @@ export default function SignUpForm() {
                 </div>
                 <div className="col-lg-12">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-                    Profession *
+                    Date of Birth *
                   </label>
-                  <input required type="text" name="profession" placeholder="Enter Profession"  value={formData.profession}
-            onChange={handleChange}/>
+                  {/* <input required type="text" name="profession" placeholder="Enter Profession"  value={formData.dob} */}
+            {/* onChange={handleChange}/> */}
+                    <DatePicker required name="firstname" placeholder="First Name" onChange={handleChange} size="large" style={{width:"100%",padding:"13px 22px",borderRadius:"8px",lineHeight:"1.5"}} />
+        
                 </div>
                
                 <div className="col-lg-6">

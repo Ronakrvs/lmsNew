@@ -9,7 +9,7 @@ import Messages from "../component/Messages";
 import MyCourses from "../component/MyCourses";
 import Link from "next/link";
 import logoImg from '../../../public/assets/logo.webp'
-
+import '../../../public/assets/css/custom.css';
 export default function HeaderDashboard() {
   const [messageOpen, setMessageOpen] = useState(false);
 
@@ -108,21 +108,21 @@ export default function HeaderDashboard() {
 
                 <div className="header__logo ml-30 md:ml-20">
                   <Link data-barba href="/">
-                    <Image
-                      width={90}
-                      height={50}
+                    <img
+                      width={80}
+                      height={40}
                       className="-light-d-none"
-                      src={logoImg}
+                      src="assets/logo.webp"
                       alt="logo"
                     />
-                    <Image
+                    <img
                       width={90}
-                      height={50}
+                      height={40}
                       className="-dark-d-none"
-                      src={logoImg}
+                      src='assets/logo.webp'
                       alt="logo"
                     />
-                    DENTA <b>BEST</b>
+                   <span className="denta">DENTA</span><span className="best">BEST</span>
                   </Link>
                 </div>
               </div>

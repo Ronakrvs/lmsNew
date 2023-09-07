@@ -1,12 +1,31 @@
 "use client";
 
+import { DatePicker, Form, Input, message } from "antd";
 import Image from "next/image";
-import React, { useState } from "react";
-
+import React, { useEffect, useRef, useState } from "react";
+import '../../../public/assets/css/custom.css';
+import { useSelector } from "react-redux";
+import { getUserById, updateUser } from "@/service/user";
 export default function EditProfile({ activeTab }) {
   const [previewImage, setPreviewImage] = useState(
     "/assets/img/dashboard/edit/1.png",
+
   );
+  const formRef = useRef()
+  const sampleListData = useSelector((state) => state?.authUser);
+  const { authUser } = sampleListData;
+  useEffect(() => {
+    getUserProfile()
+  }, [])
+  
+  const getUserProfile = async () => {
+    console.log("authentication",authUser)
+    await getUserById(authUser?._id).then(({data}) => { 
+      console.log("user",data?.getProfile)
+      formRef.current.setFieldsValue(data?.getProfile)
+      console.log("user",authUser)
+    })
+  }
   const handleImageChange = (event) => {
     const file = event.target.files[0];
 
@@ -21,7 +40,19 @@ export default function EditProfile({ activeTab }) {
     }
   };
   const handleSubmit = (e) => {
-    e.preventDefault();
+    formRef.current.validateFields().then(async(value) => { 
+      console.log(value);
+try {
+  await updateUser(value, authUser?._id).then((val) => { 
+    console.log(val)
+  })
+  message.success({content: "Profile Updated successfully",key: "profile"});
+} catch (error) {
+  message.error({content:error.message,key:"1"})
+}
+     
+      
+    })
   };
   return (
     <div
@@ -90,92 +121,109 @@ export default function EditProfile({ activeTab }) {
       </div>
 
       <div className="border-top-light pt-30 mt-30">
-        <form onSubmit={handleSubmit} className="contact-form row y-gap-30">
+        <Form ref={formRef} onFinish={handleSubmit} initialValues={{}} className="contact-form row ">
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
               First Name
             </label>
-
-            <input required type="text" name="firstname" placeholder="First Name" />
+<Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="firstname" >
+              <Input required type="text"  placeholder="Enter Full Name" />
+              </Form.Item>
           </div>
-
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
               Last Name
             </label>
-
-            <input required type="text" name="lastname" placeholder="Last Name" />
+<Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="lastname" >
+              <Input required type="text"  placeholder="Enter Full Name" />
+              </Form.Item>
           </div>
-
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-              Phone
+              Date of Birth
             </label>
-
-            <input required type="text" name="phone" placeholder="Phone" />
+            <br />
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="dob" >
+           
+            <DatePicker className="inputfield" required format={'DD-MM-YYYY'} placeholder="Select DOB" size="large"  />
+            </Form.Item>
           </div>
-
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-              Birthday
+             Email
             </label>
-
-            <input required type="text" name="dob" placeholder="Birthday" />
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="email">
+            <Input required type="text"  placeholder="Enter Email" />
+            </Form.Item>
           </div>
-
+          <div className="col-md-6">
+            <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+             Contact Number
+            </label>
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="phone">
+            <Input required type="number" className="inputfield" placeholder="Enter Contact Detail"   />
+            </Form.Item>    
+      </div>
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
               Address Line 1
             </label>
-
-            <input required type="text" name="address_line1" placeholder="Address Line 1" />
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="address_line1">
+            <Input required type="text"  placeholder=" Enter Address Line 1" />
+            </Form.Item>
           </div>
 
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
               Address Line 2
             </label>
-
-            <input required type="text" name="address_line2" placeholder="Address Line 2" />
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="address_line2">
+            <Input required type="text"  placeholder=" Enter Address Line 2" />
+            </Form.Item>
+          </div>
+          <div className="col-md-6">
+            <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+              Postal Code
+            </label>
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="postal_code">
+            <Input required type="text"  placeholder="Enter Postal Code" />
+            </Form.Item>
           </div>
 
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
+              City
+            </label>
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="city">
+            <Input required type="text"  placeholder="Enter City" />
+            </Form.Item>
+          </div>
+        
+          <div className="col-md-6">
+            <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
               State
             </label>
-
-            <input required type="text" name="state" placeholder="State" />
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="state">
+            <Input required type="text"  placeholder=" Enter State" />
+            </Form.Item>
           </div>
 
           <div className="col-md-6">
             <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
               Country
             </label>
-
-            <input required type="text" name="country" placeholder="Country" />
+            <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="country">
+            <Input required type="text"  placeholder=" EnterCountry" />
+            </Form.Item>
           </div>
-          <div className="col-md-6">
-            <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-              Postal Code
-            </label>
-
-            <input required type="text" name="postal_code" placeholder="Country" />
-          </div>
-
-          <div className="col-12">
-            <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
-              Personal info
-            </label>
-
-            <textarea required placeholder="Text..." rows="7"></textarea>
-          </div>
+        
 
           <div className="col-12">
             <button className="button -md -purple-1 text-white">
               Update Profile
             </button>
           </div>
-        </form>
+        </Form>
       </div>
     </div>
   );

@@ -16,8 +16,8 @@ export const getUserById = (id) => {
   return  httpClient.get(`user/${id}`)
 }
 
-export const updateUser = (field) => {
-  return  httpClient.put(`user/update-profile`,field)
+export const updateUser = (field,id) => {
+  return  httpClient.put(`user/update-profile/${id}`,field)
 }
 export const deleteUser = (id) => {
   return  httpClient.delete(`user/${id}`)

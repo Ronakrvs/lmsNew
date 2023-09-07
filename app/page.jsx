@@ -23,7 +23,10 @@ import Preloader from "@/components/common/Preloader";
 import { useRouter } from "next/navigation";
 import { Cookies } from 'react-cookie';
 import { httpClient } from '@/utils/api';
+import { wrapper, store } from "../store/store";
+import { Provider } from "react-redux";
 import Header from '@/components/layout/headers/Header'
+import EventsOne from '@/components/events/EventsOne'
 const InstractorSeven = React.lazy(() => import('@/components/homes/instractors/InstractorSeven'));
 const BlogsTwo = React.lazy(() => import('@/components/homes/blogs/BlogsTwo'));
 const GetAppSix = React.lazy(() => import('@/components/homes/getApp/GetAppSix'));
@@ -39,7 +42,7 @@ const JoinTwo = React.lazy(() => import('@/components/homes/join/JoinTwo'));
   
 // }
 
-export default function HomePage() {
+const HomePage=(()=> {
   const router = useRouter()
   const cookies = new Cookies();
   const token = cookies.get("token");
@@ -57,6 +60,8 @@ console.log("token",token)
   return (
     
     <>
+        <Provider store={store}>
+
     <Preloader/>
     <Header/>
     
@@ -66,7 +71,8 @@ console.log("token",token)
         {/* <BrandsTwo/> */}
         <InstractorSeven/>
           <CoursesFive/>
-          <ExamFive/>
+          {/* <ExamFive/> */}
+          <EventsOne/>
           {/* <CategoriesFive/> */}
           {/* <Instructors backgroundColor={'bg-beige-1'}/> */}
           {/* <StudentsFive/> */}
@@ -81,7 +87,9 @@ console.log("token",token)
             <FooterThree/>
       
       
-    </div>
+        </div>
+        </Provider>
   </>
   );
-}
+})
+export default (HomePage);

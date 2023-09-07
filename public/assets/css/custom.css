@@ -1,0 +1,18 @@
+.denta {
+    font-size: 150%;
+    font-weight: 700;
+    color: #2e279d;
+    display: inline;
+}
+.best {
+    font-size: 150%;
+    font-weight: 700;
+    color: #b32134;
+    display: inline;
+}
+.inputfield{
+    width:100%;
+    padding:13px 22px;
+    border-radius:8px;
+    /* line-height:1.5; */
+}

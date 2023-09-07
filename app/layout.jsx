@@ -13,8 +13,9 @@ import "aos/dist/aos.css";
 
 import { useEffect } from 'react'
 import Context from '@/context/Context';
+import { Provider } from 'react-redux';
 
-
+import { wrapper, store } from "../store/store";
 
 
 
@@ -34,7 +35,9 @@ export default function RootLayout({ children }) {
       
       </head>
       <body  >
-        <Context> {children}</Context>
+      <Provider store={store}>
+          <Context> {children}</Context>
+          </Provider>
        
         </body>
     </html>

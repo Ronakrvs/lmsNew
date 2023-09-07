@@ -116,7 +116,7 @@ export default function CoursesFive({ tabBtnStyle }) {
                       },
                     }}
                   >
-                    {coursesList.map((elm, i) => (
+                    {coursesList?.map((elm, i) => (
                       <SwiperSlide key={i}>
                         <CourceCard data={elm} index={i} />
                       </SwiperSlide>
