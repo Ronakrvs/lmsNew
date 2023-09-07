@@ -5692,7 +5692,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .masthead.-type-4 .masthead__image img {
   max-width: unset;
-  width: 52vw;
+  width: 20vw;
 }
 
 @media (max-width: 991px) {

@@ -117,11 +117,11 @@ export const learningPathSix = [
 export const learningfeatures = [
   {
     id: 1,
-    title: "Hand-picked authors",
+    title: "Get learning tips our experts",
   },
   {
     id: 2,
-    title: "Easy to follow curriculum",
+    title: "Organize your study",
   },
   {
     id: 3,

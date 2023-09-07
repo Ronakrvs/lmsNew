@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import CourceCard from "../courseCards/CourseCardFive";
 import { coursesData } from "@/data/courses";
 import { courseStates } from "@/data/courses";
-import { Navigation, Pagination } from "swiper";
+import { Navigation, Pagination ,Autoplay} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import {getAllCoursesList} from '../../../service/courses'
 export default function CoursesFive({ tabBtnStyle }) {
@@ -36,12 +36,12 @@ export default function CoursesFive({ tabBtnStyle }) {
     console.log("Loading")
     await getAllCoursesList().then(({data}) => {
       console.log("Loading",data)
-      setCoursesList(data?.courses)
+      setCoursesList(data?.data)
     })
   }
   
   return (
-    <section className="layout-pt-lg layout-pb-md">
+    <section className=" layout-pb-md">
       <div className="container">
         <div className="tabs -pills js-tabs">
           <div className="row y-gap-20 justify-between items-end">
@@ -92,7 +92,11 @@ export default function CoursesFive({ tabBtnStyle }) {
                 {showSlider && (
                   <Swiper
                     // {...setting}
-                    modules={[Navigation, Pagination]}
+                    autoplay={{
+                      delay: 2500,
+                      disableOnInteraction: false,
+                    }}
+                    modules={[Autoplay, Pagination, Navigation]}
                     className="overflow-hidden"
                     navigation={{
                       nextEl: ".course-five-right",

@@ -1,14 +1,21 @@
 export const slidesData = [
   {
     id: 1,
-    bgImage: "/assets/img/home-2/mainSlider/bg.png",
+    bgimage: "/assets/img/misc/person.png",
+    bgbackimage: "/assets/img/misc/sliderbg.png",
+    title: `preparation courses`,
+    herotitle:"INBDE",
+    description: "Your Road to success in cracking Inbde",
+    
   },
   {
     id: 2,
-    bgImage: "/assets/img/home-2/mainSlider/bg.png",
+    bgimage: "/assets/img/misc/person_2.png",
+    bgbackimage: "/assets/img/misc/sliderbg.png",
+    title: "Test Series",
+    herotitle: "Master",
+    description: "Organize your Studies like never before",
+    
   },
-  {
-    id: 3,
-    bgImage: "/assets/img/home-2/mainSlider/bg.png",
-  },
+  
 ];

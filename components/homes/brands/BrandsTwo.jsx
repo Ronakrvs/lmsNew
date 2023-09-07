@@ -5,6 +5,7 @@ export default function BrandsTwo() {
   return (
     <section className="layout-pt-sm layout-pb-sm bg-light-6">
       <div className="container">
+        
         <div className="row y-gap-30 justify-between sm:justify-start items-center">
           {brands.map((elm, i) => (
             <div key={i} className="col-lg-auto col-md-2 col-sm-3 col-4">

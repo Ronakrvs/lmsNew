@@ -27,6 +27,9 @@ import { wrapper, store } from "../store/store";
 import { Provider } from "react-redux";
 import Header from '@/components/layout/headers/Header'
 import EventsOne from '@/components/events/EventsOne'
+import HeroTwo from '@/components/homes/heros/HeroTwo'
+import CustomHeroHeader from '@/components/homes/heros/CustomHeroHeader'
+import LearningPathsSix from '@/components/homes/LearningPath/LearningPathsSix'
 const InstractorSeven = React.lazy(() => import('@/components/homes/instractors/InstractorSeven'));
 const BlogsTwo = React.lazy(() => import('@/components/homes/blogs/BlogsTwo'));
 const GetAppSix = React.lazy(() => import('@/components/homes/getApp/GetAppSix'));
@@ -66,13 +69,15 @@ console.log("token",token)
     <Header/>
     
     <div className="content-wrapper  js-content-wrapper overflow-hidden">
-    
-       <HeroFive/>
+    <CustomHeroHeader />
+         
+          {/* <HeroTwo/> */}
         {/* <BrandsTwo/> */}
-        <InstractorSeven/>
+          {/* <InstractorSeven/> */}
+          <LearningPathsSix/>
           <CoursesFive/>
-          {/* <ExamFive/> */}
-          <EventsOne/>
+          <ExamFive/>
+          {/* <EventsOne/> */}
           {/* <CategoriesFive/> */}
           {/* <Instructors backgroundColor={'bg-beige-1'}/> */}
           {/* <StudentsFive/> */}
@@ -83,7 +88,7 @@ console.log("token",token)
         <BlogsTwo />
         {!newsletter && <JoinTwo />}
           {/* <RecomentationFive/> */}
-          <GetAppSix/>
+          {/* <GetAppSix/> */}
             <FooterThree/>
       
       

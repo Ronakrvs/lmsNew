@@ -1,28 +1,30 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-export default function HeroFive() {
+export default function HeroFive({data}) {
   return (
-    <section className="masthead -type-4">
+    <section className="masthead -type-4"
+      // style={{ backgroundImage: `url('/assets/img/patter.jpg')` }}
+    >
       <div className="container">
         <div className="row y-gap-50 justify-center items-center">
           <div
             className="col-xl-5 col-lg-6"
-            data-aos="fade-up"
+            data-aos="fade-right"
             data-aos-delay="500"
           >
             <div className="masthead__content">
               <h1 className="masthead__title">
-                Master the Skills to Drive your{" "}
-                <span className="text-purple-1 underline">Career</span>
+                <div>{data?.herotitle} </div>
+               {data?.title}
+                {/* <span className="text-purple-1 underline">Career</span> */}
               </h1>
-              <p className="masthead__text pt-15">
-                Free online courses from the world’s leading experts.
-                <br className="md:d-none" />
-                Join 17 million learners today
+              <p className="masthead__text pt-15" >
+               {data?.description}
               </p>
               <div className="masthead__button row x-gap-20 y-gap-20 pt-30">
-                <div className="col-auto">
+                <div className="col-auto"  data-aos="fade-down"
+            data-aos-delay="500">
                   <Link
                     href="/signup"
                     className="button -md -purple-1 -rounded text-white"
@@ -30,7 +32,8 @@ export default function HeroFive() {
                     Join For Free
                   </Link>
                 </div>
-                <div className="col-auto">
+                <div className="col-auto"  data-aos="fade-up"
+            data-aos-delay="500">
                   <Link
                     href="/courses-list-1"
                     className="button -md -outline-dark-1 -rounded text-dark-1"
@@ -44,14 +47,18 @@ export default function HeroFive() {
 
           <div
             className="col-xl-6 col-lg-6"
-            data-aos="fade-up"
-            data-aos-delay="750"
+            data-aos="fade-left"
+            data-aos-delay="500"
           >
-            <div className="masthead__image">
-              <Image
-                width={700}
-                height={410}
-                src="/assets/img/home-5/masthead/bg.svg"
+            <div className="masthead__image" style={{backgroundImage:`url(${data?.bgbackimage})`,backgroundPosition: "center",
+    width: "auto",
+    height: "auto",
+    backgroundRepeat: "no-repeat",textAlign:"center"}} data-aos="fade-left"
+    data-aos-delay="750">
+              <img
+                // width={700}
+                // height={210}
+                src={data?.bgimage}
                 alt="image"
               />
             </div>

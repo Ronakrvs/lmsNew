@@ -42,14 +42,14 @@ export default function ExamFive({ tabBtnStyle }) {
   
   return (
   <>
-    { examList.length >0 && <section className="layout-pt-lg layout-pb-md">
+    { examList.length >0 && <section className=" layout-pb-md">
       <div className="container">
         <div className="tabs -pills js-tabs">
           <div className="row y-gap-20 justify-between items-end">
             <div className="col-auto">
               <div className="sectionTitle ">
                 <h2 className="sectionTitle__title ">
-                  Explore Featured Exams
+                   Exams We Provide
                 </h2>
 
                 <p className="sectionTitle__text ">

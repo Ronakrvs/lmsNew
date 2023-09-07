@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Star from "../../common/Star";
+import Buttons from "@/components/uiElements/Buttons";
 export default function CourceCardFive({ data, index }) {
   const [rating, setRating] = useState([]);
   useEffect(() => {
@@ -94,7 +95,7 @@ export default function CourceCardFive({ data, index }) {
             </div>
 
             <div className="coursesCard-footer">
-              <div className="coursesCard-footer__author">
+              {/* <div className="coursesCard-footer__author">
                 <img
                   width={30}
                   height={30}
@@ -102,7 +103,7 @@ export default function CourceCardFive({ data, index }) {
                   alt="image"
                 />
                 <div>{data.authorName}</div>
-              </div>
+              </div> */}
 
               <div className="coursesCard-footer__price">
                 {data.paid ? (
@@ -117,6 +118,11 @@ export default function CourceCardFive({ data, index }) {
                   </>
                 )}
               </div>
+              <div className="col-auto">
+              <button className="button -sm -outline-purple-1 text-purple-1">
+               Buy
+              </button>
+            </div>
             </div>
           </div>
         </div>

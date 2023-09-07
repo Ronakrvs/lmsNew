@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { learningPathFive } from "../../data/learningPaths";
+import LogoName from "./logoName";
 export default function LearningCommon() {
   return (
     <section className="layout-pt-lg layout-pb-lg">
@@ -8,12 +9,10 @@ export default function LearningCommon() {
         <div className="row justify-center text-center">
           <div className="col-auto">
             <div className="sectionTitle ">
-              <h2 className="sectionTitle__title ">
-                Start your Learning Journey Today!
-              </h2>
+              <h2 class="cta-five__title">Start learning with  <LogoName/> community</h2>
 
               <p className="sectionTitle__text ">
-                Lorem ipsum dolor sit amet, consectetur.
+              evaluate your preperations alongside students 
               </p>
             </div>
           </div>

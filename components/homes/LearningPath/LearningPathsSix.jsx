@@ -1,23 +1,24 @@
 import React from "react";
 import { learningfeatures } from "../../../data/learningPaths";
 import Image from "next/image";
+import LogoName from "@/components/common/logoName";
 export default function LearningPathsSix() {
   return (
-    <section className="layout-pt-lg layout-pb-lg">
+    <section className="layout-pb-lg">
       <div className="container">
         <div className="row y-gap-30 justify-between items-center">
           <div className="col-xl-5 col-lg-6 col-md-9 lg:order-2">
             <h3 className="text-45 md:text-30 lh-12">
-              <span className="text-purple-1">Learn</span> new skills when
-              <br className="lg:d-none" /> and where you like.
+              <span className="text-dark-1">Welcome to</span> 
+              <br className="lg:d-none" /> <LogoName/>
             </h3>
             <p className="mt-20">
-              Use the list below to bring attention to your product’s key
-              <br className="lg:d-none" /> differentiator.
+            The dentabest is an initiative to help students clear National Boards Dental Examinations with ease. Till date, The dentabest providing advanced mock tests and resources to help you in INBDE preparation. 
+              <br className="lg:d-none" /> .
             </p>
             <div className="d-inline-block mt-30">
               <a href="#" className="button -md -dark-1 text-white">
-                Join Free
+               Start Learning
               </a>
             </div>
           </div>
@@ -39,12 +40,12 @@ export default function LearningPathsSix() {
                 </div>
               </div>
               <div className="-el-2">
-                <Image
+                <img
                   width={580}
                   height={670}
                   style={{ width: "100%", height: "100%" }}
                   className="w-1/1"
-                  src="/assets/img/home-6/learn/1.png"
+                  src='https://educrat-nextjs.vercel.app/_next/image?url=%2Fassets%2Fimg%2Fhome-6%2Flearn%2F1.png&w=640&q=75'
                   alt="image"
                 />
               </div>

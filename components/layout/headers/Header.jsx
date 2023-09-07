@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { isEmpty } from "lodash";
 import { sidebarItems } from "@/data/dashBoardSidebar";
 import { menuList } from "@/data/menu";
+import LogoName from "@/components/common/logoName";
 
 export default function Header() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
@@ -69,7 +70,7 @@ export default function Header() {
                       src='/assets/logo.webp'
                       alt="logo"
                     />
-                    DENTA <b>BEST</b>
+                   <LogoName/>
                   </Link>
               </div>
 
