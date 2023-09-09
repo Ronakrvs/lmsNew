@@ -12,6 +12,8 @@ import CategoriesFive from '@/components/homes/categories/CategoriesFive'
 import StudentsFive from '@/components/homes/students/StudentsFive'
 
 import Pricing from '@/components/homes/pricing/Pricing'
+import NoSSR from 'react-no-ssr';
+
 
 
 import Preloader from "@/components/common/Preloader";
@@ -22,11 +24,13 @@ import { wrapper, store } from "../store/store";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import Header from '@/components/layout/headers/Header'
 import EventsOne from '@/components/events/EventsOne'
-import HeroTwo from '@/components/homes/heros/HeroTwo'
+// import HeroTwo from '@/components/homes/heros/HeroTwo'
 import { getAuthUser } from '@/components/others/LoginForm'
 import { setUserAuthInfo } from '@/store/actions/userAction'
 import { message } from 'antd'
-
+import FindLearningPath from '@/components/homes/FindLearningPath'
+import HeaderTwo from '@/components/layout/headers/HeaderTwo'
+import HeroTwo from '@/components/homes/heros/HeroTwo'
 const CustomHeroHeader = React.lazy(() => import('@/components/homes/heros/CustomHeroHeader'));
 const LearningPathFive = React.lazy(() => import('@/components/common/LearningCommon'));
 const LearningPathsSix = React.lazy(() => import('@/components/homes/LearningPath/LearningPathsSix'));
@@ -88,15 +92,17 @@ console.log("token",token)
   return (
     
     <>
+      <NoSSR loading={<Preloader/>}>
         <Provider store={store}>
 
-    <Preloader/>
-    <Header/>
     
-    <div className="content-wrapper  js-content-wrapper overflow-hidden">
+    {/* <Header/> */}
+    
+          <div className="content-wrapper  js-content-wrapper overflow-hidden">
+          {/* <HeroTwo/> */}
     <CustomHeroHeader />
          
-          {/* <HeroTwo/> */}
+          <HeaderTwo/>
         {/* <BrandsTwo/> */}
           {/* <InstractorSeven/> */}
           <LearningPathsSix/>
@@ -107,7 +113,8 @@ console.log("token",token)
           {/* <Instructors backgroundColor={'bg-beige-1'}/> */}
           {/* <StudentsFive/> */}
           <LearningPathFive/>
-          <Pricing/>
+            <Pricing />
+            <FindLearningPath/>
           {/* <GetAppFive/> */}
         {/* <BlogsFive/> */}
         <BlogsTwo />
@@ -119,6 +126,7 @@ console.log("token",token)
       
         </div>
         </Provider>
+        </NoSSR>
   </>
   );
 })

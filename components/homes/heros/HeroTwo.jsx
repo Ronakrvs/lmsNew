@@ -11,6 +11,7 @@ import React from "react";
 import { featureTwo } from "../../../data/features";
 import { slidesData } from "../../../data/hero";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 export default function HeroTwo() {
   const router = useRouter();
   const [showSlider, setShowSlider] = useState(false);
@@ -19,8 +20,8 @@ export default function HeroTwo() {
     setShowSlider(true);
   }, []);
   return (
-    <section className="mainSlider -type-1 js-mainSlider customizedHeroBackground">
-      <div className="swiper-wrapper-two">
+    <section className="mainSlider -type-1 js-mainSlider customizedHeroBackground"   style={{ backgroundImage: `url('/assets/img/newui/background.png')`,backgroundColor:"#0D1736",height:"auto",minHeight:"95vh" }}>
+      <div className="swiper-wrapper-two" style={{top:50}}>
         {showSlider && (
           <Swiper
             // {...setting}
@@ -48,14 +49,93 @@ export default function HeroTwo() {
             }}
             speed={1200}
           >
-            {slidesData.map((item, i) => (
+            {slidesData.map((data, i) => (
               <SwiperSlide key={i}>
-                <div className="swiper-slide hightFull">
-                  <div className="mainSlider__bg">
+                <div className="swiper-slide " >
+                  <div className="">
                     <div
                       className="bg-image js-lazy customedBg"
-                      style={{ backgroundImage: `url(${item.bgImage})` }}
-                    ></div>
+                      // style={{ backgroundImage: `url(${item.bgImage})` }}
+                    >
+                       {/* <div
+            className="col-xl-10 col-lg-10"
+            data-aos="fade-left"
+            data-aos-delay="500"
+          >
+            <div className="masthead__image" style={{backgroundImage:`url(${item?.bgbackimage})`,backgroundPosition: "right",
+    width: "auto",
+    height: "auto",
+    backgroundRepeat: "no-repeat",textAlign:"right"}} data-aos="fade-left"
+    data-aos-delay="750">
+              <img
+                // width={700}
+                // height={210}
+                src={item?.bgimage}
+                alt="image"
+              />
+            </div>
+          </div> */}
+                      
+                        <div className="container">
+        <div className="row y-gap-50 justify-center items-center">
+          <div
+            className="col-xl-5 col-lg-6"
+            data-aos="fade-right"
+            data-aos-delay="500"
+          >
+            <div className="masthead__content">
+              <h1 className="masthead__title text-white">
+                <div>{data?.herotitle} </div>
+               {data?.title}
+                {/* <span className="text-purple-1 underline">Career</span> */}
+              </h1>
+              <p className="masthead__text pt-15 text-white" >
+               {data?.description}
+              </p>
+              <div className="masthead__button row x-gap-20 y-gap-20 pt-30">
+                <div className="col-auto"  data-aos="fade-down"
+            data-aos-delay="500">
+                  <Link
+                    href="/signup"
+                    className="button -md -purple-1 -rounded text-white"
+                  >
+                    Join For Free
+                  </Link>
+                </div>
+                <div className="col-auto"  data-aos="fade-up"
+            data-aos-delay="500">
+                  <Link
+                    href="/courses-list-1"
+                    className="button -md -outline-dark-1 -rounded text-dark-1"
+                  >
+                    Find Courses
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="col-xl-6 col-lg-6"
+            data-aos="fade-left"
+            data-aos-delay="500"
+          >
+            <div className="masthead__image" style={{backgroundImage:`url(${data?.bgbackimage})`,backgroundPosition: "center",
+    width: "auto",
+    height: "auto",
+    backgroundRepeat: "no-repeat",textAlign:"center"}} data-aos="fade-left"
+    data-aos-delay="750">
+              <img
+                // width={700}
+                // height={210}
+                src={data?.bgimage}
+                alt="image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -65,56 +145,7 @@ export default function HeroTwo() {
         )}
       </div>
 
-      <div className="container">
-        <div className="row justify-center text-center">
-          <div className="col-xl-6 col-lg-8">
-            <div
-              className="mainSlider__content"
-              data-aos="fade-up"
-              data-aos-delay="500"
-            >
-              <h1 className="mainSlider__title text-white">
-                Learn Your Way With Educrat To{" "}
-                <span className="text-green-1 underline">Web Design</span>
-              </h1>
-
-              <p className="mainSlider__text text-white">
-                More than 6.500 online courses
-              </p>
-
-              <div className="mainSlider__form">
-                <input
-                  required
-                  type="text"
-                  placeholder="What do you want to learn today?"
-                />
-
-                <button
-                  className="button -md -purple-1 text-white"
-                  onClick={() => router.push("/courses-list-1")}
-                >
-                  <i className="icon icon-search mr-15"></i>
-                  Search
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row y-gap-20 justify-center mainSlider__items">
-          {featureTwo.map((elm, i) => (
-            <div key={i} className="col-xl-3 col-md-4 col-sm-6">
-              <div className="mainSlider-item text-center">
-                <Image width={50} height={50} src={elm.imgSrc} alt="icon" />
-                <h4 className="text-20 fw-500 lh-18 text-white mt-8">
-                  {elm.title}
-                </h4>
-                <p className="text-15 text-white">{elm.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    
 
       <button className="swiper-prev hero-slider-prev button -white-20 text-white size-60 rounded-full d-flex justify-center items-center js-prev">
         <i className="icon icon-arrow-left text-24"></i>

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import CourceCard from "../courseCards/CourseCardFive";
+import ExamCard from "../examCards/ExamCardFive";
 import { coursesData } from "@/data/courses";
 import { courseStates } from "@/data/courses";
 import { Navigation, Pagination } from "swiper";
@@ -45,16 +45,16 @@ export default function ExamFive({ tabBtnStyle }) {
     { examList.length >0 && <section className=" layout-pb-md">
       <div className="container">
         <div className="tabs -pills js-tabs">
-          <div className="row y-gap-20 justify-between items-end">
+          <div className="row justify-center text-center">
             <div className="col-auto">
               <div className="sectionTitle ">
-                <h2 className="sectionTitle__title ">
-                   Exams We Provide
+                <h2 className="" style={{fontSize:"50px", color:"#0D1736"}}>
+                   <b style={{color:"#0AA0DF"}}>Exams</b> We Provide
                 </h2>
 
-                <p className="sectionTitle__text ">
+                {/* <p className="sectionTitle__text ">
                   10,000+ unique online Exams listed
-                </p>
+                </p> */}
               </div>
             </div>
 
@@ -119,7 +119,7 @@ export default function ExamFive({ tabBtnStyle }) {
                   >
                     {examList.map((elm, i) => (
                       <SwiperSlide key={i}>
-                        <CourceCard data={elm} index={i} />
+                        <ExamCard data={elm} index={i} />
                       </SwiperSlide>
                     ))}
                   </Swiper>

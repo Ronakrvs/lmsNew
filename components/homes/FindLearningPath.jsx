@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import LogoName from "../common/logoName";
 
 export default function FindLearningPath() {
   return (
@@ -8,7 +9,7 @@ export default function FindLearningPath() {
         <div
           data-parallax-target
           className="bg-image js-lazy"
-          style={{ backgroundImage: "url(/assets/img/home-2/cta/bg.png)" }}
+          style={{ backgroundImage: "url(/assets/img/ctamap.png)" ,backgroundColor:"#2da397"}}
         ></div>
       </div>
 
@@ -16,7 +17,7 @@ export default function FindLearningPath() {
         <div className="row justify-center text-center">
           <div className="col-auto">
             <h2 className="text-45 md:text-30 text-white">
-              Find the right learning path for you
+           Start learning with <br/><LogoName/> community
             </h2>
           </div>
 
@@ -24,8 +25,7 @@ export default function FindLearningPath() {
 
           <div className="col-lg-4 col-md-8">
             <p className="text-white mt-15">
-              Match your goals to our programs, explore your options and map out
-              your path to success.
+            evaluate your preperations alongside students <br/>all across the world
             </p>
           </div>
 

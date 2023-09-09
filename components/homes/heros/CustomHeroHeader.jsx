@@ -39,7 +39,7 @@ const CustomHeroHeader=()=> {
               prevEl: ".hero-slider-prev",
             }}
             autoplay={{
-                delay: 2500,
+                delay: 5000,
                 disableOnInteraction: false,
               }}
             spaceBetween={0}
@@ -58,7 +58,7 @@ const CustomHeroHeader=()=> {
                 slidesPerView: 1,
               },
             }}
-            speed={1200}
+            speed={4000}
           >
             {slidesData.map((item, i) => (
               <SwiperSlide key={i}>

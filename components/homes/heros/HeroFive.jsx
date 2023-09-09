@@ -10,8 +10,8 @@ export default function HeroFive({ heroHeader }) {
   }, [heroHeader])
   
   return (
-    <section className="masthead -type-4"
-      // style={{ backgroundImage: `url('/assets/img/patter.jpg')` }}
+    <section className="masthead -type-4 mt-2"
+      style={{ backgroundImage: `url('/assets/img/newui/background.png')`,backgroundColor:"#0D1736" }}
     >
       <div className="container">
         <div className="row y-gap-50 justify-center items-center">
@@ -21,12 +21,12 @@ export default function HeroFive({ heroHeader }) {
             data-aos-delay="500"
           >
             <div className="masthead__content">
-              <h1 className="masthead__title">
+              <h1 className="masthead__title text-white">
                 <div>{data?.herotitle} </div>
                {data?.title}
                 {/* <span className="text-purple-1 underline">Career</span> */}
               </h1>
-              <p className="masthead__text pt-15" >
+              <p className="masthead__text pt-15 text-white" >
                {data?.description}
               </p>
               <div className="masthead__button row x-gap-20 y-gap-20 pt-30">
@@ -34,7 +34,7 @@ export default function HeroFive({ heroHeader }) {
             data-aos-delay="500">
                   <Link
                     href="/signup"
-                    className="button -md -purple-1 -rounded text-white"
+                    className="button -md -blue-8 -rounded text-white"
                   >
                     Join For Free
                   </Link>

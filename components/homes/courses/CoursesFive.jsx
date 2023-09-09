@@ -44,17 +44,12 @@ export default function CoursesFive({ tabBtnStyle }) {
     <section className=" layout-pb-md">
       <div className="container">
         <div className="tabs -pills js-tabs">
-          <div className="row y-gap-20 justify-between items-end">
+          <div className="row justify-center text-center">
             <div className="col-auto">
               <div className="sectionTitle ">
-                <h2 className="sectionTitle__title ">
-                  Explore Featured Courses
-                </h2>
-
-                <p className="sectionTitle__text ">
-                  10,000+ unique online course list designs
-                </p>
-              </div>
+              <h2 className="" style={{fontSize:"50px", color:"#0D1736"}}>
+                   <b style={{color:"#0AA0DF"}}>Explore</b> Exam Courses
+                </h2>              </div>
             </div>
 
             {/* <div className="col-auto">

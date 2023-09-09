@@ -3,49 +3,63 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import Star from "../../common/Star";
-import Buttons from "@/components/uiElements/Buttons";
-export default function CourceCardFive({ data, index }) {
+export default function CourceCard({ data, index }) {
   const [rating, setRating] = useState([]);
   useEffect(() => {
     for (let i = Math.round(data.rating); i >= 1; i--) {
       setRating((pre) => [...pre, "star"]);
     }
   }, []);
+
   return (
-    <div className="swiper-slide" style={{ height: "fit-content" }}>
+    <div className="col-lg-3 col-md-6">
       <div>
-        <div
-          className="coursesCard -type-1 "
-          style={{ border: "none", padding: 0 }}
-        >
+        <div className="coursesCard -type-1">
           <div className="relative">
-            <div className="coursesCard__image overflow-hidden rounded-8" >
-              <img
+            <div className="coursesCard__image overflow-hidden rounded-8">
+              <Image
                 width={500}
                 height={500}
-                style={{ height: "100%", width: "100%",minHeight:"200px" }}
+                style={{ height: "100%", width: "100%" }}
                 className="w-1/1"
-                src={data.image}
+                src={data.imageSrc}
                 alt="image"
               />
               <div className="coursesCard__image_overlay rounded-8"></div>
             </div>
+            {data.popular && (
+              <div className="d-flex justify-between py-10 px-10 absolute-full-center z-3">
+                <div>
+                  <div className="px-15 rounded-200 bg-purple-1">
+                    <span className="text-11 lh-1 uppercase fw-500 text-white">
+                      Popular
+                    </span>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="px-15 rounded-200 bg-green-1">
+                    <span className="text-11 lh-1 uppercase fw-500 text-dark-1">
+                      Best sellers
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
             <div className="d-flex justify-between py-10 px-10 absolute-full-center z-3"></div>
           </div>
 
           <div className="h-100 pt-15">
             <div className="d-flex items-center">
-              {/* <div className="text-14 lh-1 text-yellow-1 mr-10">
-                {data.totalRating}
-              </div> */}
-              {/* <div className="d-flex x-gap-5 items-center">
+              <div className="text-14 lh-1 text-yellow-1 mr-10">
+                {data.rating}
+              </div>
+              <div className="d-flex x-gap-5 items-center">
                 {rating.map((itm, i) => (
                   <div key={i} className="icon-star text-9 text-yellow-1"></div>
                 ))}
-              </div> */}
-              <Star star={data?.totalRating} />
-              <div className="text-13 lh-1 ml-10">({data.totalRating})</div>
+              </div>
+              <div className="text-13 lh-1 ml-10">({data.ratingCount})</div>
             </div>
 
             <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
@@ -57,10 +71,10 @@ export default function CourceCardFive({ data, index }) {
             <div className="d-flex x-gap-10 items-center pt-10">
               <div className="d-flex items-center">
                 <div className="mr-8">
-                  <img
+                  <Image
                     width={16}
                     height={17}
-                    src={data?.image}
+                    src="assets/img/coursesCards/icons/1.svg"
                     alt="icon"
                   />
                 </div>
@@ -69,47 +83,47 @@ export default function CourceCardFive({ data, index }) {
 
               <div className="d-flex items-center">
                 <div className="mr-8">
-                  <img
+                  <Image
                     width={16}
                     height={17}
-                    src={data?.image}
+                    src="assets/img/coursesCards/icons/2.svg"
                     alt="icon"
                   />
                 </div>
                 <div className="text-14 lh-1">{`${Math.floor(
-                  data.totalHours,
-                )}h ${Math.floor(data.totalHours % 60)}m`}</div>
+                  data.duration / 60,
+                )}h ${Math.floor(data.duration % 60)}m`}</div>
               </div>
 
-              {/* <div className="d-flex items-center">
+              <div className="d-flex items-center">
                 <div className="mr-8">
-                  <img
+                  <Image
                     width={16}
                     height={17}
-                    src={data?.image}
+                    src="assets/img/coursesCards/icons/3.svg"
                     alt="icon"
                   />
                 </div>
                 <div className="text-14 lh-1">{data.level}</div>
-              </div> */}
+              </div>
             </div>
 
             <div className="coursesCard-footer">
-              {/* <div className="coursesCard-footer__author">
-                <img
+              <div className="coursesCard-footer__author">
+                <Image
                   width={30}
                   height={30}
-                  src={data.image}
+                  src={data.authorImageSrc}
                   alt="image"
                 />
                 <div>{data.authorName}</div>
-              </div> */}
+              </div>
 
               <div className="coursesCard-footer__price">
                 {data.paid ? (
                   <>
-                    <div></div>
-                    <div>${data.price}</div>
+                    <div>${data.originalPrice}</div>
+                    <div>${data.discountedPrice}</div>
                   </>
                 ) : (
                   <>
@@ -118,11 +132,6 @@ export default function CourceCardFive({ data, index }) {
                   </>
                 )}
               </div>
-              <div className="col-auto">
-              <button className="button -sm -outline-purple-1 text-purple-1">
-               Buy
-              </button>
-            </div>
             </div>
           </div>
         </div>

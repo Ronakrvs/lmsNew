@@ -1,7 +1,8 @@
 "use client";
 
 
-import { DatePicker, Input ,Form, Switch} from "antd";
+import { getUserById, updateUser } from "@/service/user";
+import { DatePicker, Input ,Form, Switch, message} from "antd";
 import React, { useRef,useEffect } from "react";
 import { useSelector } from "react-redux";
 
@@ -62,7 +63,7 @@ try {
             </label>
           <br />
           <Form.Item className="text-16 lh-1 fw-500 text-dark-1 mb-10" name="graduation" >
-            <DatePicker required className="inputfield" placeholder="Enter First Name" size="large"  />
+            <DatePicker required picker={'year'} className="inputfield" placeholder="Enter Graduation Year" size="large"  />
             </Form.Item>
         </div>
        
