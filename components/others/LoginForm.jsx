@@ -7,11 +7,13 @@ import {Checkbox, message} from 'antd'
 import {Cookies} from "react-cookie";
 import { httpClient } from "@/utils/api";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setUserAuthInfo } from "@/store/actions/userAction";
 export default function LoginForm() {
-  const [authUser, setAuthUser] = useState(null);
+  // const [authUser, setAuthUser] = useState(null);
   const dispatch = useDispatch()
+  const sampleListData = useSelector((state) => state?.authUser);
+  const { authUser } = sampleListData;
   const [loading, setLoading] = useState(false)
   const router = useRouter()
   const [formData, setFormData] = useState({
@@ -23,9 +25,10 @@ export default function LoginForm() {
     const cookies = new Cookies();
     const token = cookies.get("token");
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-console.log("token",token)
+// console.log("token",token)
     if (token) {
       // router.push('/')'
+      console.log("token",token)
       getAuthUser()
     } 
   
@@ -38,7 +41,7 @@ console.log("token",token)
     httpClient.get("user/auth/me").then(({data}) => {
       if (data) {
        setLoading(false)
-        setAuthUser(data);
+        // setAuthUser(data);
       
         router.push('/dshb-courses')
       } else {
@@ -59,7 +62,7 @@ console.log("token",token)
           httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
           const cookies = new Cookies();
           cookies.set('token', data.token);
-          setAuthUser(data);
+          // setAuthUser(data);
           dispatch(setUserAuthInfo(data))
           router.push('/dshb-courses')
           // getAuthUser(data);

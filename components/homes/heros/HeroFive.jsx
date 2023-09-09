@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-export default function HeroFive({data}) {
+export default function HeroFive({ heroHeader }) {
+  const [data,setData] = useState({})
+  useEffect(() => {
+    
+  setData(heroHeader)
+  
+  }, [heroHeader])
+  
   return (
     <section className="masthead -type-4"
       // style={{ backgroundImage: `url('/assets/img/patter.jpg')` }}

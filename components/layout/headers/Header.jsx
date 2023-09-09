@@ -7,6 +7,7 @@ import Menu from "../component/Menu";
 import MobileMenu from "../component/MobileMenu";
 import Image from "next/image";
 import Link from "next/link";
+import {Modal} from 'antd'
 import logoImg from '../../../public/assets/logo.webp'
 import { getSampleData } from "@/store/actions/sampleAction";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,14 +15,31 @@ import { isEmpty } from "lodash";
 import { sidebarItems } from "@/data/dashBoardSidebar";
 import { menuList } from "@/data/menu";
 import LogoName from "@/components/common/logoName";
+import { Cookies } from "react-cookie";
+import { resetState } from "@/store/actions/commonAction";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
   const [isOnProfile, setIsOnProfile] = useState(false);
+  const [open, setOpen] = useState(false);
+  const router = useRouter()
   const dispatch = useDispatch();
   const sampleListData = useSelector((state) => state?.authUser);
   const { authUser } = sampleListData;
 
+  const showModal = () => {
+    setOpen(true);
+  };
+
+  const hideModal = () => {
+   
+    const cookies = new Cookies();
+    cookies.remove('token'); 
+    dispatch(resetState());
+    setOpen(false);
+    router.push('/login')
+  };
   console.log(authUser);
  
   const handleSubmit = (e) => {
@@ -144,6 +162,7 @@ export default function Header() {
                     <img
                       width={50}
                       height={50}
+                      style={{maxWidth:50}}
                       className="size-50"
                       src={authUser?.user_image}
                       alt="image"
@@ -163,13 +182,22 @@ export default function Header() {
                               className={`sidebar__item ${elm.id == 6 ? "-is-active -dark-bg-dark-2" : ""
                                 }`}
                             >
-                              <Link
-                                href={elm.href}
-                                className="d-flex items-center text-17 lh-1 fw-500 "
-                              >
-                                <i className={elm.iconClass}></i>
-                                {elm.text}
-                              </Link>
+                              {elm.id !== 4 ?
+                                <Link
+                                  href={elm.href}
+                                  className="d-flex items-center text-17 lh-1 fw-500 "
+                                >
+                                  <i className={elm.iconClass}></i>
+                                  {elm.text}
+                                </Link> :
+                                <Link
+                                onClick={()=>showModal()}
+                                href={''}
+                                  className="d-flex items-center text-17 lh-1 fw-500 "
+                                >
+                                  <i className={elm.iconClass}></i>
+                                  {elm.text}
+                                </Link>}
                             </div>
                           ))}
                            
@@ -179,7 +207,18 @@ export default function Header() {
                   </div>
                 </div>}
               </div>
-            </div>
+          </div>
+          <Modal
+        title="Modal"
+        open={open}
+        onOk={hideModal}
+        onCancel={hideModal}
+            okText="Ok"
+            
+        cancelText="Cancel"
+      >
+      Are you Sure you want to Logout
+      </Modal>
             </div>
           </div>
        

@@ -2,7 +2,7 @@
 const nextConfig = {
     distDir: "build",
     // trailingSlash: true,
-    // output: 'export',
+    output: 'export',
     // loader: 'default',
   // ignoreBuildErrors: true,
   eslint: {

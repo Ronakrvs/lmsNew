@@ -142,7 +142,7 @@ export default function CourseListFour() {
   const getAllCourses = async() => {
     try {
       await getAllCoursesList().then(({data}) => {
-        setAllCourses(data?.courses)
+        setAllCourses(data?.data)
       })
 
     } catch (error) {
@@ -231,7 +231,7 @@ export default function CourseListFour() {
               <div className="text-14 lh-12">
                 Showing{" "}
                 <span className="text-dark-1 fw-500">
-                  {allCourses.length}
+                  {allCourses?.length}
                 </span>{" "}
                 total results
               </div>
@@ -718,7 +718,7 @@ export default function CourseListFour() {
 
           <div className="row y-gap-30">
             {allCourses
-              .slice((pageNumber - 1) * 12, pageNumber * 12)
+              ?.slice((pageNumber - 1) * 12, pageNumber * 12)
               .map((elm, i) => (
                 <div key={i} className="col-xl-3 col-lg-4 col-md-6">
                   <div className="coursesCard -type-1 ">

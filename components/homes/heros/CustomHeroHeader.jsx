@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Navigation, Pagination } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import "swiper/css";
@@ -33,7 +33,7 @@ const CustomHeroHeader=()=> {
           <Swiper
             // {...setting}
 
-            modules={[Navigation, Pagination]}
+            modules={[Autoplay,Navigation, Pagination]}
             navigation={{
               nextEl: ".hero-slider-next",
               prevEl: ".hero-slider-prev",
@@ -63,7 +63,7 @@ const CustomHeroHeader=()=> {
             {slidesData.map((item, i) => (
               <SwiperSlide key={i}>
                 
-                <HeroFive data={item} />
+                <HeroFive heroHeader={item}  />
                             {/* <HeroTwo/> */}
                 
               </SwiperSlide>

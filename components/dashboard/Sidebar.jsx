@@ -6,10 +6,13 @@ import Link from "next/link";
 import { usePathname ,useRouter} from "next/navigation";
 import { Modal } from "antd";
 import { Cookies } from "react-cookie";
+import { useDispatch } from "react-redux";
+import { resetState } from "@/store/actions/commonAction";
 // import { useRouter } from "next/router";
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
-  const router  = useRouter()
+  const router = useRouter()
+  const dispatch = useDispatch()
 
   const showModal = () => {
     setOpen(true);
@@ -18,7 +21,8 @@ export default function Sidebar() {
   const hideModal = () => {
     router.push('/')
     const cookies = new Cookies();
-    cookies.remove('token');
+    cookies.remove('token'); 
+    dispatch(resetState());
     setOpen(false);
   };
 

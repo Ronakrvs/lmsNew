@@ -1,6 +1,6 @@
 // import HomeOne from "@/components/homes/home";
 "use client"
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 
 import BrandsTwo from '@/components/homes/brands/BrandsTwo'
 import HeroFive from '@/components/homes/heros/HeroFive'
@@ -10,26 +10,26 @@ import ExamFive from '@/components/homes/exam/ExamFive'
 import React from 'react'
 import CategoriesFive from '@/components/homes/categories/CategoriesFive'
 import StudentsFive from '@/components/homes/students/StudentsFive'
-import LearningPathFive from '@/components/common/LearningCommon'
+
 import Pricing from '@/components/homes/pricing/Pricing'
 
-import GetAppFive from '@/components/homes/getApp/GetAppFive'
-import BlogsFive from '@/components/homes/blogs/BlogsFive'
-import RecomentationFive from '@/components/homes/LearningRecomentation/RecomentationFive'
-import FooterFive from '@/components/layout/footers/FooterFive'
-import Instructors from "../components/common/Instructors";
 
 import Preloader from "@/components/common/Preloader";
 import { useRouter } from "next/navigation";
 import { Cookies } from 'react-cookie';
 import { httpClient } from '@/utils/api';
 import { wrapper, store } from "../store/store";
-import { Provider } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import Header from '@/components/layout/headers/Header'
 import EventsOne from '@/components/events/EventsOne'
 import HeroTwo from '@/components/homes/heros/HeroTwo'
-import CustomHeroHeader from '@/components/homes/heros/CustomHeroHeader'
-import LearningPathsSix from '@/components/homes/LearningPath/LearningPathsSix'
+import { getAuthUser } from '@/components/others/LoginForm'
+import { setUserAuthInfo } from '@/store/actions/userAction'
+import { message } from 'antd'
+
+const CustomHeroHeader = React.lazy(() => import('@/components/homes/heros/CustomHeroHeader'));
+const LearningPathFive = React.lazy(() => import('@/components/common/LearningCommon'));
+const LearningPathsSix = React.lazy(() => import('@/components/homes/LearningPath/LearningPathsSix'));
 const InstractorSeven = React.lazy(() => import('@/components/homes/instractors/InstractorSeven'));
 const BlogsTwo = React.lazy(() => import('@/components/homes/blogs/BlogsTwo'));
 const GetAppSix = React.lazy(() => import('@/components/homes/getApp/GetAppSix'));
@@ -48,17 +48,42 @@ const JoinTwo = React.lazy(() => import('@/components/homes/join/JoinTwo'));
 const HomePage=(()=> {
   const router = useRouter()
   const cookies = new Cookies();
+  const dispatch = useDispatch()
+  const [loading,setLoading] = useState(false)
+  const sampleListData = useSelector((state) => state?.authUser);
+  const { authUser } = sampleListData;
   const token = cookies.get("token");
   const newsletter = cookies.get("newsletter");
   useEffect(() => {
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 console.log("token",token)
     if (token) {
-      router.push('/')
+      getAuthUser()
+      // router.push('/')
     }
   
     
   }, [])
+
+ const getAuthUser = () => {
+   setLoading(true)
+  //  httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+   console.log(token)
+    httpClient.get("user/auth/me").then(({data}) => {
+      if (data) {
+       setLoading(false)
+        // setAuthUser(data);
+        console.log(data)
+        dispatch(setUserAuthInfo(data))
+        // router.push('/dshb-courses')
+      } else {
+        setLoading(false)
+      }
+    }).catch(function (error) {
+      httpClient.defaults.headers.common['Authorization'] = '';
+      message.error({content:error.message,key:"1"});
+    });
+  }
   
   return (
     
