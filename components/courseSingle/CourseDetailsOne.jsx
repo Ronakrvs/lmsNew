@@ -10,6 +10,9 @@ import Overview from "./Overview";
 import CourseContent from "./CourseContent";
 import Instractor from "./Instractor";
 import Reviews from "./Reviews";
+import { getCourseById } from "@/service/courses";
+import { getExamById } from "@/service/exam";
+import moment from "moment";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
   { id: 2, href: "#course-content", text: "Course Content", isActive: false },
@@ -18,12 +21,22 @@ const menuItems = [
 ];
 
 export default function CourseDetailsOne({ id }) {
+  console.log("id",id);
   const [pageItem, setPageItem] = useState(coursesData[0]);
 
   useEffect(() => {
-    setPageItem(coursesData.filter((elm) => elm.id == id)[0] || coursesData[0]);
+
+    getCourseDetail()
+    // setPageItem(coursesData.filter((elm) => elm.id == id)[0] || coursesData[0]);
   }, []);
 
+
+  const getCourseDetail = async() => {
+    await getExamById(id).then(({ data }) => {
+      console.log(data);
+      setPageItem(data?.data)
+    })
+  }
   return (
     <div id="js-pin-container" className="js-pin-container relative">
       <section className="page-header -type-5 bg-light-6">
@@ -63,8 +76,7 @@ export default function CourseDetailsOne({ id }) {
                 </div>
 
                 <p className="col-xl-9 mt-20">
-                  Use XD to get a job in UI Design, User Interface, User
-                  Experience design, UX design & Web Design
+                  {pageItem.description}
                 </p>
 
                 <div className="d-flex x-gap-30 y-gap-10 items-center flex-wrap pt-20">
@@ -76,20 +88,20 @@ export default function CourseDetailsOne({ id }) {
                       <Star star={5} textSize={"text-11"} />
                     </div>
                     <div className="text-14 lh-1 text-light-1 ml-10">
-                      ({pageItem.ratingCount})
+                      ({pageItem.totalRating})
                     </div>
                   </div>
 
                   <div className="d-flex items-center text-light-1">
                     <div className="icon icon-person-3 text-13"></div>
                     <div className="text-14 ml-8">
-                      853 enrolled on this course
+                      {pageItem?.enrolls} enrolled on this course
                     </div>
                   </div>
 
                   <div className="d-flex items-center text-light-1">
                     <div className="icon icon-wall-clock text-13"></div>
-                    <div className="text-14 ml-8">Last updated 11/2021</div>
+                    <div className="text-14 ml-8">Last updated {moment(pageItem?.updatedAt).format('DD-MM-YYYY')}</div>
                   </div>
                 </div>
 
@@ -97,7 +109,7 @@ export default function CourseDetailsOne({ id }) {
                   <div
                     className="bg-image size-30 rounded-full js-lazy"
                     style={{
-                      backgroundImage: `url(${pageItem.authorImageSrc})`,
+                      backgroundImage: `url(${pageItem.image})`,
                     }}
                   ></div>
                   <div className="text-14 lh-1 ml-10">
@@ -133,7 +145,7 @@ export default function CourseDetailsOne({ id }) {
               </div>
 
               <Overview />
-              <CourseContent />
+              <CourseContent courseList={pageItem?.course} />
               <Instractor />
               <Reviews />
             </div>

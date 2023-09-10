@@ -42,7 +42,7 @@ export default function PinContent({ pageItem }) {
               width={368}
               height={238}
               className="w-1/1"
-              src={pageItem.imageSrc}
+              src={pageItem.image}
               alt="image"
             />
             <div className="absolute-full-center d-flex justify-center items-center">

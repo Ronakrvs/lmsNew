@@ -97,7 +97,7 @@ export default function HeaderTwo() {
                 </div> */}
                 <div className="d-flex items-center text-white">
                   <div className="icon-email mr-10"></div>
-                  <div className="text13 lh-1">hello@educrat.com</div>
+                  <div className="text13 lh-1">info@dentabest.com</div>
                 </div>
               </div>
             </div>

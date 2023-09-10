@@ -21,13 +21,15 @@ import { wrapper, store } from "../store/store";
 
 
 export default function RootLayout({ children }) {
+  
   useEffect(() => {
     AOS.init({
       duration: 700,
-      offset: 120,
+      // offset: 120,
       easing: 'ease-out',
-      once:true
+      once:false
     });
+
   }, []);
   return (
     <html lang="en" className=''>

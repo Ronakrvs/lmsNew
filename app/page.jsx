@@ -106,8 +106,8 @@ console.log("token",token)
         {/* <BrandsTwo/> */}
           {/* <InstractorSeven/> */}
           <LearningPathsSix/>
-          <CoursesFive/>
           <ExamFive/>
+          <CoursesFive/>
           {/* <EventsOne/> */}
           {/* <CategoriesFive/> */}
           {/* <Instructors backgroundColor={'bg-beige-1'}/> */}
@@ -118,7 +118,7 @@ console.log("token",token)
           {/* <GetAppFive/> */}
         {/* <BlogsFive/> */}
         <BlogsTwo />
-        {!newsletter && <JoinTwo />}
+        {/* {!newsletter && <JoinTwo />} */}
           {/* <RecomentationFive/> */}
           {/* <GetAppSix/> */}
             <FooterThree/>

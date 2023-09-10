@@ -201,7 +201,8 @@
 }
 
 .activeMenu{
-    color: var(--color-purple-1) !important;
+    color: var(--color-blue-8) !important;
+    text-decoration: underline;
     
 }
 .inActiveMenu{
@@ -412,7 +413,7 @@
     text-decoration: none !important;
     color:inherit !important;
     &:hover{
-        color: var(--color-purple-1) !important;
+        color: var(--color-blue-8) !important;
     }
 
 }

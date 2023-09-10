@@ -6,7 +6,8 @@ import { lessonItems } from "@/data/aboutcourses";
 import React, { useState } from "react";
 import ModalVideoComponent from "../common/ModalVideo";
 
-export default function CourseContent() {
+export default function CourseContent({ courseList }) {
+  console.log("courseList",courseList);
   const [activeItemId, setActiveItemId] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -23,16 +24,16 @@ export default function CourseContent() {
 
         <div className="mt-10">
           <div className="accordion -block-2 text-left js-accordion">
-            {lessonItems.map((elm, i) => (
+            {courseList?.map((elm, i) => (
               <div
                 key={i}
                 className={`accordion__item ${
-                  activeItemId == elm.id ? "is-active" : ""
+                  activeItemId == elm._id ? "is-active" : ""
                 } `}
               >
                 <div
                   onClick={() =>
-                    setActiveItemId((pre) => (pre == elm.id ? 0 : elm.id))
+                    setActiveItemId((pre) => (pre == elm._id ? 0 : elm._id))
                   }
                   className="accordion__button py-20 px-30 bg-light-4"
                 >
@@ -46,12 +47,12 @@ export default function CourseContent() {
                       </div>
                     </div>
                     <span className="text-17 fw-500 text-dark-1">
-                      Course Content
+                      {elm?.title}
                     </span>
                   </div>
 
                   <div>
-                    {elm.lessons.length} lectures • {elm.duration} min
+                    {elm?.lessons?.length} lectures • {elm?.duration} min
                   </div>
                 </div>
 
@@ -61,7 +62,7 @@ export default function CourseContent() {
                 >
                   <div className="accordion__content__inner px-30 py-30">
                     <div className="y-gap-20">
-                      {elm.lessons.map((itm, index) => (
+                      {elm?.lessons?.map((itm, index) => (
                         <div key={index} className="d-flex justify-between">
                           <div className="d-flex items-center">
                             <div className="d-flex justify-center items-center size-30 rounded-full bg-purple-3 mr-10">
@@ -81,13 +82,13 @@ export default function CourseContent() {
                               href="#"
                               className="text-14 lh-1 text-purple-1 underline"
                             >
-                              {elm.duration} question
+                              {elm?.duration} question
                             </a>
                             <a
                               href="#"
                               className="text-14 lh-1 text-purple-1 underline"
                             >
-                              {elm.duration}
+                              {elm?.duration}
                             </a>
                           </div>
                         </div>

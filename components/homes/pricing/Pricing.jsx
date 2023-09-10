@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { pricingData } from "../../../data/pricing";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck,faXmark } from "@fortawesome/free-solid-svg-icons";
 export default function Pricing() {
   const [isYearly, setIsYearly] = useState(false);
   const handleCheckboxChange = (event) => {
@@ -13,48 +13,49 @@ export default function Pricing() {
   return (
     <section className="layout-pt-lg layout-pb-lg bg-light-3">
       <div className="container">
-        <div className="row justify-center text-center">
-          <div className="col-auto">
-            <div className="sectionTitle ">
-              <h2 className="sectionTitle__title ">Simple Pricing</h2>
-
-              <p className="sectionTitle__text ">
-                Lorem ipsum dolor sit amet, consectetur.
-              </p>
+      <div className="row justify-center text-center">
+            <div className="col-auto">
+              <div className="sectionTitle ">
+              <h2 className="" style={{fontSize:"50px", color:"#0D1736"}}>
+                   <b style={{color:"#0AA0DF"}}>Our</b> Plans
+                </h2>              </div>
             </div>
 
-            <div className="d-flex justify-center items-center pt-60 lg:pt-30">
-              <div className="text-14 text-dark-1">Monthly</div>
-              <div className="form-switch px-20">
-                <div className="switch" data-switch=".js-switch-content">
-                  <input
-                    checked={isYearly}
-                    onChange={handleCheckboxChange}
-                    type="checkbox"
-                  />
-                  <span className="switch__slider"></span>
-                </div>
+            {/* <div className="col-auto">
+              <div className="tabs__controls d-flex justify-center x-gap-10 js-tabs-controls">
+                {courseStates.map((elm, i) => (
+                  <div key={i}>
+                    <button
+                      onClick={() => setCurrentCourseState(elm)}
+                      className={`${
+                        tabBtnStyle
+                          ? tabBtnStyle
+                          : "tabs__button px-20 py-8 rounded-200 js-tabs-button"
+                      }  ${currentCourseState == elm ? "is-active" : ""} `}
+                      data-tab-target=".-tab-item-1"
+                      type="button"
+                    >
+                      {elm}
+                    </button>
+                  </div>
+                ))}
               </div>
-              <div className="text-14 text-dark-1">
-                Annually <span className="text-purple-1">Save 30%</span>
-              </div>
-            </div>
+            </div> */}
           </div>
-        </div>
 
         <div className="row y-gap-30 justify-between pt-60 lg:pt-50">
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-6 col-md-6">
             <div
               className="priceCard -type-1 rounded-16 overflow-hidden"
               data-aos="fade-right"
               data-aos-duration={500}
             >
-              <div className="priceCard__header py-40 pl-50 bg-dark-2">
+              <div className="priceCard__header py-40 pl-50 bg-green-1">
                 <div className="priceCard__type text-18 lh-11 fw-500 text-white">
                   {pricingData[0].type}
                 </div>
                 <div className="priceCard__price text-45 lh-11 fw-700 text-white mt-8">
-                  {pricingData[0].price ? pricingData[0].price : "Free"}
+                  {pricingData[0].price ? pricingData[0].price : "Free User"}
                 </div>
                 <div className="priceCard__period text-white mt-5">
                   {pricingData[0].period}
@@ -62,13 +63,15 @@ export default function Pricing() {
               </div>
 
               <div className="priceCard__content pt-30 pr-90 pb-50 pl-50 bg-white">
-                <div className="priceCard__text">
+                {/* <div className="priceCard__text">
                   Standard listing submission, active for 30 dayss
-                </div>
+                </div> */}
 
                 <div className="priceCard__list mt-30">
                   {pricingData[0].features.map((elm, i) => (
-                    <div key={i}>
+                    <div key={i} className="d-flex justify-between">
+                    
+                      {elm?.key}
                       <span
                         className=" pr-8 text-purple-1"
                         style={{
@@ -78,27 +81,26 @@ export default function Pricing() {
                         }}
                         aria-hidden="true"
                       >
-                        <FontAwesomeIcon icon={faCheck} />
+                        {elm?.available ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon   color="red"icon={faXmark} />}
 
                       </span>
-                      {elm}
                     </div>
                   ))}
                 </div>
 
                 <div className="priceCard__button mt-30">
                   <Link
-                    className="button -md -purple-3 text-purple-1"
+                    className="button -md rounded-200 -blue-8 text-white"
                     href="/courses-list-1"
                   >
-                    Get Started Now
+                    Enrolled Now
                   </Link>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="col-lg-4 col-md-6">
+          {/* <div className="col-lg-6 col-md-6">
             <div
               className="priceCard -type-1 rounded-16 overflow-hidden"
               data-aos="fade-right"
@@ -154,15 +156,15 @@ export default function Pricing() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="col-lg-4 col-md-6">
+          <div className="col-lg-6 col-md-6">
             <div
               className="priceCard -type-1 rounded-16 overflow-hidden"
               data-aos="fade-right"
               data-aos-duration={1500}
             >
-              <div className="priceCard__header py-40 pl-50 bg-dark-2">
+              <div className="priceCard__header py-40 pl-50 bg-primary">
                 <div className="priceCard__type text-18 lh-11 fw-500 text-white">
                   {pricingData[2].type}
                 </div>
@@ -178,14 +180,16 @@ export default function Pricing() {
               </div>
 
               <div className="priceCard__content pt-30 pr-90 pb-50 pl-50 bg-white">
-                <div className="priceCard__text">
+                {/* <div className="priceCard__text">
                   Standard listing submission, active for 30 dayss
-                </div>
+                </div> */}
 
                 <div className="priceCard__list mt-30">
                   {pricingData[2].features.map((elm, i) => (
-                    <div key={i}>
-                     <span
+                    <div key={i} className="d-flex justify-between">
+                    
+                      {elm?.key}
+                      <span
                         className="pr-8  text-purple-1"
                         style={{
                           
@@ -194,20 +198,19 @@ export default function Pricing() {
                         }}
                         aria-hidden="true"
                       >
-                        <FontAwesomeIcon icon={faCheck} />
+                         {elm?.available ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon color="red" icon={faXmark} />}
 
                       </span>
-                      {elm}
                     </div>
                   ))}
                 </div>
 
                 <div className="priceCard__button mt-30">
                   <Link
-                    className="button -md -purple-3 text-purple-1"
+                    className="button -md rounded-200 -blue-8 text-white"
                     href="/courses-list-1"
                   >
-                    Get Started Now
+                    Enrolled Now
                   </Link>
                 </div>
               </div>

@@ -4,7 +4,7 @@ import Image from "next/image";
 import LogoName from "@/components/common/logoName";
 export default function LearningPathsSix() {
   return (
-    <section className="layout-pt-md layout-pb-lg">
+    <section className="layout-pt-sm layout-pb-lg">
       <div className="container">
         <div className="row y-gap-30 justify-between items-center">
           <div className="col-xl-5 col-lg-6 col-md-9 lg:order-2">

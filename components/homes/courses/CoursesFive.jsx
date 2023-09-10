@@ -35,8 +35,9 @@ export default function CoursesFive({ tabBtnStyle }) {
   const getCoursesList = async () => {
     console.log("Loading")
     await getAllCoursesList().then(({data}) => {
-      console.log("Loading",data)
-      setCoursesList(data?.data)
+      console.log("Loading", data)
+      let courses = data?.data ? data.data  :data?.courses
+      setCoursesList(courses)
     })
   }
   

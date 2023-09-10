@@ -2,8 +2,8 @@
 const nextConfig = {
     distDir: "build",
     // trailingSlash: true,
-    // output: 'export',
-    loader: 'default',
+    output: 'export',
+    // loader: 'default',
   // ignoreBuildErrors: true,
   eslint: {
     // Warning: This allows production builds to successfully complete even if

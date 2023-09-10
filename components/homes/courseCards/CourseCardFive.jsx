@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Star from "../../common/Star";
 import Buttons from "@/components/uiElements/Buttons";
-export default function CourceCardFive({ data, index }) {
+export default function CourseCardFive({ data, index }) {
   const [rating, setRating] = useState([]);
   useEffect(() => {
     for (let i = Math.round(data.rating); i >= 1; i--) {
@@ -20,7 +20,7 @@ export default function CourceCardFive({ data, index }) {
           style={{ border: "none", padding: 0 }}
         >
           <div className="relative">
-            <div className="coursesCard__image overflow-hidden rounded-8" >
+            <div className="coursesCard__image overflow-hidden rounded-8">
               <img
                 width={500}
                 height={500}
@@ -34,27 +34,15 @@ export default function CourceCardFive({ data, index }) {
             <div className="d-flex justify-between py-10 px-10 absolute-full-center z-3"></div>
           </div>
 
-          <div className="h-100 pt-15">
-            <div className="d-flex items-center">
-              {/* <div className="text-14 lh-1 text-yellow-1 mr-10">
-                {data.totalRating}
-              </div> */}
-              {/* <div className="d-flex x-gap-5 items-center">
-                {rating.map((itm, i) => (
-                  <div key={i} className="icon-star text-9 text-yellow-1"></div>
-                ))}
-              </div> */}
-              <Star star={data?.totalRating} />
-              <div className="text-13 lh-1 ml-10">({data.totalRating})</div>
-            </div>
-
+          <div className="h-100 pt-15 " style={{minHeight:"7.5em",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+          
             <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
-              <Link className="linkCustom" href={`/courses/${data.id}`}>
+              <Link className="linkCustom" href={`/exams/${data._id}`}>
                 {data.title}
               </Link>
             </div>
 
-            <div className="d-flex x-gap-10 items-center pt-10">
+            <div className="d-flex x-gap-10 items-center pt-10 justify-between align-bottom" style={{borderTop:"1px solid #EDEDED"}}>
               <div className="d-flex items-center">
                 <div className="mr-8">
                   <img
@@ -79,8 +67,22 @@ export default function CourceCardFive({ data, index }) {
                 <div className="text-14 lh-1">{`${Math.floor(
                   data.totalHours,
                 )}h ${Math.floor(data.totalHours % 60)}m`}</div>
+                
               </div>
-
+              <div className="d-flex items-right fw-600">
+              {data.paid ? (
+                  <>
+                    <div></div>
+                    <div>${data.price}</div>
+                  </>
+                ) : (
+                  <>
+                    <div></div>
+                    <div>Free</div>
+                  </>
+                )}
+              </div>
+              </div>
               {/* <div className="d-flex items-center">
                 <div className="mr-8">
                   <img
@@ -94,7 +96,7 @@ export default function CourceCardFive({ data, index }) {
               </div> */}
             </div>
 
-            <div className="coursesCard-footer">
+            <div className="coursesCard-footer" style={{display:"initial",border:"0"}}>
               {/* <div className="coursesCard-footer__author">
                 <img
                   width={30}
@@ -104,26 +106,10 @@ export default function CourceCardFive({ data, index }) {
                 />
                 <div>{data.authorName}</div>
               </div> */}
-
-              <div className="coursesCard-footer__price">
-                {data.paid ? (
-                  <>
-                    <div></div>
-                    <div>${data.price}</div>
-                  </>
-                ) : (
-                  <>
-                    <div></div>
-                    <div>Free</div>
-                  </>
-                )}
-              </div>
-              <div className="col-auto">
-              <button className="button -sm -outline-purple-1 text-purple-1">
+ <button className="button -sm  rounded-200 -outline-blue-1 text-blue-1" style={{width:"100%",}}>
                Buy
               </button>
-            </div>
-            </div>
+            
           </div>
         </div>
       </div>

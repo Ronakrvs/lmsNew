@@ -9,7 +9,7 @@ export default function FindLearningPath() {
         <div
           data-parallax-target
           className="bg-image js-lazy"
-          style={{ backgroundImage: "url(/assets/img/ctamap.png)" ,backgroundColor:"#2da397"}}
+          style={{ backgroundImage: "url(/assets/img/ctamap.png)" ,backgroundColor:"#0aa0df"}}
         ></div>
       </div>
 

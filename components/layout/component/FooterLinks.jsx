@@ -5,11 +5,11 @@ export default function FooterLinks({ allClasses }) {
   return (
     <>
       {footerLinks.map((elm, i) => (
-        <div key={i} className="col-xl-2 col-lg-4 col-md-6">
-          <div className={`${allClasses ? allClasses : ""}`}>{elm.title}</div>
+        <div key={i} className="col-xl-2 col-lg-4 col-md-6 text-white">
+          <div className={`${allClasses ? allClasses : ""} text-white`}>{elm.title}</div>
           <div className="d-flex y-gap-10 flex-column">
             {elm.links.map((itm, index) => (
-              <Link key={index} href={itm.href}>
+              <Link key={index} href={itm.href} className="text-white">
                 {itm.label}
               </Link>
             ))}

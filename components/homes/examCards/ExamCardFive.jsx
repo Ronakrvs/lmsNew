@@ -34,15 +34,15 @@ export default function ExamCardFive({ data, index }) {
             <div className="d-flex justify-between py-10 px-10 absolute-full-center z-3"></div>
           </div>
 
-          <div className="h-100 pt-15">
+          <div className="h-100 pt-15 " style={{minHeight:"7.5em",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
           
             <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
-              <Link className="linkCustom" href={`/courses/${data.id}`}>
+              <Link className="linkCustom" href={`/exams/${data._id}`}>
                 {data.title}
               </Link>
             </div>
 
-            <div className="d-flex x-gap-10 items-center pt-10">
+            <div className="d-flex x-gap-10 items-center pt-10 justify-between align-bottom" style={{borderTop:"1px solid #EDEDED"}}>
               <div className="d-flex items-center">
                 <div className="mr-8">
                   <img
@@ -69,7 +69,7 @@ export default function ExamCardFive({ data, index }) {
                 )}h ${Math.floor(data.totalHours % 60)}m`}</div>
                 
               </div>
-              <div className="d-flex items-right">
+              <div className="d-flex items-right fw-600">
               {data.paid ? (
                   <>
                     <div></div>
@@ -96,7 +96,7 @@ export default function ExamCardFive({ data, index }) {
               </div> */}
             </div>
 
-            <div className="coursesCard-footer" style={{display:"initial"}}>
+            <div className="coursesCard-footer" style={{display:"initial",border:"0"}}>
               {/* <div className="coursesCard-footer__author">
                 <img
                   width={30}
@@ -106,7 +106,7 @@ export default function ExamCardFive({ data, index }) {
                 />
                 <div>{data.authorName}</div>
               </div> */}
- <button className="button -sm  -outline-blue-1 text-blue-1" style={{width:"100%",}}>
+ <button className="button -sm  rounded-200 -outline-blue-1 text-blue-1" style={{width:"100%",}}>
                Buy
               </button>
             

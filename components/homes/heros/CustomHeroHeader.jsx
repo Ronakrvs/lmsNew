@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
-import { Autoplay, Navigation, Pagination } from "swiper";
+import { Autoplay, Navigation, Pagination,EffectFade } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
+import AOS from 'aos'
 import { useEffect, useState } from "react";
-
+import 'swiper/css/effect-fade';
 import React from "react";
 import { featureTwo } from "../../../data/features";
 import { slidesData } from "../../../data/hero";
@@ -21,28 +22,30 @@ const CustomHeroHeader=()=> {
     setShowSlider(true);
   }, []);
   return (
-    <section className="">
-      <div className="swiper-wrapper-two"  data-gap="30"
+    <section className="" style={{height:"100vh"}}>
+      <div className="swiper-wrapper-one"  
                 data-slider-cols="xl-4 lg-3 md-2 sm-2"
-                data-aos="fade-left"
-                data-aos-offset="80"
+                data-aos="fade-in"
+                // data-aos-offset="80"
               data-aos-duration={800}
         //    data-aos="fade-right"
-            data-aos-delay="500">
+            data-aos-delay="700">
         {showSlider && (
           <Swiper
+          onSlideChange={(e) =>  AOS.refreshHard()}
             // {...setting}
-
-            modules={[Autoplay,Navigation, Pagination]}
+            // onChange={(e)=>console.log("Slider",e)}
+            effect="fade"
+            modules={[EffectFade,Autoplay]}
             navigation={{
               nextEl: ".hero-slider-next",
               prevEl: ".hero-slider-prev",
             }}
             autoplay={{
                 delay: 5000,
-                disableOnInteraction: false,
+                disableOnInteraction: true,
               }}
-            spaceBetween={0}
+            spaceBetween={1}
             slidesPerView={1}
             breakpoints={{
               // when window width is >= 576px
@@ -58,7 +61,7 @@ const CustomHeroHeader=()=> {
                 slidesPerView: 1,
               },
             }}
-            speed={4000}
+            speed={3000}
           >
             {slidesData.map((item, i) => (
               <SwiperSlide key={i}>
