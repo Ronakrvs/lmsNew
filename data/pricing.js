@@ -5,6 +5,48 @@ export const pricingData = [
     period: "per month",
 
     features: [
+      "All Operating Supported",
+      "Great Interface",
+      "Allows encryption",
+      "Face recognized system",
+      "24/7 Full support",
+    ],
+  },
+  {
+    type: "Professional",
+    price: 599.95,
+    period: "per month",
+
+    features: [
+      "All Operating Supported",
+      "Great Interface",
+      "Allows encryption",
+      "Face recognized system",
+      "24/7 Full support",
+    ],
+  },
+  {
+    type: "Business",
+    price: 999.95,
+    period: "per month",
+
+    features: [
+      "All Operating Supported",
+      "Great Interface",
+      "Allows encryption",
+      "Face recognized system",
+      "24/7 Full support",
+    ],
+  },
+];
+
+export const pricingDataNew = [
+  {
+    type: "Basic",
+    price: 0,
+    period: "per month",
+
+    features: [
       { key: 'Master Test Series', available: true },
       { key: 'Tier Level INBDE Preparation', available: true },
       { key: 'Daily Progress Monitoring', available: false },

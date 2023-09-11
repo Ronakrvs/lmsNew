@@ -12,7 +12,7 @@ export default function Socials({ componentsClass, textSize }) {
           className={componentsClass ? componentsClass : ""}
           href={link.href}
         >
-          <i className={`${link.iconClassName} ${textSize}`}></i>
+          <i className={`${link.iconClassName} ${textSize} text-white` }></i>
         </a>
       ))}
     </>

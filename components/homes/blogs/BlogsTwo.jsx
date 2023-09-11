@@ -39,7 +39,7 @@ export default function BlogsTwo() {
           <div className="col-auto">
             <Link
               href="/blog-list-1"
-              className="button -icon -blue-8 text-white"
+              className="button -icon -green-8 rounded-200 text-white"
             >
               Browse Blog
               <i className="icon-arrow-top-right text-13 ml-10"></i>

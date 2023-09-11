@@ -42,7 +42,7 @@ export default function CoursesFive({ tabBtnStyle }) {
   }
   
   return (
-    <section className=" layout-pb-md">
+    <section className="layout-pt-lg layout-pb-md">
       <div className="container">
         <div className="tabs -pills js-tabs">
           <div className="row justify-center text-center">

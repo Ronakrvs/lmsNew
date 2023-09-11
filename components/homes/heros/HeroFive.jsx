@@ -17,7 +17,8 @@ export default function HeroFive({ heroHeader }) {
       className="masthead -type-4 mt-2"
       style={{
         backgroundColor: "#0D1736",
-        height: "100vh"
+        height: "100vh",
+        
       }}
     >
       <div className="container">
@@ -27,7 +28,7 @@ export default function HeroFive({ heroHeader }) {
           data-aos-delay="400"
         >
           <div className="col-xl-5 col-lg-6">
-            <div className="masthead__content">
+            <div className="masthead__content" >
               <h1 className="masthead__title text-white">
                 <div    data-aos="fade-right"
                   data-aos-delay="500">{data?.herotitle}</div>
@@ -48,7 +49,7 @@ export default function HeroFive({ heroHeader }) {
                 >
                   <Link
                     href="/signup"
-                    className="button -md -blue-8 -rounded text-white"
+                    className="button -md -green-8 -rounded text-white"
                   //   data-aos="fade-left"
                   // data-aos-delay="200"
                   >
@@ -62,7 +63,7 @@ export default function HeroFive({ heroHeader }) {
                 >
                   <Link
                     href="/courses-list-1"
-                    className="button -md -blue-8 -rounded text-white-1 text-white"
+                    className="button -md -green-8 -rounded text-white-1 text-white"
                   >
                     Find Courses
                   </Link>

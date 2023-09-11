@@ -5,6 +5,7 @@ import Links from "../component/Links";
 import Socials from "@/components/common/Socials";
 import Image from "next/image";
 import FooterLinksThree from "../component/FooterLinksThree";
+import Link from "next/link";
 
 export default function FooterSeven() {
   const handleSubmit = (e) => {
@@ -12,67 +13,78 @@ export default function FooterSeven() {
   };
   return (
     <footer className="footer -type-4 bg-white border-top-light">
-      <div className="container">
-        <div className="row y-gap-30 justify-between pt-60">
-          <div className="col-lg-7 col-md-6">
-            <div className="text-17 fw-500 text-dark-1 uppercase mb-25">
-              GET IN TOUCH
-            </div>
-            <form
-              onSubmit={handleSubmit}
-              className="form-single-field -base mt-15"
-            >
-              <input
-                required
-                className="py-20 px-30 bg-light-3 rounded-200 text-dark-1"
-                type="text"
-                placeholder="Your Email"
+      <div className="container" style={{width:"100%",maxWidth:"100%",margin:"0",padding:"0"}}>
+        <div className="row " >
+        <div className="col-lg-7 col-md-6" style={{borderRight:"1px solid",background:"#1D2C45"}}>
+            <div className="row y-gap-30" style={{padding:"70px"}}>
+              <FooterLinksThree isRequire={true}
+                allClasses={"text-17 fw-500 text-white uppercase mb-25"}
+                parentclassName={"col-lg-4 col-md-4 text-white"}
               />
-              <button className="button -purple-1 rounded-full" type="submit">
-                <i className="icon-arrow-right text-24 text-white"></i>
-              </button>
-            </form>
+            </div>
           </div>
+        
 
-          <div className="col-xl-4 col-lg-5 col-md-6">
-            <div className="footer-header__logo">
+          <div className="col-xl-5 col-lg-6 col-md-6" style={{background:"#0D1736"}}>
+            {/* <div className="footer-header__logo">
               <Image
                 width={140}
                 height={50}
                 src="/assets/img/general/logo-dark.svg"
                 alt="logo"
               />
-            </div>
+            </div> */}
 
             <div className="d-flex justify-between mt-30">
-              <div className="">
-                <div className="">Toll Free Customer Care</div>
-                <div className="text-18 lh-1 fw-500 text-dark-1 mt-5">
-                  +(1) 123 456 7890
-                </div>
+              <div className="text-white" style={{fontSize:"25px",padding:"40px"}}>
+              The Dentabest is committed to preparing students for success in the Integrated National Board Dental Examination (INBDE) solflessly.
               </div>
-              <div className="">
-                <div className="">Need live support?</div>
-                <div className="text-18 lh-1 fw-500 text-dark-1 mt-5">
-                  hi@educrat.comv
-                </div>
-              </div>
+            
             </div>
+            <div className="col-auto">
+            <Link
+              href="/blog-list-1"
+              className="button -icon -md -green-8 rounded-200 text-white"
+            >
+              Browse Blog
+              <i className="icon-arrow-top-right text-13 ml-10"></i>
+            </Link>
+          </div>
           </div>
         </div>
 
-        <div className="row y-gap-30 justify-between pt-60 pb-60">
-          <div className="col-lg-7 col-md-6">
-            <div className="row y-gap-30">
-              <FooterLinksThree
-                allClasses={"text-17 fw-500 text-dark-1 uppercase mb-25"}
-                parentclassName={"col-lg-4 col-md-4"}
-              />
+        <div className="row">
+        
+        <div className="col-lg-7 col-md-6" style={{borderRight:"1px solid",background:"#0D1736"}}>
+        <div className="row justify-between items-end y-gap-20">
+            <div className="col-auto">
+              <div className=" d-flex items-end h-100 text-white" style={{fontSize:"30px"}}>
+                © {new Date().getFullYear()} Dentabest. All Right Reserved.
+              </div>
+            </div>
+
+            <div className="col-auto">
+              <div className="d-flex x-gap-20 y-gap-20 items-end flex-wrap">
+                {/* <div>
+                  <div className="d-flex x-gap-15">
+                    <Links />
+                  </div>
+                </div> */}
+
+                {/* <div className="">
+                  <a
+                    href="#"
+                    className="button -md -light-3 px-15 rounded-200 -blue-8 text-white"
+                  >
+                    <i className="icon-worldwide mr-10"></i>English
+                  </a>
+                </div> */}
+              </div>
             </div>
           </div>
-
-          <div className="col-xl-4 col-lg-5 col-md-6">
-            <div className="">
+          </div>
+          <div className="col-xl-5 col-lg-6 col-md-6" style={{background:"#1D2C45"}}>
+            {/* <div className="">
               <div className="text-17 uppercase text-whitedark-1 fw-500">
                 Take your learning with you
               </div>
@@ -94,22 +106,22 @@ export default function FooterSeven() {
                   />
                 </a>
               </div>
-            </div>
+            </div> */}
 
-            <div className="footer-header-socials mt-60">
-              <div className="text-17 uppercase text-dark-1 fw-500">
+            <div className="footer-header-socials ">
+              {/* <div className="text-17 uppercase text-white fw-500">
                 Follow us on social media
-              </div>
-              <div className="footer-header-socials__list d-flex items-center mt-15">
+              </div> */}
+              <div className="footer-header-socials__list d-flex items-center mt-15" >
                 <Socials
-                  componentsClass={"size-40 d-flex justify-center items-center"}
+                  componentsClass={"size-70 d-flex justify-center bg-blue-8 text-white items-center fs-45"}
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="py-30 border-top-light-15">
+        {/* <div className="py-30 border-top-light-15">
           <div className="row justify-between items-center y-gap-20">
             <div className="col-auto">
               <div className="d-flex items-center h-100">
@@ -136,7 +148,7 @@ export default function FooterSeven() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

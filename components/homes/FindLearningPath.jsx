@@ -9,22 +9,22 @@ export default function FindLearningPath() {
         <div
           data-parallax-target
           className="bg-image js-lazy"
-          style={{ backgroundImage: "url(/assets/img/ctamap.png)" ,backgroundColor:"#0aa0df"}}
+          style={{ backgroundImage: "url(/assets/img/ctamap.png)" ,backgroundColor:"#008E63"}}
         ></div>
       </div>
 
       <div className="container">
         <div className="row justify-center text-center">
           <div className="col-auto">
-            <h2 className="text-45 md:text-30 text-white">
-           Start learning with <br/><LogoName/> community
+            <h2 className="text-45 md:text-30 text-white" style={{fontSize:"84px"}}>
+           Start learning with <br/><b className="text-dark-1">DENTABEST</b> community
             </h2>
           </div>
 
           <div className="w-100"></div>
 
-          <div className="col-lg-4 col-md-8">
-            <p className="text-white mt-15">
+          <div className="col-lg-12 col-md-8">
+            <p className="text-white mt-15" style={{fontSize:"32px",lineHeight:"42px"}}>
             evaluate your preperations alongside students <br/>all across the world
             </p>
           </div>
@@ -34,9 +34,9 @@ export default function FindLearningPath() {
           <div className="col-auto">
             <Link
               href="/courses-list-3"
-              className="button -md -outline-white text-white mt-45 md:mt-20"
+              className="button -md -blue-8 rounded-200  text-white mt-45 md:mt-20 fw-700"
             >
-              Get Started Now
+              Enroll Now
             </Link>
           </div>
         </div>

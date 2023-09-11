@@ -125,11 +125,11 @@ export default function ExamFive({ tabBtnStyle }) {
                   </Swiper>
                 )}
 
-                <button className="course-five-left section-slider-nav -prev -dark-bg-dark-2 -white -absolute size-70 rounded-full shadow-5 js-prev">
+                <button className="course-five-left section-slider-nav -prev -dark-bg-blue-8 -white -absolute size-70 rounded-full shadow-5 js-prev">
                   <i className="icon icon-arrow-left text-24"></i>
                 </button>
 
-                <button className="course-five-right section-slider-nav -next -dark-bg-dark-2 -white -absolute size-70 rounded-full shadow-5 js-next">
+                <button className="course-five-right section-slider-nav -next -dark-bg-blue-8 -white -absolute size-70 rounded-full shadow-5 js-next">
                   <i className="icon icon-arrow-right text-24"></i>
                 </button>
               </div>

@@ -120,6 +120,7 @@
   --color-green-5: #34A853;
   --color-green-6: #DFF1DD;
   --color-green-7: #D9FFED;
+  --color-green-8: #008E63;
   --color-orange-1: #E8543E;
   --color-orange-2: #F7E9E7;
   --color-orange-3: #FDF2EB;
@@ -2263,7 +2264,25 @@ button:focus {
   background-color: transparent !important;
   color: var(--color-blue-8) !important;
 }
+.button.-green-8 {
+  background-color: var(--color-green-8);
+  border: 2px solid var(--color-green-8);
+}
 
+.button.-green-8:hover {
+  background-color: transparent !important;
+  color: var(--color-green-8) !important;
+}
+
+.button.-outline-green-8 {
+  border: 2px solid var(--color-green-8);
+}
+
+.button.-outline-green-8:hover {
+  background-color: var(--color-green-8);
+  border-color: transparent;
+  color: white !important;
+}
 .button.-outline-blue-1 {
   border: 2px solid var(--color-blue-1);
 }
@@ -9245,6 +9264,9 @@ h1, h2, h3, h4, h5, h6 {
 .bg-green-1 {
   background-color: var(--color-green-1);
 }
+.bg-green-8 {
+  background-color: var(--color-green-8);
+}
 
 .bg-green-2 {
   background-color: var(--color-green-2);
@@ -9529,6 +9551,9 @@ h1, h2, h3, h4, h5, h6 {
 .text-green-7 {
   color: var(--color-green-7) !important;
 }
+.text-green-8 {
+  color: var(--color-green-8) !important;
+}
 
 .text-orange-1 {
   color: var(--color-orange-1) !important;
@@ -9600,6 +9625,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .text-blue-7 {
   color: var(--color-blue-7) !important;
+}
+.text-blue-8 {
+  color: var(--color-blue-8) !important;
 }
 
 .text-yellow-1 {
@@ -15062,7 +15090,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-slider-nav.-white:hover {
-  background-color: var(--color-purple-1) !important;
+  background-color: var(--color-blue-8) !important;
   color: white !important;
 }
 

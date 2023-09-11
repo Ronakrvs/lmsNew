@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { pricingData } from "../../../data/pricing";
+import {pricingDataNew as pricingData } from "../../../data/pricing";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck,faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -11,7 +11,7 @@ export default function Pricing() {
     setIsYearly(event.target.checked);
   };
   return (
-    <section className="layout-pt-lg layout-pb-lg bg-light-3">
+    <section className="layout-pt-lg layout-pb-sm bg-light-3">
       <div className="container">
       <div className="row justify-center text-center">
             <div className="col-auto">
@@ -50,7 +50,7 @@ export default function Pricing() {
               data-aos="fade-right"
               data-aos-duration={500}
             >
-              <div className="priceCard__header py-40 pl-50 bg-green-1">
+              <div className="priceCard__header py-40 pl-50 bg-green-8">
                 <div className="priceCard__type text-18 lh-11 fw-500 text-white">
                   {pricingData[0].type}
                 </div>
@@ -90,7 +90,7 @@ export default function Pricing() {
 
                 <div className="priceCard__button mt-30">
                   <Link
-                    className="button -md rounded-200 -blue-8 text-white"
+                    className="button -md rounded-200 -green-8 text-white"
                     href="/courses-list-1"
                   >
                     Enrolled Now
@@ -207,7 +207,7 @@ export default function Pricing() {
 
                 <div className="priceCard__button mt-30">
                   <Link
-                    className="button -md rounded-200 -blue-8 text-white"
+                    className="button -md rounded-200 -green-8 text-white"
                     href="/courses-list-1"
                   >
                     Enrolled Now

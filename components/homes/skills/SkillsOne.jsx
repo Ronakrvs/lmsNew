@@ -21,10 +21,10 @@ export default function SkillsOne() {
         <div className="row y-gap-20 justify-center text-center">
           <div className="col-auto">
             <div className="sectionTitle ">
-              <h2 className="sectionTitle__title ">What will you learn</h2>
+              <h2 className="sectionTitle__title fw-700 " style={{fontSize:"84px",}}><span className="text-blue-8">Successful </span> TSB Aspirants</h2>
 
-              <p className="sectionTitle__text ">
-                10,000+ unique online course list designs
+              <p className="sectionTitle__text mt-6 "  style={{fontSize:"34px",lineHeight:"100px"}}>
+              ARE CURRENTLY DENTAL STUDENTS AT THE FOLLOWING UNIVERSITIES
               </p>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function SkillsOne() {
                     nextEl: ".arrow-right-one",
                     prevEl: ".arrow-left-one",
                   }}
-                  spaceBetween={30}
+                  spaceBetween={20}
                   slidesPerView={1}
                   breakpoints={{
                     // when window width is >= 576px
@@ -59,21 +59,22 @@ export default function SkillsOne() {
                     },
                     1200: {
                       // when window width is >= 992px
-                      slidesPerView: 6,
+                      slidesPerView: 4,
                     },
                   }}
                   loop={true}
+                  
                 >
                   {skillsOne.map((elm, i) => (
-                    <SwiperSlide key={i}>
+                    <SwiperSlide key={i} >
                       <div className="swiper-slide h-100 overflow-visible">
                         <div
-                          className="infoCard -type-1"
+                          className="infoCard -type-1" style={{border: "1px solid #878787",borderRadius:"19px"}}
                           data-aos="fade-left"
                           data-aos-duration={(i + 1) * 300}
                         >
                           <div className="infoCard__image">
-                            <Image
+                            <img
                               width={150}
                               height={100}
                               style={{ width: "100%", objectFit: "contain" }}
@@ -81,9 +82,9 @@ export default function SkillsOne() {
                               alt="image"
                             />
                           </div>
-                          <h5 className="infoCard__title text-17 lh-15 mt-10">
+                          {/* <h5 className="infoCard__title text-17 lh-15 mt-10">
                             {elm.skill}
-                          </h5>
+                          </h5> */}
                         </div>
                       </div>
                     </SwiperSlide>

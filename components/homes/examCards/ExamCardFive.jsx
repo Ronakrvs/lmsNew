@@ -36,7 +36,7 @@ export default function ExamCardFive({ data, index }) {
 
           <div className="h-100 pt-15 " style={{minHeight:"7.5em",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
           
-            <div className="text-17 lh-15 fw-500 text-dark-1 mt-10">
+            <div className="text-17 lh-15 fw-500 text-dark-1 mt-10 mb-20" style={{minHeight:"50px"}}>
               <Link className="linkCustom" href={`/exams/${data._id}`}>
                 {data.title}
               </Link>
@@ -48,7 +48,7 @@ export default function ExamCardFive({ data, index }) {
                   <img
                     width={16}
                     height={17}
-                    src={data?.image}
+                    src='/assets/img/clock.svg'
                     alt="icon"
                   />
                 </div>
@@ -60,7 +60,7 @@ export default function ExamCardFive({ data, index }) {
                   <img
                     width={16}
                     height={17}
-                    src={data?.image}
+                    src='/assets/img/Vector.svg'
                     alt="icon"
                   />
                 </div>
@@ -106,7 +106,7 @@ export default function ExamCardFive({ data, index }) {
                 />
                 <div>{data.authorName}</div>
               </div> */}
- <button className="button -sm  rounded-200 -outline-blue-1 text-blue-1" style={{width:"100%",}}>
+ <button className="button -sm -green-8 rounded-200 text-white" style={{width:"100%",}}>
                Buy
               </button>
             

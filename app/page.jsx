@@ -31,6 +31,10 @@ import { message } from 'antd'
 import FindLearningPath from '@/components/homes/FindLearningPath'
 import HeaderTwo from '@/components/layout/headers/HeaderTwo'
 import HeroTwo from '@/components/homes/heros/HeroTwo'
+import FooterSeven from '@/components/layout/footers/FooterSeven'
+import EventsSeven from '@/components/homes/events/EventsSeven'
+import Line from '@/components/common/Line'
+import SkillsOne from '@/components/homes/skills/SkillsOne'
 const CustomHeroHeader = React.lazy(() => import('@/components/homes/heros/CustomHeroHeader'));
 const LearningPathFive = React.lazy(() => import('@/components/common/LearningCommon'));
 const LearningPathsSix = React.lazy(() => import('@/components/homes/LearningPath/LearningPathsSix'));
@@ -106,14 +110,17 @@ console.log("token",token)
         {/* <BrandsTwo/> */}
           {/* <InstractorSeven/> */}
           <LearningPathsSix/>
-          <ExamFive/>
+            <ExamFive />
+            <Pricing />
+            <EventsSeven />
           <CoursesFive/>
           {/* <EventsOne/> */}
           {/* <CategoriesFive/> */}
           {/* <Instructors backgroundColor={'bg-beige-1'}/> */}
           {/* <StudentsFive/> */}
-          <LearningPathFive/>
-            <Pricing />
+          {/* <LearningPathFive/> */}
+            {/* <Line/> */}
+            <SkillsOne/>
             <FindLearningPath/>
           {/* <GetAppFive/> */}
         {/* <BlogsFive/> */}
@@ -121,8 +128,8 @@ console.log("token",token)
         {/* {!newsletter && <JoinTwo />} */}
           {/* <RecomentationFive/> */}
           {/* <GetAppSix/> */}
-            <FooterThree/>
-      
+            {/* <FooterThree/> */}
+            <FooterSeven/>
       
         </div>
         </Provider>

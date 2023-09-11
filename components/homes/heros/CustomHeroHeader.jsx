@@ -22,7 +22,7 @@ const CustomHeroHeader=()=> {
     setShowSlider(true);
   }, []);
   return (
-    <section className="" style={{height:"100vh"}}>
+    <section className="" style={{height:"100vh",backgroundImage:`url('/assets/img/ele1.png) url('/assets/img/ele2.png) url('/assets/img/ele3.png)`,zIndex:4}}>
       <div className="swiper-wrapper-one"  
                 data-slider-cols="xl-4 lg-3 md-2 sm-2"
                 data-aos="fade-in"

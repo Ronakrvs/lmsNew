@@ -1,4 +1,4 @@
-
+"use client"
 
 import dynamic from 'next/dynamic'
 
@@ -22,12 +22,12 @@ import HeaderSeven from '@/components/layout/headers/HeaderSeven'
 import React from 'react'
 import Preloader from '@/components/common/Preloader'
 
-export const metadata = {
-  title: 'Home-7 || Educrat - Professional LMS Online Education Course NextJS Template',
-  description:
-    'Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.',
+// export const metadata = {
+//   title: 'Home-7 || Educrat - Professional LMS Online Education Course NextJS Template',
+//   description:
+//     'Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.',
   
-}
+// }
 
 export default function page() {
   return (
