@@ -11,7 +11,7 @@ export default function Pricing() {
     setIsYearly(event.target.checked);
   };
   return (
-    <section className="layout-pt-lg layout-pb-sm bg-light-3">
+    <section className="layout-pt-lg layout-pb-sm bg-light-3" >
       <div className="container">
       <div className="row justify-center text-center">
             <div className="col-auto">
@@ -43,13 +43,16 @@ export default function Pricing() {
             </div> */}
           </div>
 
-        <div className="row y-gap-30 justify-between pt-60 lg:pt-50">
-          <div className="col-lg-6 col-md-6">
+        <div className="row y-gap-30 justify-center pt-60 lg:pt-50" >
+          <div className="col-lg-5 col-md-5"
+          // style={{ backgroundImage: "url('/assets/img/Group2.png')" }}
+          >
             <div
               className="priceCard -type-1 rounded-16 overflow-hidden"
               data-aos="fade-right"
               data-aos-duration={500}
             >
+              {/* <img width={180} height={252} src="" /> */}
               <div className="priceCard__header py-40 pl-50 bg-green-8">
                 <div className="priceCard__type text-18 lh-11 fw-500 text-white">
                   {pricingData[0].type}
@@ -158,11 +161,12 @@ export default function Pricing() {
             </div>
           </div> */}
 
-          <div className="col-lg-6 col-md-6">
+          <div className="col-lg-5 col-md-5" >
             <div
               className="priceCard -type-1 rounded-16 overflow-hidden"
               data-aos="fade-right"
               data-aos-duration={1500}
+              // style={{backgroundImage:"url('/assets/img/Group1.png')"}}
             >
               <div className="priceCard__header py-40 pl-50 bg-primary">
                 <div className="priceCard__type text-18 lh-11 fw-500 text-white">

@@ -14,6 +14,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { resetState } from "@/store/actions/commonAction";
 import { Cookies } from "react-cookie";
 import { isEmpty } from "lodash";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { LoginOutlined, UserAddOutlined } from "@ant-design/icons";
+import { Space } from "antd";
 
 export default function HeaderTwo() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
@@ -108,10 +111,10 @@ export default function HeaderTwo() {
                   {isEmpty(authUser) && <div className="d-flex x-gap-20 items-center text-white">
                     <div className="header-right__buttons d-flex items-center ml-30 xl:ml-20 md:d-none">
                       <Link href="/login" className="button -underline text-white">
-                        <div className="icon-fauser mr-10"></div>    Log in
+                     <Space ><LoginOutlined/>   Log in</Space>
                       </Link>
                       <Link href="/signup" className="button -underline ml-30 text-white">
-                        <div className="icon-user mr-10"></div>    Register
+                      <Space ><UserAddOutlined />   Register</Space>
                       
                       </Link>
                     </div>
@@ -136,10 +139,10 @@ export default function HeaderTwo() {
                 <img
                       width={70}
                       height={50}
-                      src='/assets/logo.webp'
+                      src='/assets/newlogo.png'
                       alt="logo"
                     />
-                   <LogoName/>
+                   {/* <LogoName/> */}
                   </Link>
               </div>
             </div>

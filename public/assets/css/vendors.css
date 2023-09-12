@@ -291,6 +291,9 @@
 .icon-play-button:before {
   content: "\e937";
 }
+.icon-youtube:before {
+  content: "\f16a";
+}
 .icon-power:before {
   content: "\e938";
 }
@@ -323,6 +326,9 @@
 }
 .icon-twitter:before {
   content: "\e942";
+}
+.icon-youtube:before {
+  content: "\f167";
 }
 .icon-up_down:before {
   content: "\e943";

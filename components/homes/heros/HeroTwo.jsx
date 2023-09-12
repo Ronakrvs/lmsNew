@@ -7,6 +7,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
 
+
+
+
+
 import React from "react";
 import { featureTwo } from "../../../data/features";
 import { slidesData } from "../../../data/hero";
@@ -114,7 +118,7 @@ export default function HeroTwo() {
               </div>
             </div>
           </div>
-
+        
           <div
             className="col-xl-6 col-lg-6"
             data-aos="fade-left"

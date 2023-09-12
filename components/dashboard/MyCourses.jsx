@@ -180,7 +180,7 @@ export default function MyCourses() {
                               }}
                               className="dropdown js-dropdown js-review-active"
                             >
-                              <div
+                              {/* <div
                                 className="dropdown__button d-flex items-center text-14 bg-white -dark-bg-dark-2 border-light rounded-8 px-20 py-10 text-14 lh-12"
                                 data-el-toggle=".js-review-toggle"
                                 data-el-toggle-active=".js-review-active"
@@ -189,7 +189,7 @@ export default function MyCourses() {
                                   Old Review
                                 </span>
                                 <i className="icon text-9 ml-40 icon-chevron-down"></i>
-                              </div>
+                              </div> */}
 
                               <div
                                 id="dd15content"

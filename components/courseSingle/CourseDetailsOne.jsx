@@ -16,13 +16,13 @@ import moment from "moment";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
   { id: 2, href: "#course-content", text: "Course Content", isActive: false },
-  { id: 3, href: "#instructors", text: "Instructors", isActive: false },
-  { id: 4, href: "#reviews", text: "Reviews", isActive: false },
+  // { id: 3, href: "#instructors", text: "Instructors", isActive: false },
+  // { id: 4, href: "#reviews", text: "Reviews", isActive: false },
 ];
 
 export default function CourseDetailsOne({ id }) {
   console.log("id",id);
-  const [pageItem, setPageItem] = useState(coursesData[0]);
+  const [pageItem, setPageItem] = useState({});
 
   useEffect(() => {
 
@@ -32,7 +32,7 @@ export default function CourseDetailsOne({ id }) {
 
 
   const getCourseDetail = async() => {
-    await getExamById(id).then(({ data }) => {
+    await getCourseById(id).then(({ data }) => {
       console.log(data);
       setPageItem(data?.data)
     })
@@ -71,7 +71,7 @@ export default function CourseDetailsOne({ id }) {
 
                 <div>
                   <h1 className="text-30 lh-14 pr-60 lg:pr-0">
-                    {pageItem.title}
+                    {pageItem?.title}
                   </h1>
                 </div>
 
@@ -144,10 +144,10 @@ export default function CourseDetailsOne({ id }) {
                 </div>
               </div>
 
-              <Overview />
+              <Overview description={pageItem?.description} />
               <CourseContent courseList={pageItem?.course} />
-              <Instractor />
-              <Reviews />
+              {/* <Instractor />
+              <Reviews /> */}
             </div>
           </div>
         </div>

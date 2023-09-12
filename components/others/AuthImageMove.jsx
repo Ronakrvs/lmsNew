@@ -40,7 +40,7 @@ export default function AuthImageMove({showbg=false}) {
     parallaxIt();
   }, []);
   return (
-    <div className="form-page__img bg-dark-1" style={{width:"70vw"}}>
+    <div className="form-page__img bg-blue-8" style={{width:"70vw"}}>
       {!showbg ?
         <div className="form-page-composition">
         <div className="-bg">

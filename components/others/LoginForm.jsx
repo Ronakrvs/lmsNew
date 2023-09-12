@@ -124,7 +124,7 @@ export default function LoginForm() {
                   />
                 </div>
                 <div className="col-6"><Checkbox >Remember me</Checkbox></div>
-                <div className="col-6 text-right">  <Link href="/forget-password" className="text-purple-1">
+                <div className="col-6 text-right">  <Link href="/forget-password" className="text-blue-8">
                   Forget Password
                 </Link></div>
                 <div className="col-12">
@@ -132,13 +132,13 @@ export default function LoginForm() {
                     type="submit"
                     name="submit"
                     id="submit"
-                    className="button -md -dark-1 text-white fw-500 w-1/1"
+                    className="button -md -blue-8 text-white fw-500 w-1/1"
                   >
                     Login
                   </button>
                   <p className="mt-10">
                 Don't have an account yet?
-                <Link href="/signup" className="text-purple-1">
+                <Link href="/signup" className="text-blue-8">
                   Sign up for free
                 </Link>
               </p>

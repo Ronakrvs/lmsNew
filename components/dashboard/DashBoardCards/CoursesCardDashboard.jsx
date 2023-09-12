@@ -23,7 +23,7 @@ export default function CoursesCardDashboard({ data }) {
           alt="image"
         />
 
-        <button
+        {/* <button
           onClick={() => setActiveShare((pre) => !pre)}
           className="absolute-button"
           data-el-toggle=".js-more-1-toggle"
@@ -31,9 +31,9 @@ export default function CoursesCardDashboard({ data }) {
           <span className="d-flex items-center justify-center size-35 bg-white shadow-1 rounded-8">
             <i className="icon-menu-vertical"></i>
           </span>
-        </button>
+        </button> */}
 
-        <div
+        {/* <div
           className={`toggle-element -dshb-more js-more-1-toggle ${
             activeShare ? "-is-el-visible" : ""
           } `}
@@ -49,7 +49,7 @@ export default function CoursesCardDashboard({ data }) {
               <div className="text-17 lh-1 fw-500 ml-12">Favorite</div>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
 
       <div className="pt-15">

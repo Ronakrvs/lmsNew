@@ -412,7 +412,7 @@ export default function Menu({ allClasses, headerPosition }) {
               <Link data-barba href="/"  className={
                 pathname == "/" ? "activeMenu" : "inActiveMenuTwo"
               }>
-                Home
+               <b style={{fontSize:"16px"}}> Home </b>
               </Link>
             </li>
             <li
@@ -421,7 +421,8 @@ export default function Menu({ allClasses, headerPosition }) {
               <Link data-barba href="/courses-list-4"  className={
                 pathname == "/courses-list-4" ? "activeMenu" : "inActiveMenuTwo"
               }>
-                Courses
+                <b style={{fontSize:"16px"}}> How It Works </b>
+                {/* Courses */}
               </Link>
             </li>
             <li
@@ -430,7 +431,8 @@ export default function Menu({ allClasses, headerPosition }) {
               <Link data-barba href="/blog-list-1"  className={
                 pathname == "/blog-list-1" ? "activeMenu" : "inActiveMenuTwo"
               }>
-                Blog
+                <b style={{fontSize:"16px"}}> Testimonials </b>
+                {/* Blog */}
               </Link>
             </li>
             <li
@@ -439,7 +441,18 @@ export default function Menu({ allClasses, headerPosition }) {
               <Link data-barba href="/contact-2"  className={
                 pathname == "/contact-2" ? "activeMenu" : "inActiveMenuTwo"
               }>
-                Contact Us
+                <b style={{fontSize:"16px"}}> Team </b>
+                {/* Contact Us */}
+              </Link>
+            </li>
+            <li
+              
+            >
+              <Link data-barba href="/contact-2"  className={
+                pathname == "/contact-2" ? "activeMenu" : "inActiveMenuTwo"
+              }>
+                <b style={{fontSize:"16px"}}> Seeking Help? </b>
+                {/* Contact Us */}
               </Link>
             </li>
             {/* <li

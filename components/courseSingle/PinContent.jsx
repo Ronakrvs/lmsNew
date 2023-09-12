@@ -61,11 +61,11 @@ export default function PinContent({ pageItem }) {
               {pageItem.paid ? (
                 <>
                   <div className="text-24 lh-1 text-dark-1 fw-500">
-                    ${pageItem.discountedPrice}
+                    ${pageItem.price}
                   </div>
-                  <div className="lh-1 line-through">
-                    ${pageItem.originalPrice}
-                  </div>
+                  {/* <div className="lh-1 line-through">
+                    ${pageItem.price}
+                  </div> */}
                 </>
               ) : (
                 <>

@@ -21,9 +21,9 @@ export default function SkillsOne() {
         <div className="row y-gap-20 justify-center text-center">
           <div className="col-auto">
             <div className="sectionTitle ">
-              <h2 className="sectionTitle__title fw-700 " style={{fontSize:"84px",}}><span className="text-blue-8">Successful </span> TSB Aspirants</h2>
+              <h2 className="sectionTitle__title fw-700  text-45 md:text-30 " style={{fontSize:"84px",}}>Successful  <span className="text-blue-8 text-45 md:text-30">Dentabest </span>Aspirants</h2>
 
-              <p className="sectionTitle__text mt-6 "  style={{fontSize:"34px",lineHeight:"100px"}}>
+              <p className="sectionTitle__text mt-6 "  style={{fontSize:"34px",lineHeight:"4rem"}}>
               ARE CURRENTLY DENTAL STUDENTS AT THE FOLLOWING UNIVERSITIES
               </p>
             </div>

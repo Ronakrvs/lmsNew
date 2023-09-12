@@ -107,7 +107,7 @@ export default function ExamCardFive({ data, index }) {
                 <div>{data.authorName}</div>
               </div> */}
  <button className="button -sm -green-8 rounded-200 text-white" style={{width:"100%",}}>
-               Buy
+ Subscribe Now
               </button>
             
           </div>

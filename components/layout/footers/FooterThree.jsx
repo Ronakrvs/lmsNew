@@ -59,8 +59,8 @@ export default function FooterThree() {
         <div className="py-30 border-top-light">
           <div className="row justify-between items-center y-gap-20">
             <div className="col-auto">
-              <div className="footer-footer__copyright d-flex items-center h-100  text-white ">
-                © {new Date().getFullYear()} DENTA <b>BEST</b>. All Right Reserved.
+              <div className="footer-footer__copyright d-flex items-center h-100  text-white " style={{fontSize:"1rem"}}>
+                © {new Date().getFullYear()} DENTA <b>BEST</b>. All Right Reserved. Powered by <a href="https://aaronsoftech.com/"  target="_blank">Aaron softech private limited</a>
               </div>
             </div>
 

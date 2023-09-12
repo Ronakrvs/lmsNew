@@ -49,7 +49,7 @@ export default function CoursesFive({ tabBtnStyle }) {
             <div className="col-auto">
               <div className="sectionTitle ">
               <h2 className="" style={{fontSize:"50px", color:"#0D1736"}}>
-                   <b style={{color:"#0AA0DF"}}>Explore</b> Exam Courses
+                   <b style={{color:"#0AA0DF"}}>Courses</b>  We Provide
                 </h2>              </div>
             </div>
 

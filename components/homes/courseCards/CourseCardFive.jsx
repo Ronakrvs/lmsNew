@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Star from "../../common/Star";
 import Buttons from "@/components/uiElements/Buttons";
+import { ArrowRightOutlined } from "@ant-design/icons";
+import { Divider } from "antd";
 export default function CourseCardFive({ data, index }) {
   const [rating, setRating] = useState([]);
   useEffect(() => {
@@ -42,19 +44,8 @@ export default function CourseCardFive({ data, index }) {
               </Link>
             </div>
 
-            <div className="d-flex x-gap-10 items-center pt-10 justify-between align-bottom" style={{borderTop:"1px solid #EDEDED"}}>
-              <div className="d-flex items-center">
-                <div className="mr-8">
-                  <img
-                    width={16}
-                    height={17}
-                    src='/assets/img/clock.svg'
-                    alt="icon"
-                  />
-                </div>
-                <div className="text-14 lh-1">{data.lessonCount} lesson</div>
-              </div>
-
+            <div className="d-flex x-gap-10 items-center pt-10 justify-center align-bottom" style={{borderTop:"1px solid #EDEDED"}}>
+             
               <div className="d-flex items-center">
                 <div className="mr-8">
                   <img
@@ -69,7 +60,18 @@ export default function CourseCardFive({ data, index }) {
                 )}h ${Math.floor(data.totalHours % 60)}m`}</div>
                 
               </div>
-              <div className="d-flex items-right fw-600">
+              <div class="vr text-color-grey"></div>
+              {/* <Divider type="vertical" /> */}
+              <div className="d-flex items-center">
+              <Link
+                          className="linkCustom"
+                          href={`/instructors/${data?._id}`}
+                        >
+                         View Details <ArrowRightOutlined/>
+                        </Link>
+              </div>
+
+              {/* <div className="d-flex items-right fw-600">
               {data.paid ? (
                   <>
                     <div></div>
@@ -81,7 +83,7 @@ export default function CourseCardFive({ data, index }) {
                     <div>Free</div>
                   </>
                 )}
-              </div>
+              </div> */}
               </div>
               {/* <div className="d-flex items-center">
                 <div className="mr-8">
