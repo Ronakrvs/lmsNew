@@ -9,7 +9,7 @@ import Preloader from '@/components/common/Preloader'
 
 import FooterOne from '@/components/layout/footers/FooterOne'
 import FooterThree from '@/components/layout/footers/FooterThree'
-import Header from '@/components/layout/headers/Header'
+import HeaderTwo from '@/components/layout/headers/HeaderTwo'
 import React from 'react'
 
 export const metadata = {
@@ -25,7 +25,7 @@ export default function page() {
     <div className="main-content  ">
       <Preloader/>
 
-        <Header/>
+      <HeaderTwo/>
         <div className="content-wrapper js-content-wrapper overflow-hidden">
             <PageLinks/>
 

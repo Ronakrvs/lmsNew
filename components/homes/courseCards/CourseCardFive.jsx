@@ -28,7 +28,7 @@ export default function CourseCardFive({ data, index }) {
                 height={500}
                 style={{ height: "100%", width: "100%",minHeight:"200px" }}
                 className="w-1/1"
-                src={data.image}
+                src={Array.isArray(data?.image) ?  data.image[0]?.fileUrl : data?.image}
                 alt="image"
               />
               <div className="coursesCard__image_overlay rounded-8"></div>

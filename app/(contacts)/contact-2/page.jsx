@@ -13,7 +13,7 @@ import ContactTwo from '@/components/contacts/ContactTwo'
 
 import FooterOne from '@/components/layout/footers/FooterOne'
 import FooterThree from '@/components/layout/footers/FooterThree'
-import Header from '@/components/layout/headers/Header'
+import HeaderTwo from '@/components/layout/headers/HeaderTwo'
 import React from 'react'
 export const metadata = {
   title: 'Contact-2 || Educrat - Professional LMS Online Education Course NextJS Template',
@@ -27,7 +27,7 @@ export default function page() {
     <div className="main-content  ">
       <Preloader/>
 
-        <Header/>
+         <HeaderTwo/>
         <div className="content-wrapper js-content-wrapper overflow-hidden">
             
 

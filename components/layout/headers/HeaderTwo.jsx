@@ -16,7 +16,8 @@ import { Cookies } from "react-cookie";
 import { isEmpty } from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { LoginOutlined, UserAddOutlined } from "@ant-design/icons";
-import { Space } from "antd";
+import { Button, Space } from "antd";
+import { usePathname } from 'next/navigation'
 
 export default function HeaderTwo() {
   const [activeMobileMenu, setActiveMobileMenu] = useState(false);
@@ -24,6 +25,8 @@ export default function HeaderTwo() {
   const [isOnProfile, setIsOnProfile] = useState(false);
   const [open, setOpen] = useState(false);
   const router = useRouter()
+  const pathname = usePathname()
+
   const dispatch = useDispatch();
   const sampleListData = useSelector((state) => state?.authUser);
   const { authUser } = sampleListData;
@@ -40,7 +43,6 @@ export default function HeaderTwo() {
     setOpen(false);
     router.push('/login')
   };
-  console.log(authUser);
  
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,10 +84,14 @@ export default function HeaderTwo() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
     <header
-      className={`header -type-5 js-header ${
-        scrollPosition > 40 ? "bg-dark-1" : ""
+      className={`header -type-5 js-header 
+      ${
+        pathname== "/"  ? "" : "bg-dark-1"
+      }  ${
+        scrollPosition > 40   ? "bg-dark-1" : ""
       } `}
     >
       <div className="d-flex items-center bg-primary py-10">
@@ -165,7 +171,7 @@ export default function HeaderTwo() {
                     height={50}
                     style={{ maxWidth: 50 }}
                     className="size-50"
-                    src={authUser?.user_image}
+                    src={'assets/img/general/avatar-1.png'}
                     alt="image"
                   />
                 </a>
@@ -191,9 +197,9 @@ export default function HeaderTwo() {
                                 <i className={elm.iconClass}></i>
                                 {elm.text}
                               </Link> :
-                              <Link
+                              <Link type="link"
                                 onClick={() => showModal()}
-                                href={''}
+                               href={'/'}
                                 className="d-flex items-center text-17 lh-1 fw-500 "
                               >
                                 <i className={elm.iconClass}></i>

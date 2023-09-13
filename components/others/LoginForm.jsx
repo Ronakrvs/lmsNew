@@ -1,5 +1,4 @@
 "use client";
-
 import { loginUser } from "@/service/user";
 import Link from "next/link";
 import React, { useState ,useEffect} from "react";
@@ -9,6 +8,7 @@ import { httpClient } from "@/utils/api";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserAuthInfo } from "@/store/actions/userAction";
+import { isEmpty } from "lodash";
 export default function LoginForm() {
   // const [authUser, setAuthUser] = useState(null);
   const dispatch = useDispatch()
@@ -22,18 +22,22 @@ export default function LoginForm() {
   });
 
   useEffect(() => {
+  onAuthUser()
+  
+   
+  }, [])
+
+  const onAuthUser = () => {
     const cookies = new Cookies();
     const token = cookies.get("token");
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-// console.log("token",token)
-    if (token) {
+console.log("token",token)
+    if (!isEmpty(authUser)) {
       // router.push('/')'
       console.log("token",token)
       getAuthUser()
     } 
-  
-   
-  }, [])
+  }
   
 
   const getAuthUser = (data) => {

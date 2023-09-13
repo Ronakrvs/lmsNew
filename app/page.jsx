@@ -25,7 +25,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import Header from '@/components/layout/headers/Header'
 import EventsOne from '@/components/events/EventsOne'
 // import HeroTwo from '@/components/homes/heros/HeroTwo'
-import { getAuthUser } from '@/components/others/LoginForm'
+// import { getAuthUser } from '@/components/others/LoginForm'
 import { setUserAuthInfo } from '@/store/actions/userAction'
 import { message } from 'antd'
 import FindLearningPath from '@/components/homes/FindLearningPath'
@@ -65,7 +65,7 @@ const HomePage=(()=> {
   useEffect(() => {
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 console.log("token",token)
-    if (token) {
+    if (authUser) {
       getAuthUser()
       // router.push('/')
     }

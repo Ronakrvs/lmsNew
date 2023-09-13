@@ -1,5 +1,5 @@
 'use client'
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import PageLinks from '@/components/common/PageLinks'
 import Preloader from '@/components/common/Preloader'
 import FooterOne from '@/components/layout/footers/FooterOne'
@@ -22,12 +22,13 @@ import { Cookies } from 'react-cookie'
 
 
 export default function page() {
+  const [loading,setLoading] = useState(false)
   useEffect(() => {
     const cookies = new Cookies();
     const token = cookies.get("token");
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
   console.log("token",token)
-    if (token) {
+    if (token !== undefined) {
       // router.push('/')'
       getAuthUser()
     } 

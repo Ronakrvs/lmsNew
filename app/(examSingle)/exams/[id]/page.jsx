@@ -5,7 +5,7 @@
 
 import PageLinks from '@/components/common/PageLinks'
 import Preloader from '@/components/common/Preloader'
-import CourseDetailsOne from '@/components/courseSingle/CourseDetailsOne'
+import CourseDetailsOne from '@/components/examSingle/examDetailsOne'
 import CourseSlider from '@/components/courseSingle/CourseSlider'
 import FooterOne from '@/components/layout/footers/FooterOne'
 

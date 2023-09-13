@@ -25,28 +25,38 @@ export default function SignUpForm() {
     
   });
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
+  const handleChange = (e,type="") => {
+    console.log(e)
+    if (type == "dob") {
+     
+      setFormData((prevData) => ({
+        ...prevData,
+        "dob": e
+      }));
+    } else {
+      const { name, value } = e.target;
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value
+      }));
+    }
+   
   };
-  const getAuthUser = (data) => {
-    setLoading(true)
-    httpClient.get("user/auth/me").then(({data}) => {
-      if (data) {
-       setLoading(false)
-        // setAuthUser(data);
-        router.push('/')
-      } else {
-        setLoading(false)
-      }
-    }).catch(function (error) {
-      httpClient.defaults.headers.common['Authorization'] = '';
-      message.error({content:error.message,key:"1"});
-    });
-  }
+  // const getAuthUser = (data) => {
+  //   setLoading(true)
+  //   httpClient.get("user/auth/me").then(({data}) => {
+  //     if (data) {
+  //      setLoading(false)
+  //       // setAuthUser(data);
+  //       router.push('/')
+  //     } else {
+  //       setLoading(false)
+  //     }
+  //   }).catch(function (error) {
+  //     httpClient.defaults.headers.common['Authorization'] = '';
+  //     message.error({content:error.message,key:"1"});
+  //   });
+  // }
   const handleSubmit = async (e) => {
     e.preventDefault()
    
@@ -59,6 +69,7 @@ export default function SignUpForm() {
       await registerNewUser(formData).then(({data}) => { 
         if (data) {
           setLoading(false)
+  
            httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + data.token;
            const cookies = new Cookies();
            cookies.set('token', data.token);
@@ -96,7 +107,7 @@ export default function SignUpForm() {
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Full Name *
                   </label>
-                  <input required type="text" name="firstname" placeholder="Enter First Name"  value={formData.firstname}
+                  <input required type="text" name="fullName" placeholder="Enter Full Name"  value={formData.firstname}
             onChange={handleChange}/>
                 </div>
                 {/* <div className="col-lg-6">
@@ -126,7 +137,7 @@ export default function SignUpForm() {
                   </label>
                   {/* <input required type="text" name="profession" placeholder="Enter Profession"  value={formData.dob} */}
             {/* onChange={handleChange}/> */}
-                    <DatePicker required name="firstname" placeholder="First Name" onChange={handleChange} size="large" style={{width:"100%",padding:"13px 22px",borderRadius:"8px",lineHeight:"1.5"}} />
+                    <DatePicker required name="dob" placeholder="Enter Date of birth" onChange={(e)=>handleChange(e,'dob')} size="large" style={{width:"100%",padding:"13px 22px",borderRadius:"8px",lineHeight:"1.5"}} />
         
                 </div>
                
