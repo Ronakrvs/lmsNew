@@ -7,31 +7,36 @@ export default function FindLearningPath() {
   useEffect(() => {
     const parallaxIt = () => {
       const images = document.querySelectorAll('.js-mouse-move');
-
+    
       images.forEach((image) => {
         const movement = image.getAttribute('data-move');
         const container = image.closest('.js-mouse-move-container');
         const centerX = container?.offsetWidth / 2;
         const centerY = container?.offsetHeight / 2;
-
+        let scale = 1; // Initial scale value
+    
         const updatePosition = () => {
           const time = performance.now() * 0.001;
           const x = centerX + Math.sin(time) * (centerX * 0.5);
           const y = centerY + Math.cos(time) * (centerY * 0.5);
-
+    
+          // Add a zoom in and out effect based on sine wave
+          scale = 1 + Math.sin(time) * 0.1; // You can adjust the zoom level (0.1 in this case)
+    
           gsap.to(image, {
             x: ((x - centerX) / container?.offsetWidth) * Number(movement),
             y: ((y - centerY) / container?.offsetHeight) * Number(movement),
-            duration: 0.6,
+            scale: scale, // Apply the scale effect
+            duration: 0.3, // Reduce the duration to 0.3 seconds
           });
-
+    
           requestAnimationFrame(updatePosition);
         };
-
+    
         updatePosition();
       });
     };
-
+    
     parallaxIt();
   }, []);
 
@@ -50,99 +55,92 @@ export default function FindLearningPath() {
           data-aos="ease-out-back"
           data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{ position: 'absolute', top: "0rem", left: "5rem" }}
+          style={{ position: 'absolute', top: "0%", left: "30%" }}
         >
-          <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" />
+          <img src={'/assets/img/learning4.png'} alt="icon" className="js-mouse-move w-50" style={{width:"4em"}}/>
         </div>
 
-        <div
-          data-aos="ease-out-back"
-          data-move="90"
-          className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{ position: 'absolute', top: "10rem", left: "9rem" }}
-        >
-          <img src={'/assets/img/learning1.png'} alt="icon" className="js-mouse-move" />
-        </div>
+        
 
         <div   data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"0rem",left:"5rem"}}
+          style={{position: 'absolute',top:"0%",left:"5%"}}
                   >
-                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}}/>
                     
       </div>
       <div id="movableDiv"  data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"10rem",left:"9rem"}}
+          style={{position: 'absolute',top:"30%",left:"9%"}}
                   >
-                    <img src={'/assets/img/learning1.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning1.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}} />
                     
       </div>
       <div id="movableDiv"  data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"25rem",left:"4rem"}}
+          style={{position: 'absolute',top:"60%",left:"20%"}}
                   >
-                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}} />
                     
       </div>
       <div  id="movableDiv" data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"25rem",left:"70rem"}}
+          style={{position: 'absolute',top:"25%",left:"70%"}}
                   >
-                    <img src={'/assets/img/learning3.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning3.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}}/>
                     
       </div>
       <div  id="movableDiv" data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"14rem",left:"90rem"}}
+          style={{position: 'absolute',top:"70%",left:"90%"}}
                   >
-                    <img src={'/assets/img/learning4.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning4.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}}/>
                     
       </div>
       <div id="movableDiv"  data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"30rem",left:"90rem"}}
+          style={{position: 'absolute',top:"30%",left:"90%"}}
                   >
-                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}}/>
                     
                   </div>
       <div   data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"6rem",left:"100rem"}}
+          style={{position: 'absolute',top:"6%",left:"100%"}}
                   >
-                    <img src={'/assets/img/learning1.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning1.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}}/>
                     
                   </div>
       <div id="movableDiv"  data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"28rem",left:"34rem"}}
+          style={{position: 'absolute',top:"70%",left:"60%"}}
                   >
-                    <img src={'/assets/img/learning1.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning1.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}}/>
                     
                   </div>
       <div  id="movableDiv"  data-aos="ease-out-back"
           // data-aos-delay="750"
                     data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{position: 'absolute',top:"1rem",left:"70rem"}}
+          style={{position: 'absolute',top:"1%",left:"70%"}}
                   >
-                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" />
+                    <img src={'/assets/img/learning2.png'} alt="icon" className="js-mouse-move" style={{width:"4em"}}/>
                     
                   </div>
         

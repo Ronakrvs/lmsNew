@@ -9,34 +9,39 @@ export default function HeroFive({ heroHeader }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
-    AOS.init(); // Initialize AOS
     const parallaxIt = () => {
+      AOS.refreshHard()
       const images = document.querySelectorAll('.js-mouse-move');
-
+    
       images.forEach((image) => {
         const movement = image.getAttribute('data-move');
         const container = image.closest('.js-mouse-move-container');
         const centerX = container?.offsetWidth / 2;
         const centerY = container?.offsetHeight / 2;
-
+        let scale = 1; // Initial scale value
+    
         const updatePosition = () => {
           const time = performance.now() * 0.001;
           const x = centerX + Math.sin(time) * (centerX * 0.5);
           const y = centerY + Math.cos(time) * (centerY * 0.5);
-
+    
+          // Add a zoom in and out effect based on sine wave
+          scale = 1 + Math.sin(time) * 0.1; // You can adjust the zoom level (0.1 in this case)
+    
           gsap.to(image, {
             x: ((x - centerX) / container?.offsetWidth) * Number(movement),
             y: ((y - centerY) / container?.offsetHeight) * Number(movement),
-            duration: 0.6,
+            scale: scale, // Apply the scale effect
+            duration: 0.3, // Reduce the duration to 0.3 seconds
           });
-
+    
           requestAnimationFrame(updatePosition);
         };
-
+    
         updatePosition();
       });
     };
-
+    
     parallaxIt();
   }, []);
 
@@ -53,34 +58,34 @@ export default function HeroFive({ heroHeader }) {
       }}
       data-parallax="0.6"
     >
-      <div className="container" data-parallax-target>
+      <div data-parallax-target> <div className="js-mouse-move-container">
         <div
           data-move="90"
-          data-aos="fade-up"
-          data-aos-delay="750"
+         
+          
           className="lg:d-none img-el -w-150 px-20 py-20 d-flex items-center  rounded-8 js-mouse-move"
-          style={{ position: 'absolute', top: "3rem", left: "25rem" }}
+          style={{ position: 'absolute', top: "10%", left: "25%" }}
         >
-          <img src={'/assets/img/ele1.png'} alt="icon" className="js-mouse-move" />
+          <img src={'/assets/img/ele1.png'} alt="icon" className="js-mouse-move" style={{width:"5rem"}} />
         </div>
         <div
           data-aos="ease-out-back"
-          data-aos-delay="750"
-          data-move="90"
           className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
-          style={{ position: 'absolute', top: "35rem", left: "45rem" }}
+          style={{ position: 'absolute', top: "65%", left: "40%" }}
         >
-          <img src={'/assets/img/ele2.png'} alt="icon" className="js-mouse-move" />
+          <img src={'/assets/img/ele2.png'} alt="icon" className="js-mouse-move" style={{width:"5rem"}} />
         </div>
         <div
           data-aos="ease-in-out-cubic"
-          data-aos-delay="50"
-          data-move="90"
+      
           className="lg:d-none img-el -w-150 px-20 py-20 d-flex items-center  rounded-8 js-mouse-move"
-          style={{ position: 'absolute', top: "10rem", left: "55rem" }}
+          style={{ position: 'absolute', top: "40%%", left: "45%" }}
         >
-          <img src={'/assets/img/ele3.png'} alt="icon" className="js-mouse-move" />
-        </div>
+          <img src={'/assets/img/ele3.png'} alt="icon" className="js-mouse-move" style={{width:"5rem"}} />
+          </div>
+          </div></div>
+      <div className="container" >
+     
         <div
           className="row y-gap-50 x-gap-50 justify-between items-center"
           data-aos="fade-right"
@@ -125,28 +130,29 @@ export default function HeroFive({ heroHeader }) {
             </div>
           </div>
           <div
-            className="col-xl-6 col-lg-6  d-sm-block d-md-block"
+            className="col-xl-6 col-lg-6  d-sm-block d-md-block d-xs-block sm:d-none md:d-none  "
             style={{
               backgroundImage: `url(${data?.bgbackimage})`,
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
               textAlign: "center",
-              position: "relative",
-              bottom: "100px",
+              // position: "absolute",
+              // bottom: "100px",
             }}
             data-aos="fade-up"
             data-aos-delay="500"
           >
             <div className="masthead__image" data-aos="fade-left" data-aos-delay="500">
               <img
-                width={"auto"}
-                style={{ width: "auto", top: "10px", position: "relative" }}
+                // width={720}
+                // style={{ width: "auto",display:"flex",justifyContent: "center",alignItems: "flex-end"}}
                 src={data?.bgimage}
                 alt="image"
               />
             </div>
           </div>
-        </div>
+          </div>
+         
       </div>
     </section>
   );

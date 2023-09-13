@@ -145,14 +145,14 @@ export default function SignUpForm() {
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Password *
                   </label>
-                  <input required type="text" name="password" placeholder="Enter Password"  value={formData.password}
+                  <input required type="password" name="password" placeholder="Enter Password"  value={formData.password}
             onChange={handleChange}/>
                 </div>
                 <div className="col-lg-6">
                   <label className="text-16 lh-1 fw-500 text-dark-1 mb-10">
                     Confirm Password *
                   </label>
-                  <input required type="text" name="confirmPassword" placeholder="Enter Confirm Password"  value={formData.confirmPassword}
+                  <input required type="password" name="confirmPassword" placeholder="Enter Confirm Password"  value={formData.confirmPassword}
             onChange={handleChange}/>
                 </div>
                 <div className="col-12">

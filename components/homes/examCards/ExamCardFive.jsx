@@ -37,7 +37,7 @@ export default function ExamCardFive({ data, index }) {
           <div className="h-100 pt-15 " style={{minHeight:"7.5em",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
           
             <div className="text-17 lh-15 fw-500 text-dark-1 mt-10 mb-20" style={{minHeight:"50px"}}>
-              <Link className="linkCustom" href={`/exams/${data._id}`}>
+              <Link className="linkCustom" href={`/exams/${data.slug}`}>
                 {data.title}
               </Link>
             </div>

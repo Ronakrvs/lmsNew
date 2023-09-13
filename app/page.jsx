@@ -13,7 +13,7 @@ import StudentsFive from '@/components/homes/students/StudentsFive'
 
 import Pricing from '@/components/homes/pricing/Pricing'
 import NoSSR from 'react-no-ssr';
-
+import EventsOne from '@/components/homes/events/EventsOne'
 
 
 import Preloader from "@/components/common/Preloader";
@@ -23,7 +23,7 @@ import { httpClient } from '@/utils/api';
 import { wrapper, store } from "../store/store";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import Header from '@/components/layout/headers/Header'
-import EventsOne from '@/components/events/EventsOne'
+
 // import HeroTwo from '@/components/homes/heros/HeroTwo'
 // import { getAuthUser } from '@/components/others/LoginForm'
 import { setUserAuthInfo } from '@/store/actions/userAction'
@@ -35,6 +35,7 @@ import FooterSeven from '@/components/layout/footers/FooterSeven'
 import EventsSeven from '@/components/homes/events/EventsSeven'
 import Line from '@/components/common/Line'
 import SkillsOne from '@/components/homes/skills/SkillsOne'
+import { isEmpty } from 'lodash'
 const CustomHeroHeader = React.lazy(() => import('@/components/homes/heros/CustomHeroHeader'));
 const LearningPathFive = React.lazy(() => import('@/components/common/LearningCommon'));
 const LearningPathsSix = React.lazy(() => import('@/components/homes/LearningPath/LearningPathsSix'));
@@ -53,19 +54,21 @@ const JoinTwo = React.lazy(() => import('@/components/homes/join/JoinTwo'));
   
 // }
 
-const HomePage=(()=> {
+const HomePage=()=> {
   const router = useRouter()
-  const cookies = new Cookies();
+  // const cookies = new Cookies();
   const dispatch = useDispatch()
   const [loading,setLoading] = useState(false)
   const sampleListData = useSelector((state) => state?.authUser);
   const { authUser } = sampleListData;
-  const token = cookies.get("token");
-  const newsletter = cookies.get("newsletter");
+ console.log(authUser)
+  // const newsletter = cookies.get("newsletter");
   useEffect(() => {
+    const cookies = new Cookies();
+    const token = cookies.get("token");
     httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 console.log("token",token)
-    if (authUser) {
+    if (!isEmpty(authUser)) {
       getAuthUser()
       // router.push('/')
     }
@@ -76,7 +79,7 @@ console.log("token",token)
  const getAuthUser = () => {
    setLoading(true)
   //  httpClient.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-   console.log(token)
+  //  console.log(token)
     httpClient.get("user/auth/me").then(({data}) => {
       if (data) {
        setLoading(false)
@@ -111,9 +114,12 @@ console.log("token",token)
           {/* <InstractorSeven/> */}
           <LearningPathsSix/>
             <ExamFive />
-            <Pricing />
-            <EventsSeven />
           <CoursesFive/>
+            <Pricing />
+            <EventsOne/>
+ <BlogsTwo />
+
+            <EventsSeven />
           {/* <EventsOne/> */}
           {/* <CategoriesFive/> */}
           {/* <Instructors backgroundColor={'bg-beige-1'}/> */}
@@ -124,7 +130,7 @@ console.log("token",token)
             <FindLearningPath/>
           {/* <GetAppFive/> */}
         {/* <BlogsFive/> */}
-        <BlogsTwo />
+       
         {/* {!newsletter && <JoinTwo />} */}
           {/* <RecomentationFive/> */}
           {/* <GetAppSix/> */}
@@ -136,5 +142,5 @@ console.log("token",token)
         </NoSSR>
   </>
   );
-})
+}
 export default (HomePage);

@@ -21,11 +21,11 @@ export default function LoginForm() {
     password: ""
   });
 
-  useEffect(() => {
-  onAuthUser()
+  // useEffect(() => {
+  // onAuthUser()
   
    
-  }, [])
+  // }, [])
 
   const onAuthUser = () => {
     const cookies = new Cookies();

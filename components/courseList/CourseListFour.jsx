@@ -727,8 +727,9 @@ export default function CourseListFour() {
                         <img
                           width={510}
                           height={360}
+                          style={{ height: "100%", width: "100%",minHeight:"200px",maxHeight:"200px" }}
                           className="w-1/1"
-                          src={elm.image}
+                          src={elm.image?.[0]?.fileUrl}
                           alt="image"
                         />
                         <div className="coursesCard__image_overlay rounded-8"></div>
@@ -825,7 +826,7 @@ export default function CourseListFour() {
                           <img
                             width={30}
                             height={30}
-                            src={elm.image}
+                            src={elm.image?.[0]?.fileUrl}
                             alt="image"
                           />
                           <div>{elm.authorName}</div>

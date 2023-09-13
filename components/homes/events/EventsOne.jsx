@@ -5,27 +5,42 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { events } from "../../../data/events";
+import moment from 'moment'
+import {getAllSubjectList} from '../../../service/subject'
 import Link from "next/link";
 export default function EventsOne() {
   const [showSlider, setShowSlider] = useState(false);
+  const [subjectList,setSubjectList] = useState([]);
   useEffect(() => {
     setShowSlider(true);
   }, []);
-  return (
-    <section className="layout-pt-lg layout-pb-lg bg-light-3">
-      <div className="container">
-        <div className="row y-gap-15 justify-between items-end">
-          <div className="col-lg-6">
-            <div className="sectionTitle ">
-              <h2 className="sectionTitle__title ">Upcoming Events</h2>
 
-              <p className="sectionTitle__text ">
-                Lorem ipsum dolor sit amet, consectetur.
-              </p>
+  useEffect(() => {
+    getSubjectList()
+  
+   
+  }, [])
+  const getSubjectList = async () => {
+    console.log("Loading")
+    await getAllSubjectList().then(({data}) => {
+      console.log("Loading", data)
+      let courses = data?.data ? data.data  :data?.courses
+      setSubjectList(courses)
+    })
+  }
+  return (
+    <section className="layout-pt-lg layout-pb-lg bg-white">
+      <div className="container">
+        <div className="row y-gap-15 justify-center items-end">
+          <div className="col-lg-6">
+          <div className="sectionTitle ">
+              <h2 className="" style={{fontSize:"50px", color:"#0D1736"}}>
+                   <b style={{color:"#0AA0DF"}}>Subjects</b>  We Provide
+                </h2>              
             </div>
           </div>
 
-          <div className="col-auto">
+          {/* <div className="col-auto">
             <div className="d-flex justify-center x-gap-15 items-center">
               <div className="col-auto">
                 <button className="d-flex items-center text-24 arrow-left-hover js-events-slider-prev event-slide-prev">
@@ -41,7 +56,7 @@ export default function EventsOne() {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="pt-60 lg:pt-40 js-section-slider">
@@ -76,7 +91,7 @@ export default function EventsOne() {
                 },
               }}
             >
-              {events.slice(0, 6).map((elm, i) => (
+              {subjectList.slice(0, 6).map((elm, i) => (
                 <SwiperSlide key={i}>
                   <div className="swiper-slide">
                     <div
@@ -85,10 +100,11 @@ export default function EventsOne() {
                       data-aos-duration={(i + 1) * 500}
                     >
                       <div className="eventCard__img">
-                        <Image
+                        <img
                           width={730}
                           height={530}
-                          src={elm.imgSrc}
+                          style={{ height: "100%", width: "100%",minHeight:"220px",maxHeight:"220px" }}
+                          src={elm.image[0]?.fileUrl}
                           alt="image"
                         />
                       </div>
@@ -99,7 +115,7 @@ export default function EventsOne() {
                             <h4 className="eventCard__title text-17 fw-500">
                               <Link
                                 className="linkCustom"
-                                href={`/events/${elm.id}`}
+                                href={`/events/${elm._id}`}
                               >
                                 {elm.title}
                               </Link>
@@ -107,18 +123,18 @@ export default function EventsOne() {
                             <div className="d-flex x-gap-15 pt-10">
                               <div className="d-flex items-center">
                                 <div className="icon-calendar-2 text-16 mr-8"></div>
-                                <div className="text-14">{elm.date}</div>
+                                <div className="text-14">{moment(elm.createdAt).format('DD-MM-YYYY')}</div>
                               </div>
                               <div className="d-flex items-center">
-                                <div className="icon-location text-16 mr-8"></div>
-                                <div className="text-14">{elm.location}</div>
+                                {/* <div className="icon-location text-16 mr-8"></div> */}
+                                <div className="text-14 fw-700">${elm.price}</div>
                               </div>
                             </div>
                           </div>
 
                           <div className="eventCard__button">
                             <Link
-                              href={`/events/${elm.id}`}
+                              href={`/`}
                               className="button -sm -rounded -purple-1 text-white px-25"
                             >
                               Buy
@@ -134,17 +150,17 @@ export default function EventsOne() {
           )}
         </div>
 
-        <div className="row pt-60 lg:pt-40">
+        {/* <div className="row pt-60 lg:pt-40">
           <div className="col-auto">
             <Link
               href="/event-list-1"
               className="button -icon -outline-purple-1 text-purple-1 fw-500"
             >
-              View All Events
+              View All Subjects
               <span className="icon-arrow-top-right text-14 ml-10"></span>
             </Link>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

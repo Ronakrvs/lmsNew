@@ -22,11 +22,11 @@ export default function CourseCardFive({ data, index }) {
           style={{ border: "none", padding: 0 }}
         >
           <div className="relative">
-            <div className="coursesCard__image overflow-hidden rounded-8">
+            <div className="coursesCard__image overflow-hidden rounded-8" >
               <img
                 width={500}
                 height={500}
-                style={{ height: "100%", width: "100%",minHeight:"200px" }}
+                style={{ height: "100%", width: "100%",minHeight:"200px",maxHeight:"200px" }}
                 className="w-1/1"
                 src={Array.isArray(data?.image) ?  data.image[0]?.fileUrl : data?.image}
                 alt="image"

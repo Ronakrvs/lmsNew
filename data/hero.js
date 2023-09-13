@@ -5,7 +5,7 @@ export const slidesData = [
     bgbackimage: "/assets/img/newui/bg.svg",
     title: `INBDE`,
     herotitle:"preparation courses",
-    description: "Your Road to success in cracking Inbde",
+    description: "Study hard but study smart",
     
   },
   {
@@ -14,7 +14,7 @@ export const slidesData = [
     bgbackimage: "/assets/img/newui/bg.svg",
     title: "Test Series",
     herotitle: "Master",
-    description: "Organize your Studies like never before",
+    description: "Ace dental boards at your first attempt !",
     
   },
   
