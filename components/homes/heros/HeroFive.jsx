@@ -54,6 +54,7 @@ export default function HeroFive({ heroHeader }) {
       className="masthead -type-4 mt-2"
       style={{
         backgroundColor: "#0D1736",
+        backgroundImage: `url("/assets/img/doodles.png")`,
         height: "100vh",
       }}
       data-parallax="0.6"

@@ -11,7 +11,7 @@ import FooterOne from '@/components/layout/footers/FooterOne'
 
 import Header from '@/components/layout/headers/Header'
 import React from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams,useParams } from 'next/navigation'
 
 // export const metadata = {
 //   title: 'Couese-single-1 || Educrat - Professional LMS Online Education Course NextJS Template',
@@ -20,13 +20,10 @@ import { useRouter, useSearchParams } from 'next/navigation'
   
 // }
 
-export default function page({ params }) {
-  const router = useRouter()
-  const serarchParams = useSearchParams()
-  const id = serarchParams.get('id')
-  // const {id} = router
-  console.log("router",serarchParams,id)
-  // <Preloader/>
+export default function page({  }) {
+
+  const params = useParams()
+
   return (
     <div  className="main-content  ">
         <Header/>

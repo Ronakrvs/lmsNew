@@ -63,22 +63,22 @@ export default function Menu({ allClasses, headerPosition }) {
             </li>
             <li>
               <Link data-barba href="/courses-list-4" className={isActive("/courses-list-4") ? "activeMenu" : "inActiveMenuTwo"}>
-                <b style={{fontSize:"16px"}}> Courses </b>
+                <b style={{fontSize:"16px"}}> Explore </b>
               </Link>
             </li>
             <li>
               <Link data-barba href="/blog-list-1" className={isActive("/blog-list-1") ? "activeMenu" : "inActiveMenuTwo"}>
-                <b style={{fontSize:"16px"}}> Blog </b>
+                <b style={{fontSize:"16px"}}> Success stories </b>
               </Link>
             </li>
             <li>
               <Link data-barba href="/contact-2" className={isActive("/contact-2") ? "activeMenu" : "inActiveMenuTwo"}>
-                <b style={{fontSize:"16px"}}> Contact Us </b>
+                <b style={{fontSize:"16px"}}> Team </b>
               </Link>
             </li>
             <li>
               <Link data-barba href="/seeking-help" className={isActive("/seeking-help") ? "activeMenu" : "inActiveMenuTwo"}>
-                <b style={{fontSize:"16px"}}> Seeking Help? </b>
+                <b style={{fontSize:"16px"}}> Help </b>
               </Link>
             </li>
             {/* Additional menu items can be added here */}

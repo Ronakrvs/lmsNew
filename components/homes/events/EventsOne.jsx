@@ -135,7 +135,7 @@ export default function EventsOne() {
                           <div className="eventCard__button">
                             <Link
                               href={`/`}
-                              className="button -sm -rounded -purple-1 text-white px-25"
+                              className="button -sm -rounded -blue-8 text-white px-25"
                             >
                               Buy
                             </Link>
