@@ -12,7 +12,7 @@ import CategoriesFive from '@/components/homes/categories/CategoriesFive'
 import StudentsFive from '@/components/homes/students/StudentsFive'
 
 import Pricing from '@/components/homes/pricing/Pricing'
-import NoSSR from 'react-no-ssr';
+// import NoSSR from 'react-no-ssr';
 import EventsOne from '@/components/homes/events/EventsOne'
 
 
@@ -99,7 +99,7 @@ console.log("token",token)
   return (
     
     <>
-      <NoSSR loading={<Preloader/>}>
+      {/* <NoSSR loading={<Preloader/>}> */}
         <Provider store={store}>
 
     
@@ -139,7 +139,7 @@ console.log("token",token)
       
         </div>
         </Provider>
-        </NoSSR>
+        {/* </NoSSR> */}
   </>
   );
 }
