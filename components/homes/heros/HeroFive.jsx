@@ -54,7 +54,7 @@ export default function HeroFive({ heroHeader }) {
       className="masthead -type-4 mt-2"
       style={{
         backgroundColor: "#0D1736",
-        backgroundImage: `url("/assets/img/doodles.png")`,
+        // backgroundImage: `url("/assets/img/doodles.png")`,
         height: "100vh",
       }}
       data-parallax="0.6"
@@ -75,6 +75,27 @@ export default function HeroFive({ heroHeader }) {
           style={{ position: 'absolute', top: "65%", left: "40%" }}
         >
           <img src={'/assets/img/ele2.png'} alt="icon" className="js-mouse-move" style={{width:"5rem"}} />
+        </div>
+        <div
+          data-aos="ease-out-back"
+          className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
+          style={{ position: 'absolute', top: "15%", left: "95%" }}
+        >
+          <img src={'/assets/img/ele1.png'} alt="icon" className="js-mouse-move" style={{width:"5rem"}} />
+        </div>
+        <div
+          data-aos="ease-out-back"
+          className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
+          style={{ position: 'absolute', top: "75%", left: "90%" }}
+        >
+          <img src={'/assets/img/ele2.png'} alt="icon" className="js-mouse-move" style={{width:"5rem"}} />
+        </div>
+        <div
+          data-aos="ease-out-back"
+          className="lg:d-none img-el -w-150 px-20 py-80 d-flex items-center  rounded-8 js-mouse-move"
+          style={{ position: 'absolute', top: "75%", left: "10%" }}
+        >
+          <img src={'/assets/img/ele3.png'} alt="icon" className="js-mouse-move" style={{width:"5rem"}} />
         </div>
         <div
           data-aos="ease-in-out-cubic"
