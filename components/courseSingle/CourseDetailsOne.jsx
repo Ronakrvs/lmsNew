@@ -75,9 +75,9 @@ export default function CourseDetailsOne({ id }) {
                   </h1>
                 </div>
 
-                <p className="col-xl-9 mt-20">
+                {/* <p className="col-xl-9 mt-20">
                   {pageItem.description}
-                </p>
+                </p> */}
 
                 <div className="d-flex x-gap-30 y-gap-10 items-center flex-wrap pt-20">
                   <div className="d-flex items-center">
@@ -144,7 +144,7 @@ export default function CourseDetailsOne({ id }) {
                 </div>
               </div>
 
-              <Overview description={pageItem?.description} />
+              <Overview description={<p className="col-xl-9 mt-20" dangerouslySetInnerHTML={{ __html: pageItem.description }}></p>} />
               <CourseContent courseList={pageItem?.course} />
               {/* <Instractor />
               <Reviews /> */}

@@ -42,7 +42,7 @@ export default function PinContent({ pageItem }) {
               width={368}
               height={238}
               className="w-1/1"
-              src={pageItem.image}
+              src={pageItem.image?.[0]?.fileUrl}
               alt="image"
             />
             <div className="absolute-full-center d-flex justify-center items-center">
@@ -69,7 +69,7 @@ export default function PinContent({ pageItem }) {
                 </>
               ) : (
                 <>
-                  <div className="text-24 lh-1 text-dark-1 fw-500">Free</div>
+                    <div className="text-24 lh-1 text-dark-1 fw-500">$ {pageItem.price || 'Free'}</div>
                   <div></div>
                 </>
               )}

@@ -19,7 +19,12 @@ import { useRouter, useSearchParams,useParams } from 'next/navigation'
 //     'Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.',
   
 // }
-
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: 'blocking'
+  };
+}
 export default function page({  }) {
 
   const params = useParams()

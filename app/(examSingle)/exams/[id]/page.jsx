@@ -20,6 +20,26 @@ import { useRouter, useSearchParams,useParams } from 'next/navigation'
   
 // }
 
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: 'blocking'
+  };
+}
+
+// export async function getStaticProps() {
+//   await getExamById(id).then(({ data }) => {
+//     console.log(data);
+//     setPageItem(data?.data ?  data.data : coursesData[0])
+//   })
+//   const posts = await res.json()
+ 
+//   return {
+//     props: { posts },
+//     revalidate: 60,
+//   }
+// }
+
 export default function page({  }) {
 
   const params = useParams()
@@ -29,7 +49,7 @@ export default function page({  }) {
         <Header/>
         <div  className="content-wrapper  js-content-wrapper ">
             <PageLinks/>
-            <CourseDetailsOne id={params?.id} />
+            <CourseDetailsOne courseDatas={params?.id} />
             {/* <CourseSlider/> */}
             <FooterOne/>
         </div>
