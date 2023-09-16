@@ -68,7 +68,7 @@ console.log(pageItem)
                     </div>
                   </div>
                   <div>
-                    <div className="badge px-15 py-8 text-11 bg-purple-1 text-white fw-400">
+                    <div className="badge px-15 py-8 text-11 bg-blue-8 text-white fw-400">
                       POPULAR
                     </div>
                   </div>
@@ -254,7 +254,7 @@ console.log(pageItem)
                   <div className="row x-gap-30 y-gap-20 pt-30">
                     <div className="col-sm-6">
                       <button
-                        className="button -md -purple-1 text-white w-1/1"
+                        className="button -md -blue-8 text-white w-1/1"
                         onClick={() => addCourseToCart(pageItem.id)}
                       >
                         {isAddedToCartCourses(pageItem.id)

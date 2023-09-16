@@ -124,10 +124,10 @@ export default function Reviews() {
                     </div>
 
                     <div className="comments__helpful mt-20">
-                      <span className="text-13 text-purple-1">
+                      <span className="text-13 text-blue-8">
                         Was this review helpful?
                       </span>
-                      <button className="button text-13 -sm -purple-1 text-white">
+                      <button className="button text-13 -sm -blue-8 text-white">
                         Yes
                       </button>
                       <button className="button text-13 -sm -light-7 text-purple-1">
@@ -141,7 +141,7 @@ export default function Reviews() {
 
             <li className="comments__item">
               <div className="d-flex justify-center">
-                <button className="text-purple-1 lh-12 underline fw-500">
+                <button className="text-blue-8 lh-12 underline fw-500">
                   View All Reviews
                 </button>
               </div>

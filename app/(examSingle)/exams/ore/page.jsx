@@ -8,6 +8,7 @@ import Preloader from '@/components/common/Preloader'
 import CourseDetailsOne from '@/components/examSingle/examDetailsOne'
 import CourseSlider from '@/components/courseSingle/CourseSlider'
 import FooterOne from '@/components/layout/footers/FooterOne'
+import ExamDetailSix from '@/components/examSingle/ExamDetailsSix'
 
 import Header from '@/components/layout/headers/Header'
 import React from 'react'
@@ -49,7 +50,7 @@ export default function Page({  }) {
         <Header/>
         <div  className="content-wrapper  js-content-wrapper ">
             <PageLinks/>
-            <CourseDetailsOne id={'ore'} />
+            <ExamDetailSix id={'ore'} />
             {/* <CourseSlider/> */}
             <FooterOne/>
         </div>

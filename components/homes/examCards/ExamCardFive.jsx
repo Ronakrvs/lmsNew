@@ -24,7 +24,7 @@ export default function ExamCardFive({ data, index }) {
               <img
                 width={500}
                 height={500}
-                style={{ height: "100%", width: "100%",minHeight:"200px" }}
+                style={{ height: "100%", width: "100%",minHeight:"250px",maxHeight:"300px" }}
                 className="w-1/1"
                 src={Array.isArray(data?.image) ?  data.image[0]?.fileUrl : data?.image}
                 alt="image"

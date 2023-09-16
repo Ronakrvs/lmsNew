@@ -141,7 +141,7 @@ export default function Reviews() {
 
             <li className="comments__item">
               <div className="d-flex justify-center">
-                <button className="text-purple-1 lh-12 underline fw-500">
+                <button className="text-blue-8 lh-12 underline fw-500">
                   View All Reviews
                 </button>
               </div>
@@ -191,7 +191,7 @@ export default function Reviews() {
               type="submit"
               name="submit"
               id="submit"
-              className="button -md -purple-1 text-white"
+              className="button -md -blue-8 text-white"
             >
               Submit Review
             </button>

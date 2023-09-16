@@ -1,7 +1,7 @@
 export const slidesData = [
   {
     id: 1,
-    bgimage: "/assets/img/newui/person_1.svg",
+    bgimage: "/assets/img/male.png",
     bgbackimage: "/assets/img/newui/bg.svg",
     title: `INBDE`,
     herotitle:"preparation courses",
@@ -10,7 +10,7 @@ export const slidesData = [
   },
   {
     id: 2,
-    bgimage: "/assets/img/misc/person_2.png",
+    bgimage: "/assets/img/newui/person_1.svg",
     bgbackimage: "/assets/img/newui/bg.svg",
     title: "Test Series",
     herotitle: "Master",

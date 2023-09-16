@@ -191,7 +191,7 @@ export default function Reviews() {
               type="submit"
               name="submit"
               id="submit"
-              className="button -md -purple-1 text-white"
+              className="button -md -blue-8 text-white"
             >
               Submit Review
             </button>
