@@ -5,7 +5,7 @@
 "use client"
 import PageLinks from '@/components/common/PageLinks'
 import Preloader from '@/components/common/Preloader'
-import CourseDetailsOne from '@/components/examSingle/examDetailsOne'
+import CourseDetailsOne from '@/components/courseSingle/CourseDetailsOne'
 import CourseSlider from '@/components/courseSingle/CourseSlider'
 import FooterOne from '@/components/layout/footers/FooterOne'
 
@@ -19,37 +19,23 @@ import { useRouter, useSearchParams,useParams } from 'next/navigation'
 //     'Elevate your e-learning content with Educrat, the most impressive LMS template for online courses, education and LMS platforms.',
   
 // }
-
 export async function getStaticPaths() {
   return {
     paths: [],
     fallback: 'blocking'
   };
 }
-
-// export async function getStaticProps() {
-//   await getExamById(id).then(({ data }) => {
-//     console.log(data);
-//     setPageItem(data?.data ?  data.data : coursesData[0])
-//   })
-//   const posts = await res.json()
- 
-//   return {
-//     props: { posts },
-//     revalidate: 60,
-//   }
-// }
-
 export default function page({  }) {
 
   const params = useParams()
-
+    
+  // <Preloader/>
   return (
     <div  className="main-content  ">
         <Header/>
         <div  className="content-wrapper  js-content-wrapper ">
             <PageLinks/>
-            <CourseDetailsOne courseDatas={params?.id} />
+            <CourseDetailsOne id={'6504a852b7cd522de618c403'} />
             {/* <CourseSlider/> */}
             <FooterOne/>
         </div>

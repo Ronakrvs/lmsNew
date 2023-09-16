@@ -11,16 +11,16 @@ import CourseContent from "./CourseContent";
 import Instractor from "./Instractor";
 import Reviews from "./Reviews";
 import { getCourseById } from "@/service/courses";
-import { getExamById } from "@/service/exam";
+import { getSubjectById } from "@/service/subject";
 import moment from "moment";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
-  { id: 2, href: "#course-content", text: "Subject Content", isActive: false },
+  { id: 2, href: "#course-content", text: "Subject Material", isActive: false },
   // { id: 3, href: "#instructors", text: "Instructors", isActive: false },
   // { id: 4, href: "#reviews", text: "Reviews", isActive: false },
 ];
 
-export default function CourseDetailsOne({ id }) {
+export default function subjectDetailsOne({ id }) {
   console.log("id",id);
   const [pageItem, setPageItem] = useState({});
 
@@ -32,9 +32,9 @@ export default function CourseDetailsOne({ id }) {
 
 
   const getCourseDetail = async() => {
-    await getCourseById(id).then(({ data }) => {
+    await getSubjectById(id).then(({ data }) => {
       console.log(data);
-      setPageItem(data?.data)
+      setPageItem(data?.data ?  data.data : coursesData[0])
     })
   }
   return (
@@ -75,9 +75,8 @@ export default function CourseDetailsOne({ id }) {
                   </h1>
                 </div>
 
-                {/* <p className="col-xl-9 mt-20">
-                  {pageItem.description}
-                </p> */}
+                {/* <p className="col-xl-9 mt-20" dangerouslySetInnerHTML={{ __html: pageItem.description }}></p> */}
+
 
                 <div className="d-flex x-gap-30 y-gap-10 items-center flex-wrap pt-20">
                   <div className="d-flex items-center">
@@ -145,7 +144,7 @@ export default function CourseDetailsOne({ id }) {
               </div>
 
               <Overview description={<p className="col-xl-9 mt-20" dangerouslySetInnerHTML={{ __html: pageItem.description }}></p>} />
-              <CourseContent courseList={pageItem?.course} />
+              <CourseContent courseList={coursesData[0]} />
               {/* <Instractor />
               <Reviews /> */}
             </div>

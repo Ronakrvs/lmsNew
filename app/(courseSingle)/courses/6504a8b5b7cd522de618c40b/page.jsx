@@ -35,7 +35,7 @@ export default function page({  }) {
         <Header/>
         <div  className="content-wrapper  js-content-wrapper ">
             <PageLinks/>
-            <CourseDetailsOne id={params.id} />
+            <CourseDetailsOne id={'6504a8b5b7cd522de618c40b'} />
             {/* <CourseSlider/> */}
             <FooterOne/>
         </div>

@@ -115,7 +115,7 @@ export default function EventsOne() {
                             <h4 className="eventCard__title text-17 fw-500">
                               <Link
                                 className="linkCustom"
-                                href={`/events/${elm._id}`}
+                                href={`/subject/${elm._id}`}
                               >
                                 {elm.title}
                               </Link>
@@ -134,7 +134,7 @@ export default function EventsOne() {
 
                           <div className="eventCard__button">
                             <Link
-                              href={`/`}
+                              href={`/subject/${elm._id}`}
                               className="button -sm -rounded -blue-8 text-white px-25"
                             >
                               Buy

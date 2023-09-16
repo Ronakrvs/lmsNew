@@ -10,36 +10,23 @@ import Overview from "./Overview";
 import CourseContent from "./CourseContent";
 import Instractor from "./Instractor";
 import Reviews from "./Reviews";
-import { getCourseById } from "@/service/courses";
-import { getExamById } from "@/service/exam";
-import moment from "moment";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
-  { id: 2, href: "#course-content", text: "Subject Content", isActive: false },
-  // { id: 3, href: "#instructors", text: "Instructors", isActive: false },
-  // { id: 4, href: "#reviews", text: "Reviews", isActive: false },
+  { id: 2, href: "#course-content", text: "Course Content", isActive: false },
+  { id: 3, href: "#instructors", text: "Instructors", isActive: false },
+  { id: 4, href: "#reviews", text: "Reviews", isActive: false },
 ];
 
-export default function CourseDetailsOne({ id }) {
-  console.log("id",id);
-  const [pageItem, setPageItem] = useState({});
+export default function CourseDetailsTwo({ id }) {
+  const [pageItem, setPageItem] = useState(coursesData[0]);
 
   useEffect(() => {
-
-    getCourseDetail()
-    // setPageItem(coursesData.filter((elm) => elm.id == id)[0] || coursesData[0]);
+    setPageItem(coursesData.filter((elm) => elm.id == id)[0] || coursesData[0]);
   }, []);
 
-
-  const getCourseDetail = async() => {
-    await getCourseById(id).then(({ data }) => {
-      console.log(data);
-      setPageItem(data?.data)
-    })
-  }
   return (
     <div id="js-pin-container" className="js-pin-container relative">
-      <section className="page-header -type-5 bg-light-6">
+      <section className="page-header -type-5 bg-dark-1">
         <div className="page-header__bg">
           <div
             className="bg-image js-lazy"
@@ -49,7 +36,7 @@ export default function CourseDetailsOne({ id }) {
 
         <div className="container">
           <div className="page-header__content pt-90 pb-90">
-            <div className="row y-gap-30">
+            <div className="row y-gap-30 relative">
               <div className="col-xl-7 col-lg-8">
                 <div className="d-flex x-gap-15 y-gap-10 pb-20">
                   <div>
@@ -70,14 +57,15 @@ export default function CourseDetailsOne({ id }) {
                 </div>
 
                 <div>
-                  <h1 className="text-30 lh-14 pr-60 lg:pr-0">
-                    {pageItem?.title}
+                  <h1 className="text-30 lh-14 text-white pr-60 lg:pr-0">
+                    {pageItem.title}
                   </h1>
                 </div>
 
-                {/* <p className="col-xl-9 mt-20">
-                  {pageItem.description}
-                </p> */}
+                <p className="col-xl-9 mt-20">
+                  Use XD to get a job in UI Design, User Interface, User
+                  Experience design, UX design & Web Design
+                </p>
 
                 <div className="d-flex x-gap-30 y-gap-10 items-center flex-wrap pt-20">
                   <div className="d-flex items-center">
@@ -88,20 +76,20 @@ export default function CourseDetailsOne({ id }) {
                       <Star star={5} textSize={"text-11"} />
                     </div>
                     <div className="text-14 lh-1 text-light-1 ml-10">
-                      ({pageItem.totalRating})
+                      ({pageItem.ratingCount})
                     </div>
                   </div>
 
                   <div className="d-flex items-center text-light-1">
                     <div className="icon icon-person-3 text-13"></div>
                     <div className="text-14 ml-8">
-                      {pageItem?.enrolls} enrolled on this course
+                      853 enrolled on this course
                     </div>
                   </div>
 
                   <div className="d-flex items-center text-light-1">
                     <div className="icon icon-wall-clock text-13"></div>
-                    <div className="text-14 ml-8">Last updated {moment(pageItem?.updatedAt).format('DD-MM-YYYY')}</div>
+                    <div className="text-14 ml-8">Last updated 11/2021</div>
                   </div>
                 </div>
 
@@ -109,7 +97,7 @@ export default function CourseDetailsOne({ id }) {
                   <div
                     className="bg-image size-30 rounded-full js-lazy"
                     style={{
-                      backgroundImage: `url(${pageItem.image})`,
+                      backgroundImage: `url(${pageItem.authorImageSrc})`,
                     }}
                   ></div>
                   <div className="text-14 lh-1 ml-10">
@@ -129,8 +117,8 @@ export default function CourseDetailsOne({ id }) {
             <div className="col-lg-8">
               <div className="page-nav-menu -line">
                 <div className="d-flex x-gap-30">
-                  {menuItems.map((item, ind) => (
-                    <div key={ind}>
+                  {menuItems.map((item) => (
+                    <div key={item.id}>
                       <a
                         href={item.href}
                         className={`pb-12 page-nav-menu__link ${
@@ -144,10 +132,10 @@ export default function CourseDetailsOne({ id }) {
                 </div>
               </div>
 
-              <Overview description={<p className="col-xl-9 mt-20" dangerouslySetInnerHTML={{ __html: pageItem.description }}></p>} />
-              <CourseContent courseList={pageItem?.course} />
-              {/* <Instractor />
-              <Reviews /> */}
+              <Overview />
+              <CourseContent />
+              <Instractor />
+              <Reviews />
             </div>
           </div>
         </div>
