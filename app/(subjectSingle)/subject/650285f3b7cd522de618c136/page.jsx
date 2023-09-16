@@ -5,7 +5,7 @@
 "use client"
 import PageLinks from '@/components/common/PageLinks'
 import Preloader from '@/components/common/Preloader'
-import SubjectDetailsOne from '@/components/subjectSingle/subjectDetailsOne'
+import SubjectDetailsSix from '@/components/subjectSingle/SubjectDetailsSix'
 import CourseSlider from '@/components/courseSingle/CourseSlider'
 import FooterOne from '@/components/layout/footers/FooterOne'
 
@@ -49,7 +49,7 @@ export default function Page({  }) {
         <Header/>
         <div  className="content-wrapper  js-content-wrapper ">
             <PageLinks/>
-            <SubjectDetailsOne id={'650285f3b7cd522de618c136'} />
+            <SubjectDetailsSix id={'650285f3b7cd522de618c136'} />
             {/* <CourseSlider/> */}
             <FooterOne/>
         </div>

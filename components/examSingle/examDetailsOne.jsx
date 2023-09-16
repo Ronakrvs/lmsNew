@@ -13,6 +13,7 @@ import Reviews from "./Reviews";
 import { getCourseById } from "@/service/courses";
 import { getExamById } from "@/service/exam";
 import moment from "moment";
+import ExamListSeven from "../examList/ExamListSeven";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
   { id: 2, href: "#course-content", text: "Course Content", isActive: false },
@@ -144,7 +145,8 @@ export default function examDetailsOne({ id }) {
               </div>
 
               <Overview description={<p className="col-xl-9 mt-20" dangerouslySetInnerHTML={{ __html: pageItem.description }}></p>} />
-              <CourseContent courseList={pageItem?.course} />
+              {/* <CourseContent courseList={pageItem?.course} /> */}
+              <ExamListSeven />
               {/* <Instractor />
               <Reviews /> */}
             </div>

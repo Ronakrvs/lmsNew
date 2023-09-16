@@ -24,7 +24,7 @@ export default function CourseContent({ courseList }) {
 
         <div className="mt-10">
           <div className="accordion -block-2 text-left js-accordion">
-            {courseList?.map((elm, i) => (
+            {(courseList?.length > 0 ? courseList : lessonItems)?.map((elm, i) => (
               <div
                 key={i}
                 className={`accordion__item ${

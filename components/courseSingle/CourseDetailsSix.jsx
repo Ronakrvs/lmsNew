@@ -12,21 +12,36 @@ import ModalVideo from "react-modal-video";
 import ModalVideoComponent from "../common/ModalVideo";
 import Image from "next/image";
 import { useContextElement } from "@/context/Context";
+import { getCourseById } from "@/service/courses";
+import moment from "moment";
+import CoursesSix from "../homes/courses/CoursesSix";
 const menuItems = [
   { id: 1, href: "#overview", text: "Overview", isActive: true },
-  { id: 2, href: "#course-content", text: "Course Content", isActive: false },
+  { id: 2, href: "#course-content", text: "Subject Content", isActive: false },
   { id: 3, href: "#instructors", text: "Instructors", isActive: false },
   { id: 4, href: "#reviews", text: "Reviews", isActive: false },
 ];
 export default function CourseDetailsSix({ id }) {
-  const [pageItem, setPageItem] = useState(coursesData[0]);
+  const [pageItem, setPageItem] = useState({});
+  const coursedetail = coursesData[0]
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState(1);
   const { isAddedToCartCourses, addCourseToCart } = useContextElement();
   useEffect(() => {
-    setPageItem(coursesData.filter((elm) => elm.id == id)[0] || coursesData[0]);
+
+    getCourseDetail()
+    // setPageItem(coursesData.filter((elm) => elm.id == id)[0] || coursesData[0]);
   }, []);
 
+
+  const getCourseDetail = async() => {
+    await getCourseById(id).then(({ data }) => {
+      console.log(data);
+      setPageItem(data?.data)
+    })
+  }
+
+console.log(pageItem)
   return (
     <>
       <section className="page-header -type-5 bg-dark-1">
@@ -66,33 +81,32 @@ export default function CourseDetailsSix({ id }) {
                 </div>
 
                 <p className="text-dark-3 mt-20">
-                  Use XD to get a job in UI Design, User Interface, User
-                  Experience design, UX design & Web Design
+                 {pageItem?.info ? pageItem?.info  :" The Integrated National Board Dental Examination (INBDE) Exam is a new examination for dental licensure that is scheduled to replace the current National Board Dental Examination (NBDE) Part I and Part II examinations."}
                 </p>
 
                 <div className="d-flex x-gap-30 y-gap-10 items-center flex-wrap pt-20">
                   <div className="d-flex items-center text-dark-3">
                     <div className="text-14 lh-1 text-yellow-1 mr-10">
-                      {pageItem.rating}
+                      {pageItem?.rating}
                     </div>
                     <div className="d-flex x-gap-5 items-center">
-                      <Star textSize={"text-11"} star={pageItem.rating} />
+                      <Star textSize={"text-11"} star={5} />
                     </div>
                     <div className="text-14 lh-1 ml-10">
-                      ({pageItem.ratingCount})
+                      ({pageItem.totalRating})
                     </div>
                   </div>
 
                   <div className="d-flex items-center text-dark-3">
                     <div className="icon icon-person-3 text-13"></div>
                     <div className="text-14 ml-8">
-                      853 enrolled on this course
+                      {pageItem?.enrolls ? pageItem?.enrolls:'853'} enrolled on this course
                     </div>
                   </div>
 
                   <div className="d-flex items-center text-dark-3">
                     <div className="icon icon-wall-clock text-13"></div>
-                    <div className="text-14 ml-8">Last updated 11/2021</div>
+                    <div className="text-14 ml-8">Last updated {moment(pageItem?.updatedAt).format('DD-MM-YYYY')}</div>
                   </div>
                 </div>
 
@@ -100,11 +114,11 @@ export default function CourseDetailsSix({ id }) {
                   <div
                     className="bg-image size-30 rounded-full js-lazy"
                     style={{
-                      backgroundImage: `url(${pageItem.authorImageSrc})`,
+                      backgroundImage: `url(${pageItem?.image?.[0].fileUrl ?pageItem?.image[0]?.fileUrl : coursedetail?.authorImageSrc})`,
                     }}
                   ></div>
                   <div className="text-14 lh-1 ml-10 text-dark-3">
-                    {pageItem.authorName}
+                    {pageItem?.authorName ? pageItem?.authorName :coursedetail?.authorName }
                   </div>
                 </div>
 
@@ -166,7 +180,7 @@ export default function CourseDetailsSix({ id }) {
                   </div>
                 </div>
 
-                <div className="d-flex mt-30">
+                {/* <div className="d-flex mt-30">
                   <a
                     href="#"
                     className="d-flex justify-center items-center size-40 rounded-full text-dark-3"
@@ -194,16 +208,16 @@ export default function CourseDetailsSix({ id }) {
                   >
                     <i className="fa fa-linkedin"></i>
                   </a>
-                </div>
+                </div> */}
               </div>
 
               <div className="col-xl-5 col-lg-6">
                 <div className="relative">
-                  <Image
+                  <img
                     width={690}
                     height={342}
                     className="w-1/1"
-                    src={pageItem.imageSrc}
+                    src={pageItem?.image?.[0]?.fileUrl ? pageItem?.image[0]?.fileUrl : coursedetail?.image}
                     alt="image"
                   />
                   <div className="absolute-full-center d-flex justify-center items-center">
@@ -221,17 +235,17 @@ export default function CourseDetailsSix({ id }) {
                     {pageItem.paid ? (
                       <>
                         <div className="text-24 lh-1 text-white fw-500">
-                          ${pageItem.originalPrice}
+                          ${pageItem?.price || 200}
                         </div>
                         <div className="lh-1 line-through text-dark-3">
-                          ${pageItem.discountedPrice}
+                          ${pageItem?.price ||300}
                         </div>
                       </>
                     ) : (
                       <>
                         <div></div>
                         <div className="lh-1 line-through text-dark-3">
-                          Free
+                          ${pageItem?.price ||300}
                         </div>
                       </>
                     )}
@@ -295,7 +309,7 @@ export default function CourseDetailsSix({ id }) {
                       activeTab == 1 ? "is-active" : ""
                     } `}
                   >
-                    <Overview />
+                    <Overview description={pageItem.description ? <p className="col-xl-9 mt-20" dangerouslySetInnerHTML={{ __html: pageItem.description }}></p> : coursedetail?.desc} />
                   </div>
 
                   <div
@@ -303,7 +317,8 @@ export default function CourseDetailsSix({ id }) {
                       activeTab == 2 ? "is-active" : ""
                     } `}
                   >
-                    <CourseContent />
+                    {/* <CourseContent  courseList={pageItem?.subjects}/> */}
+                    <CoursesSix courseList={pageItem?.subjects}/>
                   </div>
 
                   <div

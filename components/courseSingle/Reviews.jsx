@@ -102,7 +102,7 @@ export default function Reviews() {
                   <div className="comments__img mr-20">
                     <div
                       className="bg-image rounded-full js-lazy"
-                      style={{ backgroundImage: `url(${elm.avatarSrc})` }}
+                      style={{ backgroundImage: `url('/assets/img/avatar.png')` }}
                     ></div>
                   </div>
 

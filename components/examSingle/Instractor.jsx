@@ -9,11 +9,11 @@ export default function Instractor() {
       <div className="mt-30">
         <div className="d-flex x-gap-20 y-gap-20 items-center flex-wrap">
           <div className="size-120">
-            <Image
+            <img
               width={100}
               height={100}
               className="object-cover"
-              src="/assets/img/misc/verified/1.png"
+              src="/assets/img/avatar2.webp"
               alt="image"
             />
           </div>

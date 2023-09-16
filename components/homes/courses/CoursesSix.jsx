@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { coursesData, catagories } from "../../../data/courses";
 import CourseCardSix from "@/components/homes/courseCards/CourseCardSix";
-export default function CoursesSix() {
+export default function CoursesSix({courseList}) {
   const [pageItems, setPageItems] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("All Categories");
   useEffect(() => {
@@ -24,15 +24,15 @@ export default function CoursesSix() {
         <div className="row y-gap-20 justify-between items-end">
           <div className="col-auto">
             <div className="sectionTitle ">
-              <h2 className="sectionTitle__title ">Explore Featured Courses</h2>
+              <h2 className="sectionTitle__title ">Subjects Related to Course</h2>
 
-              <p className="sectionTitle__text ">
+              {/* <p className="sectionTitle__text ">
                 10,000+ unique online course list designs
-              </p>
+              </p> */}
             </div>
           </div>
 
-          <div className="col-auto">
+          {/* <div className="col-auto">
             <div className="tabs__controls row justify-center x-gap-10 bg-light-3 rounded-200 py-5 js-tabs-controls">
               {catagories.slice(0, 4).map((elm, i) => (
                 <div
@@ -52,7 +52,7 @@ export default function CoursesSix() {
                 </div>
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="tabs__content pt-60 lg:pt-40 js-tabs-content">
@@ -63,7 +63,7 @@ export default function CoursesSix() {
               data-aos-offset="80"
               data-aos-duration={800}
             >
-              {pageItems.slice(0, 6).map((elm, i) => (
+              {courseList?.slice(0, 6)?.map((elm, i) => (
                 <CourseCardSix data={elm} key={i} index={i} />
               ))}
             </div>
